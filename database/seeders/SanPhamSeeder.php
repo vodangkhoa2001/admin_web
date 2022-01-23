@@ -23,7 +23,7 @@ class SanPhamSeeder extends Seeder
         $SanPham->SoLuong=20;
         $SanPham->MaNhaSanXuat=1;
         $SanPham->HinhAnh="nitro.png";
-        $SanPham->MoTa="Nitro 5 AN515-45 R6EV được trang bị bộ vi xử lý AMD Ryzen 5 5600H, ";
+        $SanPham->MoTa="Nitro 5 AN515-45 R6EV được trang bị bộ vi xử lý AMD Ryzen 5 5600H";
         $SanPham->save();
 
         $SanPham=new SanPham();
