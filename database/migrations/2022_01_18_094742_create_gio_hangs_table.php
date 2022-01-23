@@ -15,9 +15,9 @@ class CreateGioHangsTable extends Migration
     {
         Schema::create('GioHang', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('MaTaiKhoan');
+            $table->string('MaTaiKhoan');
             $table->foreign('MaTaiKhoan')->references('id')->on('TaiKhoan');
-            $table->unsignedBigInteger('MaSanPham');
+            $table->string('MaSanPham');
             $table->foreign('MaSanPham')->references('id')->on('SanPham');
             $table->integer("SoLuong");
             $table->timestamps();

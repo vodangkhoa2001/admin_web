@@ -17,7 +17,7 @@ class CreateBinhLuansTable extends Migration
             $table->id();
             $table->unsignedBigInteger('MaChiTietSanPham');
             $table->foreign('MaChiTietSanPham')->references('id')->on('ChiTietSanPham');
-            $table->unsignedBigInteger('MaTaiKhoan');
+            $table->string('MaTaiKhoan');
             $table->foreign('MaTaiKhoan')->references('id')->on('TaiKhoan');
             $table->string("NoiDung");
             $table->timestamps();

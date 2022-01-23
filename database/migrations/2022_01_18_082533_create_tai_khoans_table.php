@@ -14,14 +14,14 @@ class CreateTaiKhoansTable extends Migration
     public function up()
     {
         Schema::create('TaiKhoan', function (Blueprint $table) {
-            $table->id();
+            $table->string("id")->primary();
             $table->string("TenDangNhap");
             $table->string("MatKhau");
             $table->string("Email");
             $table->string("SDT");
             $table->string("DiaChi");
-            $table->date("NgaySinh");
             $table->string("HoTen");
+            $table->string("HinhAnh");
             $table->unsignedBigInteger('ID_LoaiTaiKhoan');
             $table->foreign('ID_LoaiTaiKhoan')->references('id')->on('LoaiTaiKhoan');
             $table->integer("TrangThai_TaiKhoan");

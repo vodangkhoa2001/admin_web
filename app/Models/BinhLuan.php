@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class BinhLuan extends Model
 {
     use HasFactory;
+    protected $table="binhluan";
 }

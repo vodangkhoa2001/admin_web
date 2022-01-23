@@ -14,16 +14,16 @@ class CreateSanPhamsTable extends Migration
     public function up()
     {
         Schema::create('SanPham', function (Blueprint $table) {
-            $table->id();
+            $table->string("id")->primary();
             $table->unsignedBigInteger('MaDongSanPham');
             $table->foreign('MaDongSanPham')->references('id')->on('DongSanPham');
             $table->string("TenSanPham");
             $table->integer("GiaNhap");
             $table->integer("GiaBan");
-            $table->integer("TonKho");
+            $table->integer("SoLuong");
             $table->unsignedBigInteger('MaNhaSanXuat');
             $table->foreign('MaNhaSanXuat')->references('id')->on('NhaSanXuat');
-            $table->string("Hinh");
+            $table->string("HinhAnh");
             $table->string("MoTa");
             $table->timestamps();
             $table->softDeletes();

@@ -15,9 +15,9 @@ class CreateKhuyenMaisTable extends Migration
     {
         Schema::create('KhuyenMai', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('MaSanPhamKhuyenMai');
+            $table->string('MaSanPhamKhuyenMai');
             $table->foreign('MaSanPhamKhuyenMai')->references('id')->on('SanPham');
-            $table->unsignedBigInteger('MaTaiKhoan');
+            $table->string('MaTaiKhoan');
             $table->foreign('MaTaiKhoan')->references('id')->on('TaiKhoan');
             $table->integer("DonGiaKhuyenMai");
             $table->string("MoTa");

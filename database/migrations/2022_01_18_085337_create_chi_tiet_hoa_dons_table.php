@@ -15,14 +15,13 @@ class CreateChiTietHoaDonsTable extends Migration
     {
         Schema::create('ChiTietHoaDon', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('MaHoaDon');
+            $table->string('MaHoaDon');
             $table->foreign('MaHoaDon')->references('id')->on('HoaDon');
-            $table->unsignedBigInteger('MaSanPham');
+            $table->string('MaSanPham');
             $table->foreign('MaSanPham')->references('id')->on('SanPham');
             $table->integer("SoLuong");
             $table->integer("DonGia");
             $table->integer("DonGiaKhuyenMai");
-            $table->string("DonViTienTe");
             $table->integer("TrangThai_ChiTietHoaDon");
             $table->timestamps();
             $table->softDeletes();

@@ -14,8 +14,8 @@ class CreateHoaDonsTable extends Migration
     public function up()
     {
         Schema::create('HoaDon', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('MaTaiKhoan');
+            $table->string("id")->primary();
+            $table->string('MaTaiKhoan');
             $table->foreign('MaTaiKhoan')->references('id')->on('TaiKhoan');
             $table->string("DiaChiGiaoHang");
             $table->string("SDT_GiaoHang");

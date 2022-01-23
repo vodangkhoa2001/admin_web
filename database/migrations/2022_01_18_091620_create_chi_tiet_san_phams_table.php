@@ -15,7 +15,7 @@ class CreateChiTietSanPhamsTable extends Migration
     {
         Schema::create('ChiTietSanPham', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('MaSanPham');
+            $table->string('MaSanPham');
             $table->foreign('MaSanPham')->references('id')->on('SanPham');
             $table->string("MauSac");
             $table->string("Ram");
