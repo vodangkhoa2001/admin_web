@@ -34,7 +34,8 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('component/login/register');
 })-> name('register');
-
+//post
+Route::post('/login',[TaiKhoanController::class,'login'])-> name('xuli-login');
 //list account
 Route::get('/account/user',function(){
     return view('component/account/user');
