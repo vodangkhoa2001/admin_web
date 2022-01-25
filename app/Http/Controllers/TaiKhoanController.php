@@ -10,7 +10,11 @@ class TaiKhoanController extends Controller
 {
     public function getTaiKhoanAdmin()
     {
-        $lstTaiKhoan=TaiKhoan::where('ID_LoaiTaiKhoan','2')->get();
+        //$lstTaiKhoan=TaiKhoan::where('ID_LoaiTaiKhoan','2')->get();
+
+        $lstTaiKhoan = TaiKhoan::where('ID_LoaiTaiKhoan','2')->paginate(5);
+        //$data['taikhoan']=TaiKhoan::where('ID_LoaiTaiKhoan','2')->paginate(2);
+
         $accountCount = TaiKhoan::where('ID_LoaiTaiKhoan','2')->count();
         return view('component/account/admin',compact('lstTaiKhoan','accountCount'));
         //return json_encode($lstTaiKhoan);
