@@ -13,10 +13,12 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Admins</h4>
+                  <a href="{{route('admin-accounts-create')}}"><button  class="btn btn-sm btn-success">Thêm Mới Admin<i class="material-icons ">add_circle</i></button></a>
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
                         <tr>
+                            
                             <th>
                                 Id
                             </th>
@@ -45,6 +47,7 @@
                             </td>
                             <td >
                                 {{$lst->TenDangNhap}}
+                                <img src="{{asset('admin/images')}}/{{$lst->HinhAnh}}">
                             </td>
                             <td>
                                 {{$lst->HoTen}}

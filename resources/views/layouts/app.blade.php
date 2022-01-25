@@ -19,7 +19,8 @@
             <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
             <!-- endinject -->
             <link rel="shortcut icon" href="../../images/favicon.png" />
-
+            <!-- Icon google -->
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <title>Admin Page - @yield('title')</title>
     </head>
     <body>

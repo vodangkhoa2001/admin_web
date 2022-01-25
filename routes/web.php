@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaiKhoanController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,11 +38,31 @@ Route::get('/register', function () {
 //post
 Route::post('/login',[TaiKhoanController::class,'login'])-> name('xuli-login');
 //list account
-Route::get('/account/user',function(){
-    return view('component/account/user');
-})->name('list-user');
+
 // Route::get('/account/admin',function(){
 //     return view('component/account/admin');
 // })->name('list-admin');
 
-Route::get('/account/admin', [TaiKhoanController::class,'getTaiKhoan'])->name("list-admin");
+//account
+Route::group(['prefix' => 'account'], function () {
+//hien thi tai khoan user
+Route::get('/user',function(){
+    return view('component/account/user');
+})->name('list-user');
+
+//hien thi tai khoan admin
+Route::get('/admin', [TaiKhoanController::class,'getTaiKhoanAdmin'])->name("list-admin");
+
+//tao tai khoan
+// Route::get('/create', function () {
+//     return view('component/account/create_admin');
+// })->name('create-account');
+
+Route::get('/create', [TaiKhoanController::class, 'create'])->name('admin-accounts-create');
+Route::post('/create', [TaiKhoanController::class, 'addAccount'])->name('admin-accounts-addAccount');
+
+});
+
+//Them Tai Khoan
+Route::get('/account/admin', [TaiKhoanController::class,'getTaiKhoanAdmin'])->name("list-admin");
+//
