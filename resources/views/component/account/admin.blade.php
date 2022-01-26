@@ -14,6 +14,7 @@
                 <div class="card-body">
                   <h4 class="card-title">Admins</h4>
                   <a href="{{route('admin-accounts-create')}}"><button  class="btn btn-sm btn-success">Thêm Mới Admin<i class="material-icons ">add_circle</i></button></a>
+                  <span>Tổng Số Tài Khoản : {{$accountCount}}</span>
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
