@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaiKhoanController;
+use App\Http\Controllers\SanPhamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +46,11 @@ Route::get('/account/user',function(){
 // })->name('list-admin');
 
 Route::get('/account/admin', [TaiKhoanController::class,'getTaiKhoan'])->name("list-admin");
+
+Route::get('product/list', [SanPhamController::class,'index'])->name("list-product");
+Route::get('product/create', [SanPhamController::class,'create'])->name("create-product");
+Route::get('product/edit', [SanPhamController::class,'edit']);
+Route::get('product/delete', [SanPhamController::class,'deystroy']);
+
+//Route::resource('sanPham',SanPhamController::class);
+Route::resource('sanPham', 'App\Http\Controllers\SanPhamController');
