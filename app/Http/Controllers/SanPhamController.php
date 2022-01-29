@@ -57,20 +57,33 @@ class SanPhamController extends Controller
     public function create(){
         $lstDongSanPham= DongSanPham::all();
         $lstNhaSanXuat = NhaSanXuat::all();
+        $datetime = Date('Ymdhms');
+        $countAllProducts = SanPham::all()->count() + 1;
+        $chuoiID = $countAllProducts;
+        if ($countAllProducts > 99)
+            $chuoiID = $countAllProducts;
+
+        if ($countAllProducts > 9)
+            $chuoiID = '0' . $countAllProducts;
+        else
+            $chuoiID = '00' . $countAllProducts;
+
+        $originalId = $chuoiID;
+        $finalId = 'SP_' . $datetime . $originalId;
         //return view('component/product/create_product',['lstLoai'=>$lstLoai]);
-        return view('component.product.create_product',['lstDongSanPham'=>$lstDongSanPham,'lstNhaSanXuat'=>$lstNhaSanXuat]);
+        return view('component.product.create_product',['lstDongSanPham'=>$lstDongSanPham,'lstNhaSanXuat'=>$lstNhaSanXuat,'finalId'=> $finalId]);
     }
     public function store(Request $request){
-        $validateData = $request->validate([
-            'TenSanPham'=>['required','unique:san_phams,ten_san_pham','max:255'],//unique không được trùng
-            'MoTa'=>['required'],
-            'SoLuong'=>['required','numeric','integer','min:0'],
-            'GiaNhap'=>['required','numeric','integer','min:0'],
-            'GiaBan'=>['required','numeric','integer','min:0'],
-            'DongSanPham'=>['required','numeric','integer'],
-            'NhaSanXuat'=>['required','numeric','integer'],
-            'HinhAnh'=>['required','mimetypes:image/*','integer','max:2000'],//hoặc image/png,jpg
-        ]);
+        // $validateData = $request->validate([
+        //     'TenSanPham'=>['required','unique:san_phams,ten_san_pham','max:255'],//unique không được trùng
+        //     'MoTa'=>['required'],
+        //     'SoLuong'=>['required','numeric','integer','min:0'],
+        //     'GiaNhap'=>['required','numeric','integer','min:0'],
+        //     'GiaBan'=>['required','numeric','integer','min:0'],
+        //     'DongSanPham'=>['required','numeric','integer'],
+        //     'NhaSanXuat'=>['required','numeric','integer'],
+        //     'HinhAnh'=>['required','mimetypes:image/*','integer','max:2000'],//hoặc image/png,jpg
+        // ]);
 
         $sanPham= new SanPham;
         $sanPham ->fill([

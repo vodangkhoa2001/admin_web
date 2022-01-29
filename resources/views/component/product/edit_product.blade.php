@@ -53,8 +53,8 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleTextarea1">Mô tả</label>
-                    <textarea name="mota" value="{{ $sanPham->MoTa }}" class="form-control" rows="10"
-                        style="height:100px;"></textarea>
+                    <textarea name="mota" class="form-control" rows="10"
+                        style="height:100px;">{{ $sanPham->MoTa}}</textarea>
                 </div>
                 <div class=" grid-margin stretch-card">
                     <div class=" card">
@@ -65,7 +65,7 @@
                                 <select class="form-control" name="nhasanxuat">
                                     <option value=''>Chọn nhà sản xuất</option>
                                     @foreach ($lstNhaSanXuat as $nhaSanXuat)
-                                    <option value="{{ $nhaSanXuat->id }}" @if ($nhaSanXuat->id ==$sanPham->MaNhaSanXuat)
+                                    <option value="{{ $nhaSanXuat->id }}" @if ($nhaSanXuat->id==$sanPham->MaNhaSanXuat)
                                         selected @endif> {{ $nhaSanXuat->TenNhaSanXuat }}
                                     </option>
                                     @endforeach
@@ -73,12 +73,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">Dòng sản phẩm</label>
-                                <select class="form-control" name="nhasanxuat">
+                                <select class="form-control" name="dongsanpham">
                                     <option value=''>Chọn dòng sản phẩm</option>
                                     @foreach ($lstDongSanPham as $dongSanPham)
-                                    <option value=" {{ $dongSanPham->id }} " @if($dongSanPham->id ==
-                                        $sanPham->MaDongSanPham) selected @endif> {{ $dongSanPham->TenDongSanPham
-                                        }}
+                                    <option value=" {{ $dongSanPham->id }} " @if($dongSanPham->id==$sanPham->MaDongSanPham) 
+                                        selected @endif> {{ $dongSanPham->TenDongSanPham }}
                                     </option>
                                     @endforeach
                                 </select>

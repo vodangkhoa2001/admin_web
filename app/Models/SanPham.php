@@ -17,14 +17,15 @@ class SanPham extends Model
     protected $table="sanpham";
     //setprotected $guarded=[];
     protected $fillable = [
-        'MaDongSanPham',
+
         'TenSanPham',
         'GiaNhap',
         'GiaBan',
         'SoLuong',
         'MaNhaSanXuat',
+        'MaDongSanPham',
         'HinhAnh',
-        'MoTa',
+        'MoTa'
     ];
     public function dongSanPham(){
         return $this->belongsTo(DongSanPham::class);

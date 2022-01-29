@@ -46,6 +46,9 @@
                                 Hình ảnh
                             </th>
                             <th>
+                                Mô tả
+                            </th>
+                            <th>
 
                             </th>
                         </tr>
@@ -76,6 +79,9 @@
                             </td>
                             <td class="py-1">
                                 {{ $sanPham->HinhAnh }}
+                            </td>
+                            <td>
+                                {{ $sanPham->MoTa}}
                             </td>
                             <td>
                                 <a href="{{ route('sanPham.edit',['sanPham'=>$sanPham]) }}"

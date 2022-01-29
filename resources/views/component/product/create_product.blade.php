@@ -17,15 +17,29 @@
         <div class="card-body">
             <h4 class="card-title">Thêm sản phẩm</h4>
             <p class="card-description">
-                Thêm sản phẩm mới
+                Thêm chi tiết sản phẩm mới
             </p>
+            {{-- @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                         @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                         @endforeach
+                    </ul>
+                </div>
+            @endif --}}
             <form class="forms-sample" action="{{ route('sanPham.store') }}" method="post"
                 enctype="multipart/form-data"> @csrf
+                <div class="form-group">
+                    <label for="exampleInputName1">Mã sản phẩm</label>
+                <input type="text" class="form-control" id="exampleInputName1" value="{{$finalId}}" disabled >
+                <input type="hidden" class="form-control" id="exampleInputName1" value="{{$finalId}}" name="id">
+                </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Tên sản phẩm</label>
                     <input name="tensanpham" type="text" class="form-control" placeholder="Product Name">
                 </div>
-
+                 {{-- @if($errors->has('tensanpham')){{ $errors->first('tensanpham')}}<br /> @endif --}}
                 <div class="form-group">
                     <label>Hình ảnh</label>
                     <br />
