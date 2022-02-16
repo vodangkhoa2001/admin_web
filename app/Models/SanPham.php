@@ -17,7 +17,6 @@ class SanPham extends Model
     protected $table="sanpham";
     //setprotected $guarded=[];
     protected $fillable = [
-
         'TenSanPham',
         'GiaNhap',
         'GiaBan',
@@ -31,6 +30,6 @@ class SanPham extends Model
         return $this->belongsTo(DongSanPham::class);
     }
     public function nhaSanXuat(){
-        return $this->belongsTo(NhaSanXuat::class);
+        return $this->belongsTo('App\Models\NhaSanXuat','id');
     }
 }

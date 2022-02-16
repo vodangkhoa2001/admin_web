@@ -40,17 +40,12 @@
                     <input name="tensanpham" type="text" class="form-control" placeholder="Product Name">
                 </div>
                  {{-- @if($errors->has('tensanpham')){{ $errors->first('tensanpham')}}<br /> @endif --}}
-                <div class="form-group">
-                    <label>Hình ảnh</label>
-                    <br />
-                    <input type="file" accept="image/*" name="hinhanh"><br />
-                    {{-- <input type="file" name="hinhanh" class="file-upload-default" accept="image/*">
-                    <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                        <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                        </span>
-                    </div> --}}
+                 <div class="form-group">
+                    <label class="col-sm-10">Ảnh sản phẩm</label>
+                    <div class="col-sm-10">
+                        <input class="input-file" id="my-file" type="file" name="hinhanh">
+                        <label tabindex="0" for="my-file" class="input-file-trigger"></label>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="exampleTextarea1">Mô tả</label>

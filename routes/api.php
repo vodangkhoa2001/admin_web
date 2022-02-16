@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\APISanPhamController as APIProducts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SanPhamController;
@@ -22,8 +23,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('category', [LoaiSanPhamController::class,'category']);
 Route::get('product', [SanPhamController::class,'listProduct']);
-Route::get('product/detail/{id}', [SanPhamController::class,'detail']);
-Route::post('product/create', [SanPhamController::class,'create']);
+
+Route:: group(['prefix'=>'products'], function(){
+    Route::get('/all', [APIProducts::class,'getAllProduct']);
+    Route::get('/newproduct/all', [APISanPhamController::class,'getNewProduct']);
+    Route::get('/sellingproduct/all', [APISanPhamController::class,'sellingProduct']);
+    Route::get('/{id}', [APISanPhamController::class,'getProductDetail']);
+    Route::post('/create', [APISanPhamController::class,'create']);
+    Route::put('/update/{id}', [APISanPhamController::class,'update']);
+    Route::delete('/delete/{id}', [APISanPhamController::class,'delete']);
+});
+
 
 
 Route::get('account/infor/{id}',[UserController::class,'userInfo']);

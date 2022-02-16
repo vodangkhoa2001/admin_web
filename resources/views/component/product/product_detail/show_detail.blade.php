@@ -1,22 +1,15 @@
+{{-- Kế thừa từ layout.app --}}
 @extends('layouts.app')
-@section('title', 'List Product')
-
-@section('navbar')
-@parent
-@endsection
-
-@section('slidebar')
-@parent
-@endsection
 @section('content')
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Danh sách sản phẩm</h4>
+            <h4 class="card-title">Danh sách chi tiết sản phẩm</h4>
             <div>
-                <a style="margin: 19px;" href="{{ route('sanPham.create')}}" class="btn btn-primary">Thêm sản phẩm
+                <a style="margin: 19px;" href="{{ route('ctsp.create')}}" class="btn btn-primary">Thêm chi tiết sản phẩm
                     mới</a>
             </div>
+            <div>Mã sản phẩm: </div>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -25,28 +18,25 @@
                                 Mã sản phẩm
                             </th>
                             <th>
-                                Tên sản phẩm
+                                Màu sắc
                             </th>
                             <th>
-                                Dòng sản phẩm
+                                Ram
                             </th>
                             <th>
-                                Nhà sản xuất
+                                Ổ cứng
                             </th>
                             <th>
-                                Số lượng
+                                Màn hình
                             </th>
                             <th>
-                                Giá nhập
-                            </th>
-                            <th>
-                                Giá bán
-                            </th>
-                            <th>
-                                Hình ảnh
+                                Card đồ họa
                             </th>
                             <th>
                                 Mô tả
+                            </th>
+                            <th>
+                                Trạng thái
                             </th>
                             <th>
 
@@ -54,51 +44,53 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($lstSanPham as $sanPham)
+                        @if (is_array($lstCTSP) || is_object($lstCTSP)){                        
+                        @forelse ($lstCTSP as $ctsp)
                         <tr>
                             <td>
-                                {{ $sanPham->id }}
+                                {{ $ctsp->MaSanPham }}
                             </td>
                             <td>
-                                {{ $sanPham->TenSanPham }}
+                                {{ $ctsp->MauSac }}
                             </td>
                             <td>
-                                {{ $sanPham->MaDongSanPham }}
+                                {{ $ctsp->Ram }}
                             </td>
                             <td>
-                                {{ $sanPham->MaNhaSanXuat }}
+                                {{ $ctsp->OCung }}
                             </td>
                             <td>
-                                {{ $sanPham->SoLuong }}
+                                {{ $ctsp->ManHinh }}
                             </td>
                             <td>
-                                {{ $sanPham->GiaNhap }}
+                                {{ $ctsp->CardDoHoa }}
                             </td>
                             <td>
-                                {{ $sanPham->GiaBan }}
-                            </td>
-                            <td class="py-1">
-                                <img src="{{ asset('product/images')}}/{{ $sanPham->HinhAnh }}">
+                                {{ $ctsp->MoTa }}
                             </td>
                             <td>
-                                {{ $sanPham->MoTa}}
+                                {{ $ctsp->TrangThai_ChiTietSanPham}}
                             </td>
                             <td>
-                                <a href=""
-                                    class="btn btn-sm btn btn-info"><span class="glyphicon glyphicon-pencil">Chi tiết</a>
-                                <a href="{{ route('sanPham.edit',['sanPham'=>$sanPham]) }}"
+                                <a href="{{ route('ctsp.edit',['ctsp'=>$ctsp]) }}"
                                     class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil">Sửa</a>
-                                <a href="{{ route('sanPham.destroy',['sanPham'=>$sanPham]) }}"
+                                <a href="{{ route('ctsp.destroy',['ctsp'=>$ctsp]) }}"
                                     class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash">Xóa</a>
                             </td>
                         </tr>
                         @empty
                         <tr>
                             <td colspan="9">
-                                Không có sản phẩm nào hết
+                                Chưa có chi tiết sản phẩm
                             </td>
                         </tr>
                         @endforelse
+                    }@else{
+                        <td colspan="9">
+                            Chưa có chi tiết sản phẩm
+                        </td>
+                    }
+                    @endif
                     </tbody>
                 </table>
             </div>
@@ -106,7 +98,4 @@
     </div>
 </div>
 
-@endsection
-@section('script')
-@parent
 @endsection

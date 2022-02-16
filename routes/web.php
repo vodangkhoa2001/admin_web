@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaiKhoanController;
 use App\Http\Controllers\SanPhamController;
+use App\Http\Controllers\ChiTietSanPhamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,10 +48,19 @@ Route::get('/account/user',function(){
 
 Route::get('/account/admin', [TaiKhoanController::class,'getTaiKhoan'])->name("list-admin");
 
+// ----------------------Sản phẩm-------------------
 Route::get('product/list', [SanPhamController::class,'index'])->name("list-product");
 Route::get('product/create', [SanPhamController::class,'create'])->name("create-product");
-Route::get('product/edit', [SanPhamController::class,'edit']);
-Route::get('product/delete', [SanPhamController::class,'deystroy']);
+Route::post('product/update', [SanPhamController::class,'update']);
+Route::put('product/edit/{id}', [SanPhamController::class,'edit']);
+Route::delete('product/delete/{id}', [SanPhamController::class,'deystroy']);
+//Route::get('product/detail/{id}', [SanPhamController::class,'findProductDetailByProduct']);
+// ----------------------Chi tiết sản phẩm--------------------
+Route::get('product/detail/{id}', [ChiTietSanPhamController::class,'show']);
+Route::get('product/detail/create/{id}', [ChiTietSanPhamController::class,'create']);
+Route::put('product/detail/create/{id}', [ChiTietSanPhamController::class,'edit']);
+Route::delete('product/detail/create/{id}', [ChiTietSanPhamController::class,'deystroy']);
 
 //Route::resource('sanPham',SanPhamController::class);
 Route::resource('sanPham', 'App\Http\Controllers\SanPhamController');
+Route::resource('ctsp', ChiTietSanPhamController::class);

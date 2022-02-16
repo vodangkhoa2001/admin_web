@@ -18,7 +18,7 @@
         <div class="card-body">
             <h4 class="card-title">Chỉnh sửa sản phẩm</h4>
             <p class="card-description">
-                Change current product
+                Thông tin sản phẩm hiện tại
             </p>
             <form class="forms-sample" action="{{ route('sanPham.update',['sanPham'=>$sanPham])}}" method="post"
                 enctype="multipart/form-data"> @csrf
@@ -31,25 +31,13 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label>Image</label>
-                            <img class="img-thumbnail" style="width:100px;max-height:100px;object-fit:contain"
-                                src="{{ $sanPham->HinhAnh}}">
-                            <input type="file" name="hinhanh" class="file-upload-default">
-                            {{-- <div class="input-group col-xs-12">
-                                <input type="text" class="form-control file-upload-info" disabled
-                                    placeholder="Upload Image">
-                                <span class="input-group-append">
-                                    <button class="file-upload-browse btn btn-primary btn-md"
-                                        style="padding-top: 8px;padding-bottom: 10px;" type="button">Upload</button>
-                                </span>
-                            </div> --}}
+                            <label>Ảnh cũ của sản phẩm</label>
+                            <img class="img-thumbnail" style="width:200px;max-height:200px;object-fit:contain;margin:17px;"
+                                src="{{ asset('product/images')}}/{{ $sanPham->HinhAnh }}">
+                            {{-- <input type="file" name="hinhanh" class="file-upload-default"> --}}
+                            <input type="file" class="input-file" name="hinhanh"><br />
                         </div>
                     </div>
-                    {{-- <div class="col-md-2">
-                        <div class="form-group row">
-                            <img src="../../images/faces/face6.jpg" alt="image product" />
-                        </div>
-                    </div> --}}
                 </div>
                 <div class="form-group">
                     <label for="exampleTextarea1">Mô tả</label>
@@ -105,7 +93,7 @@
                 </div>
                 <div class=" card">
                     <div class="card-body">
-                        <h4 class="card-title">Thông tin giá bán</h4>
+                        <h4 class="card-title">Thông tin giá và số lượng</h4>
                         <div class="form-group">
                             <label>Giá bán</label>
                             <input name="giaban" value="{{ $sanPham->GiaBan }}" type="number"
@@ -137,8 +125,8 @@
                     </div>
                 </div> --}}
                 <div class="form-group mt-4">
-                    <button type="submit" class="btn btn-primary me-2">Submit</button>
-                    <button href="{{route('list-product')}}" class="btn btn-light">Cancel</button>
+                    <button type="submit" class="btn btn-primary me-2">Cập nhật</button>
+                    <button href="{{route('list-product')}}" class="btn btn-light">Quay lại</button>
                 </div>
             </form>
         </div>
