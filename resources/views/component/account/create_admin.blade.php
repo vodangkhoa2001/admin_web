@@ -16,8 +16,15 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Tạo Tài Khoản Admin</h4>
-                <p class="card-description">
-                    Tạo mới tài khoản admin
+                <p class="card-description ">
+                    {{-- <span>{{ Session::get('error') }}</span> --}}
+
+                    @if ( Session::has('error') )
+	<div class="alert alert-danger alert-dismissible" role="alert">
+		<strong>{{ Session::get('error') }}</strong>
+		
+	</div>
+@endif
                 </p>
                 <form class="forms-sample" enctype="multipart/form-data" action="{{route("admin-accounts-addAccount")}}" method="POST">
                     @csrf
