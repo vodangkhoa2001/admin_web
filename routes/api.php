@@ -35,7 +35,8 @@ Route:: group(['prefix'=>'products'], function(){
 });
 
 
-
-Route::get('account/infor/{id}',[UserController::class,'userInfo']);
-Route::post('account/sign-up',[UserController::class,'signUp']);
-// Route::post('account/login',[UserUserController::class,'login']);
+Route:: group(['prefix' => 'account'],function(){
+    Route::post('register','App\Http\Controllers\APIToaiKhoanController@register');
+    Route::post('login','App\Http\Controllers\APIToaiKhoanController@login');
+    Route::get('info/{id}','App\Http\Controllers\APIToaiKhoanController@info');
+});
