@@ -2,12 +2,15 @@
 
 All notable changes of the PHPUnit 9.5 release series are documented in this file using the [Keep a CHANGELOG](https://keepachangelog.com/) principles.
 
+<<<<<<< HEAD
 ## [9.5.14] - 2022-02-18
 
 ### Changed
 
 * [#4874](https://github.com/sebastianbergmann/phpunit/pull/4874): `PHP_FLOAT_EPSILON` is now used instead of hardcoded `0.0000000001` in `PHPUnit\Framework\Constraint\IsIdentical`
 
+=======
+>>>>>>> test
 ## [9.5.13] - 2022-01-24
 
 ### Fixed
@@ -122,7 +125,10 @@ All notable changes of the PHPUnit 9.5 release series are documented in this fil
 
 * [#4535](https://github.com/sebastianbergmann/phpunit/issues/4535): `getMockFromWsdl()` does not handle methods that do not have parameters correctly
 
+<<<<<<< HEAD
 [9.5.14]: https://github.com/sebastianbergmann/phpunit/compare/9.5.13...9.5.14
+=======
+>>>>>>> test
 [9.5.13]: https://github.com/sebastianbergmann/phpunit/compare/9.5.12...9.5.13
 [9.5.12]: https://github.com/sebastianbergmann/phpunit/compare/9.5.11...9.5.12
 [9.5.11]: https://github.com/sebastianbergmann/phpunit/compare/9.5.10...9.5.11
