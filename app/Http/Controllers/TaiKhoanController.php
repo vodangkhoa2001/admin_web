@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\TaiKhoan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Session;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 class TaiKhoanController extends Controller
 {
@@ -29,7 +29,7 @@ class TaiKhoanController extends Controller
             {
                 #chỗ này của user
                 $taikhoan=Auth::User();
-                
+
                 // session(['hinhanh' => $taikhoan->HinhAnh]);
                 // session(['hoten' => $taikhoan->HoTen]);
                 // session(['id' => $user->id]);

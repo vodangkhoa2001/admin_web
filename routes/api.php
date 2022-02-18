@@ -26,6 +26,6 @@ Route::get('product/detail/{id}', [SanPhamController::class,'detail']);
 Route::post('product/create', [SanPhamController::class,'create']);
 
 
-Route::get('account/infor/{id}',[UserController::class,'userInfo']);
+Route::get('account/{id}',[UserController::class,'userInfo']);
 Route::post('account/sign-up',[UserController::class,'signUp']);
 // Route::post('account/login',[UserUserController::class,'login']);
