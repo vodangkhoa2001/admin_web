@@ -22,7 +22,7 @@ class LoaiTaiKhoanSeeder extends Seeder
 
         $LoaiTaiKhoan=new LoaiTaiKhoan();
         $LoaiTaiKhoan->TenLoaiTaiKhoan="Admin";
-        $LoaiTaiKhoan->TrangThai_LoaiTaiKhoan=1;
+        $LoaiTaiKhoan->TrangThai_LoaiTaiKhoan=2;
         $LoaiTaiKhoan->save();
     }
 }

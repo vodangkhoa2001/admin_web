@@ -26,6 +26,9 @@ Route::get('product/detail/{id}', [SanPhamController::class,'detail']);
 Route::post('product/create', [SanPhamController::class,'create']);
 
 
-Route::get('account/{id}',[UserController::class,'userInfo']);
-Route::post('account/sign-up',[UserController::class,'signUp']);
+// Route::get('account/{id}',[UserController::class,'userInfo']);
+// Route::post('account/sign-up',[UserController::class,'signUp']);
 // Route::post('account/login',[UserUserController::class,'login']);
+Route::prefix('account')->group(function () {
+    Route::get('/{id},App\Http\Controllers\APITaiKhoanController@info');
+});

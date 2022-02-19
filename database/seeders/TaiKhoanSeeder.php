@@ -6,8 +6,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Seeder;
 use App\Models\TaiKhoan;
-
-
 class TaiKhoanSeeder extends Seeder
 {
     /**
@@ -56,6 +54,5 @@ class TaiKhoanSeeder extends Seeder
         // $TaiKhoan->ID_LoaiTaiKhoan=1;
         // $TaiKhoan->TrangThai_TaiKhoan=1;
         // $TaiKhoan->save();
-
     }
 }
