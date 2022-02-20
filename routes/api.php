@@ -1,10 +1,6 @@
 <?php
 
-<<<<<<< HEAD
-use App\Http\Controllers\APITaiKhoanController;
-=======
 use App\Http\Controllers\APISanPhamController;
->>>>>>> test
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SanPhamController;
@@ -24,12 +20,8 @@ use App\Http\Controllers\UserController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-<<<<<<< HEAD
-Route::get('category', [LoaiSanPhamController::class,'category']);
-=======
 
 Route::get('category', [APILoaiSanPhamController::class,'getAllProductType']);
->>>>>>> test
 Route::get('product', [SanPhamController::class,'listProduct']);
 
 Route:: group(['prefix'=>'products'], function(){
@@ -45,13 +37,7 @@ Route:: group(['prefix'=>'products'], function(){
 
 
 Route:: group(['prefix' => 'account'],function(){
-<<<<<<< HEAD
-    Route::post('register',[APITaiKhoanController::class],'register');
-    Route::post('login',[APITaiKhoanController::class],'login');
-    Route::get('{id}',[APITaiKhoanController::class],'info');
-=======
     Route::post('register','App\Http\Controllers\APITaiKhoanController@register');
     Route::post('login','App\Http\Controllers\APITaiKhoanController@login');
     Route::get('{id}','App\Http\Controllers\APITaiKhoanController@info');
->>>>>>> test
 });

@@ -13,6 +13,7 @@ use Illuminate\Support\Str;
 use App\Models\PasswordReset;
 use App\Models\TaiKhoan;
 use App\Notifications\ResetPasswordRequest;
+use Exception;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
@@ -33,7 +34,7 @@ class APITaiKhoanController extends Controller
             return response()->json(['error'=>$validator->errors()], 401);
         }
         $user = TaiKhoan::create([
-            'id'=> "user01",
+            'id'=> $request->id,
             'TenDangNhap' => $request->username,
             'Email' => $request->email,
             'MatKhau' => bcrypt($request->password),
@@ -48,29 +49,27 @@ class APITaiKhoanController extends Controller
         ], $this-> successStatus);
     }
 
-    // public function login(Request $request)
-    // {
-    //     try {
-    //         $login = $request->validate([
-    //             'TenDangNhap' => 'required|string',
-    //             'MatKhau' => 'required|string',
-    //         ]);
 
-    //         if(Auth::attempt($login)){
-    //             $user = Auth::user();
-    //             if($user->TrangThai_TaiKhoan == 1){
-    //                 return response()->json(['data' => $user], $this-> successStatus);
-    //             } else {
-    //                 return response()->json(['error'=>'Unauthorised'], 401);
-    //             }
-    //         }
-    //         else{
-    //             return response()->json(['error'=>'Unauthorised 2'], 401);
-    //         }
-    //     } catch (\Exception $e) {
-    //         return response()->json(['status' => 'error','message' => $e->getMessage(),'data'=>[]],500);
-    //     }
-    // }
+    public function login(Request $request){
+        try{
+            $username = TaiKhoan::where('TenDangNhap',$request->TenDangNhap)->first();
+            if($request->MatKhau == $username->MatKhau){
+                return response()->json(['status' => 'true',
+                'data'=> $username->id,
+                ], $this-> successStatus);
+            }
+            return response()->json([
+                            'status' => 'false',
+                            'data'=> '',
+                        ], 401);
+        }
+        catch(Exception){
+            return response()->json([
+                'status' => 'false',
+                'data'=> '',
+            ], 401);
+        }
+    }
 
     public function info($id)
     {
