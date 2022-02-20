@@ -8,10 +8,7 @@ class APILoaiSanPhamController extends Controller
 {
     function getAllProductType(){
         $listProductType = DongSanPham::all();
-        return json_encode([
-            'success' => true,
-            'data' => $listProductType
-        ]);
+        return response()->json(['data' => $listProductType], 200);
     }
     function getProducTypeDetail($id){
         $detailProductType = DongSanPham::find($id);
@@ -96,4 +93,3 @@ class APILoaiSanPhamController extends Controller
     }
 
 }
-
