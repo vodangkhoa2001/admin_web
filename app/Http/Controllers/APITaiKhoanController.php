@@ -33,7 +33,7 @@ class APITaiKhoanController extends Controller
             return response()->json(['error'=>$validator->errors()], 401);
         }
         $user = TaiKhoan::create([
-            'id'=> "user1",
+            'id'=> "user01",
             'TenDangNhap' => $request->username,
             'Email' => $request->email,
             'MatKhau' => bcrypt($request->password),

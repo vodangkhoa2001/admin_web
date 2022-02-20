@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\APITaiKhoanController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SanPhamController;
@@ -19,16 +20,22 @@ use App\Http\Controllers\UserController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
 Route::get('category', [LoaiSanPhamController::class,'category']);
 Route::get('product', [SanPhamController::class,'listProduct']);
-Route::get('product/detail/{id}', [SanPhamController::class,'detail']);
-Route::post('product/create', [SanPhamController::class,'create']);
+
+Route:: group(['prefix'=>'products'], function(){
+    Route::get('/all', [APIProducts::class,'getAllProduct']);
+    Route::get('/newproduct/all', [APISanPhamController::class,'getNewProduct']);
+    Route::get('/sellingproduct/all', [APISanPhamController::class,'sellingProduct']);
+    Route::get('/{id}', [APISanPhamController::class,'getProductDetail']);
+    Route::post('/create', [APISanPhamController::class,'create']);
+    Route::put('/update/{id}', [APISanPhamController::class,'update']);
+    Route::delete('/delete/{id}', [APISanPhamController::class,'delete']);
+});
 
 
-// Route::get('account/{id}',[UserController::class,'userInfo']);
-// Route::post('account/sign-up',[UserController::class,'signUp']);
-// Route::post('account/login',[UserUserController::class,'login']);
-Route::prefix('account')->group(function () {
-    Route::get('/{id},App\Http\Controllers\APITaiKhoanController@info');
+Route:: group(['prefix' => 'account'],function(){
+    Route::post('register',[APITaiKhoanController::class],'register');
+    Route::post('login',[APITaiKhoanController::class],'login');
+    Route::get('{id}',[APITaiKhoanController::class],'info');
 });
