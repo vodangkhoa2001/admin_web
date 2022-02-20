@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\APISanPhamController as APIProducts;
+use App\Http\Controllers\APISanPhamController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SanPhamController;
-use App\Http\Controllers\LoaiSanPhamController;
+use App\Http\Controllers\APILoaiSanPhamController;
 use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
@@ -21,22 +21,23 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('category', [LoaiSanPhamController::class,'category']);
+Route::get('category', [APILoaiSanPhamController::class,'getAllProductType']);
 Route::get('product', [SanPhamController::class,'listProduct']);
 
 Route:: group(['prefix'=>'products'], function(){
-    Route::get('/all', [APIProducts::class,'getAllProduct']);
+    Route::get('/all', [APISanPhamController::class,'getAllProduct']);
     Route::get('/newproduct/all', [APISanPhamController::class,'getNewProduct']);
     Route::get('/sellingproduct/all', [APISanPhamController::class,'sellingProduct']);
     Route::get('/{id}', [APISanPhamController::class,'getProductDetail']);
     Route::post('/create', [APISanPhamController::class,'create']);
     Route::put('/update/{id}', [APISanPhamController::class,'update']);
     Route::delete('/delete/{id}', [APISanPhamController::class,'delete']);
+    Route::get('/type/{id}',[APISanPhamController::class,'getProductByType']);
 });
 
 
 Route:: group(['prefix' => 'account'],function(){
-    Route::post('register','App\Http\Controllers\APIToaiKhoanController@register');
-    Route::post('login','App\Http\Controllers\APIToaiKhoanController@login');
-    Route::get('info/{id}','App\Http\Controllers\APIToaiKhoanController@info');
+    Route::post('register','App\Http\Controllers\APITaiKhoanController@register');
+    Route::post('login','App\Http\Controllers\APITaiKhoanController@login');
+    Route::get('{id}','App\Http\Controllers\APITaiKhoanController@info');
 });

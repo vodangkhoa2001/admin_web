@@ -11,7 +11,7 @@ class APISanPhamController extends Controller
 {
     public function getAllProduct(){
         $listProduct = SanPham::all();
-        return response()->json($listProduct,200);
+        return response()->json(['data' => $listProduct],200);
     }
     public function getNewProduct(){
         $newPro = DB:: table('SanPham')->orderBy('Created_at','desc')->take(5)->get();
@@ -22,33 +22,12 @@ class APISanPhamController extends Controller
     }
     public function getProductByType($typeId){
         $products = SanPham:: where ('MaDongSanPham',$typeId)->get();
-        if($products->empty()){
-            return json_encode([
-                'success' => false,
-                'message' => "Không tồn tại sản phẩm"
-            ]);
-        }else{
-            return json_encode([
-                'success' => true,
-                'data'    => $products
-            ]);
-        }
+        return response()->json(['data' => $products],200);
     }
     // Lấy chi tiết sản phẩm
     public function getProductDetail($id){
         $detailProduct = SanPham::find($id);
-        if(empty($detailProduct)){
-            return json_encode([
-                'success' => false,
-                'message' => "Không tồn tại sản phẩm {$id}"
-            ]);
-        }
-        else{
-            return json_encode([
-                'success' => true,
-                'data'    => $detailProduct
-            ]);
-        }
+        return response()->json(['data' => $detailProduct], 200);
     }
     //Sản phẩm bán chạy
     public function sellingProduct(){
@@ -61,51 +40,51 @@ class APISanPhamController extends Controller
     public function create(Request $request){
         //  dd($request->ten_sp);
         $sanPham = new SanPham();
-        if (empty($request->TenSanPham)){ 
+        if (empty($request->TenSanPham)){
             return json_encode([
                 'success' => false,
                 'message'  => 'Vui lòng nhập tên sản phẩm'
             ]);
         }
-        if (empty($request->GiaNhap)){ 
+        if (empty($request->GiaNhap)){
             return json_encode([
                 'success' => false,
                 'message'  => 'Vui lòng nhập giá nhập'
             ]);
         }
-        if (empty($request->GiaBan)){ 
+        if (empty($request->GiaBan)){
             return json_encode([
                 'success' => false,
                 'message'  => 'Vui lòng nhập giá bán'
             ]);
         }
-        if (empty($request->SoLuong)){ 
+        if (empty($request->SoLuong)){
             return json_encode([
                 'success' => false,
                 'message'  => 'Vui lòng nhập số lượng'
             ]);
         }
         $ktMaNhaSanXuat = NhaSanXuat::find($request->MaNhaSanXuat);
-        if ($ktMaNhaSanXuat==null){ 
+        if ($ktMaNhaSanXuat==null){
             return json_encode([
                 'success' => false,
                 'message'  => 'Mã nhà sản xuất không tồn tại'
             ]);
         }
         $ktMaDongSanPham = DongSanPham::find($request->MaDongSanPham);
-        if ($ktMaDongSanPham==null){ 
+        if ($ktMaDongSanPham==null){
             return json_encode([
                 'success' => false,
                 'message'  => 'Mã dòng sản phẩm không tồn tại'
             ]);
         }
-        if (empty($request->MoTa)){ 
+        if (empty($request->MoTa)){
             return json_encode([
                 'success' => false,
                 'message'  => 'Vui lòng nhập mô tả'
             ]);
         }
-        if (empty($request->HinhAnh)){ 
+        if (empty($request->HinhAnh)){
             return json_encode([
                 'success' => false,
                 'message'  => 'Vui lòng thêm hình ảnh'
@@ -127,7 +106,7 @@ class APISanPhamController extends Controller
     }
     public function update(Request $request,$id){
         $ktSanPham = SanPham::find($id);
-        if($ktSanPham==null){ 
+        if($ktSanPham==null){
             return json_encode([
                 'success' => false,
                 'message' => 'Sản phẩm không tồn tại'
@@ -139,45 +118,45 @@ class APISanPhamController extends Controller
                     'message'  => 'Vui lòng nhập tên sản phẩm'
                 ]);
             }
-            if (empty($request->GiaNhap)){ 
+            if (empty($request->GiaNhap)){
                 return json_encode([
                     'success' => false,
                     'message'  => 'Vui lòng nhập giá nhập'
                 ]);
             }
-            if (empty($request->GiaBan)){ 
+            if (empty($request->GiaBan)){
                 return json_encode([
                     'success' => false,
                     'message'  => 'Vui lòng nhập giá bán'
                 ]);
             }
-            if (empty($request->SoLuong)){ 
+            if (empty($request->SoLuong)){
                 return json_encode([
                     'success' => false,
                     'message'  => 'Vui lòng nhập số lượng'
                 ]);
             }
             $ktMaNhaSanXuat = NhaSanXuat::find($request->MaNhaSanXuat);
-            if ($ktMaNhaSanXuat==null){ 
+            if ($ktMaNhaSanXuat==null){
                 return json_encode([
                     'success' => false,
                     'message'  => 'Mã nhà sản xuất không tồn tại'
                 ]);
             }
             $ktMaDongSanPham = DongSanPham::find($request->MaDongSanPham);
-            if ($ktMaDongSanPham==null){ 
+            if ($ktMaDongSanPham==null){
                 return json_encode([
                     'success' => false,
                     'message'  => 'Mã dòng sản phẩm không tồn tại'
                 ]);
             }
-            if (empty($request->MoTa)){ 
+            if (empty($request->MoTa)){
                 return json_encode([
                     'success' => false,
                     'message'  => 'Vui lòng nhập mô tả'
                 ]);
             }
-            if (empty($request->HinhAnh)){ 
+            if (empty($request->HinhAnh)){
                 return json_encode([
                     'success' => false,
                     'message'  => 'Vui lòng thêm hình ảnh'

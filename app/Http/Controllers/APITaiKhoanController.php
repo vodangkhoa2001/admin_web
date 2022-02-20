@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 
-class APIToaiKhoanController extends Controller
+class APITaiKhoanController extends Controller
 {
     public $successStatus = 200;
     public function register(Request $request)

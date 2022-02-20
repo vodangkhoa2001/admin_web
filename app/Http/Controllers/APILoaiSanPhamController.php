@@ -8,10 +8,7 @@ class APILoaiSanPhamController extends Controller
 {
     function getAllProductType(){
         $listProductType = DongSanPham::all();
-        return json_encode([
-            'success' => true,
-            'data' => $listProductType
-        ]);
+        return response()->json(['data' => $listProductType], 200);
     }
     function getProducTypeDetail($id){
         $detailProductType = DongSanPham::find($id);
@@ -31,13 +28,13 @@ class APILoaiSanPhamController extends Controller
     function create(Request $request){
         //  dd($request->ten_sp);
         $dongSanPham = new DongSanPham();
-        if (empty($request->TenDongSanPham)){ 
+        if (empty($request->TenDongSanPham)){
             return json_encode([
                 'success' => false,
                 'message'  => 'Vui lòng nhập tên dòng sản phẩm'
             ]);
         }
-        if (empty($request->TrangThai_DongSanPham)){ 
+        if (empty($request->TrangThai_DongSanPham)){
             return json_encode([
                 'success' => false,
                 'message'  => 'Vui lòng thêm trạng thái'
@@ -53,7 +50,7 @@ class APILoaiSanPhamController extends Controller
     }
     public function update(Request $request,$id){
         $dongSanPham = DongSanPham::find($id);
-        if($dongSanPham==null){ 
+        if($dongSanPham==null){
             return json_encode([
                 'success' => false,
                 'message' => 'Dòng sản phẩm không tồn tại'
@@ -65,7 +62,7 @@ class APILoaiSanPhamController extends Controller
                     'message'  => 'Vui lòng nhập tên dòng sản phẩm'
                 ]);
             }
-            if (empty($request->TrangThai_DongSanPham)){ 
+            if (empty($request->TrangThai_DongSanPham)){
                 return json_encode([
                     'success' => false,
                     'message'  => 'Vui lòng thiết lập trạng thái'
