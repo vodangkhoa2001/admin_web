@@ -6,23 +6,18 @@
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
 <<<<<<< HEAD
+<<<<<<< HEAD
         'reference' => 'd6ade0df5ce71edc0a5005b586392e3dc06db844',
 =======
         'reference' => '4a2efe3743b91329106b69cd015e9d4e47de17e0',
+>>>>>>> test
+=======
+        'reference' => 'e14c6860ed074ce8c844b5fdcb3f98ecfca86dda',
 >>>>>>> test
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
     'versions' => array(
-        'asm89/stack-cors' => array(
-            'pretty_version' => 'v2.1.1',
-            'version' => '2.1.1.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../asm89/stack-cors',
-            'aliases' => array(),
-            'reference' => '73e5b88775c64ccc0b84fb60836b30dc9d92ac4a',
-            'dev_requirement' => false,
-        ),
         'brick/math' => array(
             'pretty_version' => '0.9.3',
             'version' => '0.9.3.0',
@@ -162,12 +157,21 @@
             'dev_requirement' => false,
         ),
         'fruitcake/laravel-cors' => array(
-            'pretty_version' => 'v2.0.5',
-            'version' => '2.0.5.0',
+            'pretty_version' => 'v2.1.0',
+            'version' => '2.1.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../fruitcake/laravel-cors',
             'aliases' => array(),
-            'reference' => '3a066e5cac32e2d1cdaacd6b961692778f37b5fc',
+            'reference' => '361d71f00a0eea8b74da26ae75d0d207c53aa5b3',
+            'dev_requirement' => false,
+        ),
+        'fruitcake/php-cors' => array(
+            'pretty_version' => 'v1.0.1',
+            'version' => '1.0.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../fruitcake/php-cors',
+            'aliases' => array(),
+            'reference' => '07611b4d603a72f097aeeeeb1e67d5ae7a6d0798',
             'dev_requirement' => false,
         ),
         'graham-campbell/result-type' => array(
@@ -423,9 +427,13 @@
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
 <<<<<<< HEAD
+<<<<<<< HEAD
             'reference' => 'd6ade0df5ce71edc0a5005b586392e3dc06db844',
 =======
             'reference' => '4a2efe3743b91329106b69cd015e9d4e47de17e0',
+=======
+            'reference' => 'e14c6860ed074ce8c844b5fdcb3f98ecfca86dda',
+>>>>>>> test
             'dev_requirement' => false,
         ),
         'laravel/passport' => array(
@@ -806,6 +814,7 @@
         ),
         'phpunit/phpunit' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
             'pretty_version' => '9.5.14',
             'version' => '9.5.14.0',
             'type' => 'library',
@@ -819,6 +828,14 @@
             'install_path' => __DIR__ . '/../phpunit/phpunit',
             'aliases' => array(),
             'reference' => '597cb647654ede35e43b137926dfdfef0fb11743',
+>>>>>>> test
+=======
+            'pretty_version' => '9.5.14',
+            'version' => '9.5.14.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phpunit/phpunit',
+            'aliases' => array(),
+            'reference' => '1883687169c017d6ae37c58883ca3994cfc34189',
 >>>>>>> test
             'dev_requirement' => true,
         ),
