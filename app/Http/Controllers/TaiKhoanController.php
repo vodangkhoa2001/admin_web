@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use App\Models\TaiKhoan;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Session;
+//use Session;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 class TaiKhoanController extends Controller
 {
     public function getTaiKhoanAdmin()
     {
-        //$lstTaiKhoan=TaiKhoan::where('ID_LoaiTaiKhoan','2')->get();
+        $lstTaiKhoan=TaiKhoan::where('ID_LoaiTaiKhoan','2')->get();
 
         $lstTaiKhoan = TaiKhoan::orderBy('id', 'desc')->where('ID_LoaiTaiKhoan','2')->paginate(4);
         //$data['taikhoan']=TaiKhoan::where('ID_LoaiTaiKhoan','2')->paginate(2);
