@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SanPhamController;
 use App\Http\Controllers\APILoaiSanPhamController;
+use App\Http\Controllers\APIHoaDonController;
+
 use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +42,7 @@ Route:: group(['prefix' => 'account'],function(){
     Route::post('register','App\Http\Controllers\APITaiKhoanController@register');
     Route::post('login','App\Http\Controllers\APITaiKhoanController@login');
     Route::get('{id}','App\Http\Controllers\APITaiKhoanController@info');
+});
+Route:: group(['prefix' => 'invoice'],function(){
+    Route::get('/{id}',[APIHoaDonController::class,'getHoaDon']);
 });

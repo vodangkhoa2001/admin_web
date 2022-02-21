@@ -15,13 +15,8 @@ class CreateTaiKhoansTable extends Migration
     {
         Schema::create('TaiKhoan', function (Blueprint $table) {
             $table->string("id")->primary();
-<<<<<<< HEAD
-            $table->string("TenDangNhap")->unique();
-            $table->string("password");
-=======
             $table->string("TenDangNhap");
             $table->string("MatKhau");
->>>>>>> test
             $table->string("Email");
             $table->string("SDT");
             $table->string("DiaChi");

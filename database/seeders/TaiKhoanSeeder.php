@@ -29,7 +29,7 @@ class TaiKhoanSeeder extends Seeder
                 'TrangThai_TaiKhoan'=>1,
             ),
             array(
-                'id'=>'USER01',
+                'id'=>'USER02',
                 'TenDangNhap'=>'huy',
                 'HoTen' => 'Huy',
                 'Email' => 'huy@gmail.com',
