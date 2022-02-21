@@ -16,16 +16,30 @@ class TaiKhoanSeeder extends Seeder
     public function run()
     {
         DB::table('taikhoan')->insert([
-            'id'=>'USER01',
-            'TenDangNhap'=>'vdk',
-            'HoTen' => 'Dang Khoa',
-            'Email' => 'vdk@gmail.com',
-            'MatKhau' => Hash::make('password'),
-            'SDT'=>'0909876789',
-            'DiaChi'=>'hcm city',
-            'HinhAnh'=>'user_01.png',
-            'ID_LoaiTaiKhoan'=>1,
-            'TrangThai_TaiKhoan'=>1,
+            array(
+                'id'=>'USER01',
+                'TenDangNhap'=>'vdk',
+                'HoTen' => 'Dang Khoa',
+                'Email' => 'vdk@gmail.com',
+                'MatKhau' => Hash::make('123456789'),
+                'SDT'=>'0909876789',
+                'DiaChi'=>'hcm city',
+                'HinhAnh'=>'user_01.png',
+                'ID_LoaiTaiKhoan'=>1,
+                'TrangThai_TaiKhoan'=>1,
+            ),
+            array(
+                'id'=>'USER01',
+                'TenDangNhap'=>'huy',
+                'HoTen' => 'Huy',
+                'Email' => 'huy@gmail.com',
+                'MatKhau' => Hash::make('123456789'),
+                'SDT'=>'0909765675',
+                'DiaChi'=>'hcm city',
+                'HinhAnh'=>'user_02.png',
+                'ID_LoaiTaiKhoan'=>1,
+                'TrangThai_TaiKhoan'=>1,
+            )
         ]);
 
         //
