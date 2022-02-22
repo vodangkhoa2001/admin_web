@@ -69,25 +69,41 @@ class APITaiKhoanController extends Controller
     }
 
 
-    public function login(Request $request){
-        try{
-            $username = TaiKhoan::where('TenDangNhap',$request->TenDangNhap)->first();
-            if($request->MatKhau == $username->MatKhau){
-                return response()->json(['status' => 'true',
-                'data'=> $username->id,
-                ], $this-> successStatus);
-            }
-            return response()->json([
-                            'status' => 'false',
-                            'data'=> '',
-                        ], 401);
-        }
-        catch(Exception){
-            return response()->json([
-                'status' => 'false',
-                'data'=> '',
-            ], 401);
-        }
+    // public function login(Request $request){
+    //     try{
+    //         $username = TaiKhoan::where('TenDangNhap',$request->TenDangNhap)->first();
+    //         if($request->MatKhau == $username->MatKhau){
+    //             return response()->json(['status' => 'true',
+    //             'data'=> $username->id,
+    //             ], $this-> successStatus);
+    //         }
+    //         return response()->json([
+    //                         'status' => 'false',
+    //                         'data'=> '',
+    //                     ], 401);
+    //     }
+    //     catch(Exception){
+    //         return response()->json([
+    //             'status' => 'false',
+    //             'data'=> '',
+    //         ], 401);
+    //     }
+    // }
+
+    public function login(Request $request)
+    {
+       $user=TaiKhoan::where('Email',$request->Email)->first();
+       if(!$user || !Hash::check($request->password, $user->MatKhau))
+       {
+          return response(['message'=>'Thông tin không trùng khớp.'],401);
+
+       }
+
+       $response=$user;
+       return response($response,200);
+       //return json_encode($response,200);
+       //return $response;
+       //return response()->json($response, 200);
     }
 
     public function info($id)
@@ -107,7 +123,7 @@ class APITaiKhoanController extends Controller
         $user = TaiKhoan::find($id);
         if($user->MatKhau == $request->MatKhau){
             $user->fill([
-                'MatKhau' => $request->MatKhauMoi
+                'MatKhau' => Hash::make($request->MatKhauMoi)
             ])->save();
             return response()->json(['message'=>true],200);
         }else{
