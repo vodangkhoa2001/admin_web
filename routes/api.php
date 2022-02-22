@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SanPhamController;
 use App\Http\Controllers\LoaiSanPhamController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\APITaiKhoanController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,6 +26,8 @@ Route::get('product', [SanPhamController::class,'listProduct']);
 Route::get('product/detail/{id}', [SanPhamController::class,'detail']);
 Route::post('product/create', [SanPhamController::class,'create']);
 
+
+Route::post('account/login/user', [APITaiKhoanController::class,'login']);
 
 Route::get('account/{id}',[UserController::class,'userInfo']);
 Route::post('account/sign-up',[UserController::class,'signUp']);
