@@ -41,7 +41,9 @@ Route:: group(['prefix'=>'products'], function(){
 Route:: group(['prefix' => 'account'],function(){
     Route::post('register','App\Http\Controllers\APITaiKhoanController@register');
     Route::post('login','App\Http\Controllers\APITaiKhoanController@login');
+    Route::post('password/{id}','App\Http\Controllers\APITaiKhoanController@changePassword');
     Route::get('{id}','App\Http\Controllers\APITaiKhoanController@info');
+
 });
 Route:: group(['prefix' => 'invoice'],function(){
     Route::get('/{id}',[APIHoaDonController::class,'getHoaDon']);

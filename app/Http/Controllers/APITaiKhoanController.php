@@ -22,9 +22,28 @@ class APITaiKhoanController extends Controller
 {
 
 
+
     public $successStatus = 200;
     public function register(Request $request)
     {
+        function createID()
+    {
+
+        $datetime = Date('Ymdhms');
+        $countAllAccount = TaiKhoan::all()->count() + 1;
+        $chuoiID = $countAllAccount;
+        if ($countAllAccount > 99)
+            $chuoiID = $countAllAccount;
+
+        if ($countAllAccount > 9)
+            $chuoiID = '0' . $countAllAccount;
+        else
+            $chuoiID = '00' . $countAllAccount;
+
+        $originalId = $chuoiID;
+        $finalId = 'USERID' . $datetime . $originalId;
+        return $finalId;
+    }
         $validator = Validator::make($request->all(), [
             'username' => 'required',
             'email' => 'required|email',
@@ -34,7 +53,7 @@ class APITaiKhoanController extends Controller
             return response()->json(['error'=>$validator->errors()], 401);
         }
         $user = TaiKhoan::create([
-            'id'=> $request->id,
+            'id'=> createID(),
             'TenDangNhap' => $request->username,
             'Email' => $request->email,
             'MatKhau' => bcrypt($request->password),
@@ -77,4 +96,22 @@ class APITaiKhoanController extends Controller
         return response()->json(['data' => $user], $this-> successStatus);
     }
 
+    public function changePassword(Request $request,$id){
+        $validator = Validator::make($request->all(), [
+            'MatKhau' => 'required',
+            'MatKhauMoi' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['error'=>$validator->errors()], 401);
+        }
+        $user = TaiKhoan::find($id);
+        if($user->MatKhau == $request->MatKhau){
+            $user->fill([
+                'MatKhau' => $request->MatKhauMoi
+            ])->save();
+            return response()->json(['message'=>true],200);
+        }else{
+            return response()->json(['message'=>false], 401);
+        }
+    }
 }
