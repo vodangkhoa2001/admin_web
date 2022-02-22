@@ -5,15 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-<<<<<<< HEAD
-<<<<<<< HEAD
-        'reference' => 'd6ade0df5ce71edc0a5005b586392e3dc06db844',
-=======
-        'reference' => '4a2efe3743b91329106b69cd015e9d4e47de17e0',
->>>>>>> test
-=======
-        'reference' => 'e14c6860ed074ce8c844b5fdcb3f98ecfca86dda',
->>>>>>> test
+        'reference' => '6e0fad3bbd9cde8728463e8c89c3071894ac0d78',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -166,12 +158,12 @@
             'dev_requirement' => false,
         ),
         'fruitcake/php-cors' => array(
-            'pretty_version' => 'v1.0.1',
-            'version' => '1.0.1.0',
+            'pretty_version' => 'v1.2.0',
+            'version' => '1.2.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../fruitcake/php-cors',
             'aliases' => array(),
-            'reference' => '07611b4d603a72f097aeeeeb1e67d5ae7a6d0798',
+            'reference' => '58571acbaa5f9f462c9c77e911700ac66f446d4e',
             'dev_requirement' => false,
         ),
         'graham-campbell/result-type' => array(
@@ -426,14 +418,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-<<<<<<< HEAD
-<<<<<<< HEAD
-            'reference' => 'd6ade0df5ce71edc0a5005b586392e3dc06db844',
-=======
-            'reference' => '4a2efe3743b91329106b69cd015e9d4e47de17e0',
-=======
-            'reference' => 'e14c6860ed074ce8c844b5fdcb3f98ecfca86dda',
->>>>>>> test
+            'reference' => '6e0fad3bbd9cde8728463e8c89c3071894ac0d78',
             'dev_requirement' => false,
         ),
         'laravel/passport' => array(
@@ -443,7 +428,6 @@
             'install_path' => __DIR__ . '/../laravel/passport',
             'aliases' => array(),
             'reference' => '779e34f0152f42fb76b258d814956313fa38857c',
->>>>>>> test
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
@@ -663,8 +647,6 @@
             'install_path' => __DIR__ . '/../opis/closure',
             'aliases' => array(),
             'reference' => '3d81e4309d2a927abbe66df935f4bb60082805ad',
-<<<<<<< HEAD
-=======
             'dev_requirement' => false,
         ),
         'paragonie/constant_time_encoding' => array(
@@ -683,7 +665,6 @@
             'install_path' => __DIR__ . '/../paragonie/random_compat',
             'aliases' => array(),
             'reference' => '996434e5492cb4c3edcb9168db6fbb1359ef965a',
->>>>>>> test
             'dev_requirement' => false,
         ),
         'phar-io/manifest' => array(
@@ -696,12 +677,12 @@
             'dev_requirement' => true,
         ),
         'phar-io/version' => array(
-            'pretty_version' => '3.1.1',
-            'version' => '3.1.1.0',
+            'pretty_version' => '3.2.1',
+            'version' => '3.2.1.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phar-io/version',
             'aliases' => array(),
-            'reference' => '15a90844ad40f127afd244c0cad228de2a80052a',
+            'reference' => '4f7fd7836c6f332bb2933569e566a0d6c4cbed74',
             'dev_requirement' => true,
         ),
         'php-http/message-factory' => array(
@@ -813,30 +794,12 @@
             'dev_requirement' => true,
         ),
         'phpunit/phpunit' => array(
-<<<<<<< HEAD
-<<<<<<< HEAD
             'pretty_version' => '9.5.14',
             'version' => '9.5.14.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpunit/phpunit',
             'aliases' => array(),
             'reference' => '1883687169c017d6ae37c58883ca3994cfc34189',
-=======
-            'pretty_version' => '9.5.13',
-            'version' => '9.5.13.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../phpunit/phpunit',
-            'aliases' => array(),
-            'reference' => '597cb647654ede35e43b137926dfdfef0fb11743',
->>>>>>> test
-=======
-            'pretty_version' => '9.5.14',
-            'version' => '9.5.14.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../phpunit/phpunit',
-            'aliases' => array(),
-            'reference' => '1883687169c017d6ae37c58883ca3994cfc34189',
->>>>>>> test
             'dev_requirement' => true,
         ),
         'psr/container' => array(
@@ -1333,8 +1296,6 @@
             'install_path' => __DIR__ . '/../symfony/process',
             'aliases' => array(),
             'reference' => '553f50487389a977eb31cf6b37faae56da00f753',
-<<<<<<< HEAD
-=======
             'dev_requirement' => false,
         ),
         'symfony/psr-http-message-bridge' => array(
@@ -1344,7 +1305,6 @@
             'install_path' => __DIR__ . '/../symfony/psr-http-message-bridge',
             'aliases' => array(),
             'reference' => '22b37c8a3f6b5d94e9cdbd88e1270d96e2f97b34',
->>>>>>> test
             'dev_requirement' => false,
         ),
         'symfony/routing' => array(
