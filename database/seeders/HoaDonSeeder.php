@@ -17,15 +17,15 @@ class HoaDonSeeder extends Seeder
         DB::table('hoadon')->insert([
             array(
                 'id'=>'HD01',
-                'MaTaiKhoan'=>'USER01',
+                'MaTaiKhoan'=>'ACCOUNTADMIN20220125070131003',
                 'DiaChiGiaoHang'=>'hcm',
                 'SDT_GiaoHang'=> '0909876789',
                 'TongTien'=>40000000,
                 'TrangThai_HoaDon'=>1,
             ),
             array(
-                'id'=>1,
-                'MaTaiKhoan'=>'USER01',
+                'id'=>'HD02',
+                'MaTaiKhoan'=>'ACCOUNTADMIN20220125010131007',
                 'DiaChiGiaoHang'=>'hcm',
                 'SDT_GiaoHang'=> '0909876789',
                 'TongTien'=>20000000,

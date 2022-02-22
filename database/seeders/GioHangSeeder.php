@@ -17,14 +17,12 @@ class GioHangSeeder extends Seeder
         DB::table('giohang')->insert(
             [
                 array(
-                    "id"=>1,
-                    "MaTaiKhoan"=>"USER01",
+                    "MaTaiKhoan"=>"ACCOUNTADMIN20220125070131003",
                     "MaSanPham" =>"SP01",
                     "SoLuong"=>"2"
                 ),
                 array(
-                    "id"=>2,
-                    "MaTaiKhoan"=>"USER01",
+                    "MaTaiKhoan"=>"ACCOUNTADMIN20220125070131003",
                     "MaSanPham" =>"SP02",
                     "SoLuong"=>"3"
                 ),
