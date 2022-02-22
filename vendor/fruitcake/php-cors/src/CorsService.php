@@ -38,31 +38,36 @@ use Symfony\Component\HttpFoundation\Response;
 class CorsService
 {
     /** @var string[]  */
-    private $allowedOrigins = [];
+    private array $allowedOrigins = [];
     /** @var string[] */
-    private $allowedOriginsPatterns = [];
+    private array $allowedOriginsPatterns = [];
     /** @var string[] */
-    private $allowedMethods = [];
+    private array $allowedMethods = [];
     /** @var string[] */
-    private $allowedHeaders = [];
+    private array $allowedHeaders = [];
     /** @var string[] */
-    private $exposedHeaders = [];
-    /** @var bool */
-    private $supportsCredentials = false;
-    /** @var null|int */
-    private $maxAge = 0;
+    private array $exposedHeaders = [];
+    private bool $supportsCredentials = false;
+    private ?int $maxAge = 0;
 
-    /** @var bool */
-    private $allowAllOrigins = false;
-    /** @var bool */
-    private $allowAllMethods = false;
-    /** @var bool */
-    private $allowAllHeaders = false;
+    private bool $allowAllOrigins = false;
+    private bool $allowAllMethods = false;
+    private bool $allowAllHeaders = false;
 
     /**
      * @param CorsInputOptions $options
      */
     public function __construct(array $options = [])
+    {
+        if ($options) {
+            $this->setOptions($options);
+        }
+    }
+
+    /**
+     * @param CorsInputOptions $options
+     */
+    public function setOptions(array $options): void
     {
         $this->allowedOrigins = $options['allowedOrigins'] ?? $options['allowed_origins'] ?? $this->allowedOrigins;
         $this->allowedOriginsPatterns =
@@ -83,24 +88,7 @@ class CorsService
         $exposedHeaders = $options['exposedHeaders'] ?? $options['exposed_headers'] ?? $this->exposedHeaders;
         $this->exposedHeaders = $exposedHeaders === false ? [] : $exposedHeaders;
 
-        $this->validateOptions();
         $this->normalizeOptions();
-    }
-
-    private function validateOptions(): void
-    {
-        $arrayHeaders = [
-            'allowedOrigins',
-            'allowedOriginsPatterns',
-            'allowedHeaders',
-            'allowedMethods',
-            'exposedHeaders',
-        ];
-        foreach ($arrayHeaders as $key) {
-            if (!is_array($this->{$key})) {
-                throw new InvalidOptionException("CORS option `{$key}` should be an array");
-            }
-        }
     }
 
     private function normalizeOptions(): void

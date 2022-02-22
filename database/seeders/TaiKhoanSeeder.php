@@ -19,7 +19,7 @@ class TaiKhoanSeeder extends Seeder
             array(
                 'id'=>'USER01',
                 'TenDangNhap'=>'vdk',
-                'HoTen' => 'Dang Khoa',
+                'HoTen' => 'Nguyễn Quang Huy',
                 'Email' => 'vdk@gmail.com',
                 'MatKhau' => Hash::make('123456789'),
                 'SDT'=>'0909876789',
