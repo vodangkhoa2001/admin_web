@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaiKhoanController;
+use App\Http\Controllers\HoaDonController;
+use Illuminate\Http\Request;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\SanPhamController;
-use App\Http\Controllers\ChiTietSanPhamController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes

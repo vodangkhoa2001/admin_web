@@ -31,7 +31,7 @@ class APISanPhamController extends Controller
     }
     //Sản phẩm bán chạy
     public function sellingProduct(){
-        $products = DB::select('select SanPham.*, SUM(ChiTietHoaDon.SoLuong) as soluongban from SanPham,ChiTietHoaDon where SanPham.id = ChiTietHoaDon.MaSanPham group by SanPham.id order by soluongban DESC');
+        $products = DB::select('select sanpham.*, SUM(chitiethoadon.SoLuong) as selling from sanpham,chitiethoadon where sanpham.id = chitiethoadon.MaSanPham group by sanpham.id order by selling DESC');
         return response()->json($products,200);
     }
 

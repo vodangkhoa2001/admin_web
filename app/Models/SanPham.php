@@ -21,6 +21,8 @@ class SanPham extends Model
         'GiaNhap',
         'GiaBan',
         'SoLuong',
+        '',
+        '',
         'MaNhaSanXuat',
         'MaDongSanPham',
         'HinhAnh',

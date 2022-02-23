@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\APISanPhamController;
+use App\Http\Controllers\APISanPhamController ;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SanPhamController;
