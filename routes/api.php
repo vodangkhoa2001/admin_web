@@ -50,6 +50,8 @@ Route:: group(['prefix' => 'invoice'],function(){
     Route::get('/{id}',[APIHoaDonController::class,'getHoaDon']);
 });
 // Route::post('account/login/user', [APITaiKhoanController::class,'login']);
+Route::post('account/login/user', [APITaiKhoanController::class,'login']);
+Route::post('account/changepassword/user', [APITaiKhoanController::class,'changePassword']);
 
 // Route::get('account/{id}',[UserController::class,'userInfo']);
 // Route::post('account/sign-up',[UserController::class,'signUp']);
