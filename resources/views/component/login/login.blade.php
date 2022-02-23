@@ -42,6 +42,13 @@
                 <div class="form-group">
                   <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" name="password">
                 </div>
+                @if (session('error'))
+                  <div class="alert alert-danger" role="alert">
+                          {{ session('error') }}
+                  </div>
+
+                @endif
+
                 <div class="mt-3">
                   <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN IN</button>
                 </div>
