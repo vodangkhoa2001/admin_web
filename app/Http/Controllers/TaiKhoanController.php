@@ -128,6 +128,28 @@ class TaiKhoanController extends Controller
         $account->update();
         return redirect()->route('admin')->with('success', 'Cập Nhật thành công');
     }
+
+    public function taoiduser()
+    {
+        
+        $datetime = Date('Ymdhms');
+        $countAllAccount = TaiKhoan::all()->count() + 1;
+        $chuoiID = $countAllAccount;
+        if ($countAllAccount > 99)
+            $chuoiID = $countAllAccount;
+
+        if ($countAllAccount > 9)
+            $chuoiID = '0' . $countAllAccount;
+        else
+            $chuoiID = '00' . $countAllAccount;
+
+        $originalId = $chuoiID;
+        $finalId = 'ACCOUNTUSER' . $datetime . $originalId;
+        
+        return json_encode($finalId,200);
+        
+    }
+
 }
 =======
 <?php

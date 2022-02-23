@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SanPhamController;
 use App\Http\Controllers\LoaiSanPhamController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\APITaiKhoanController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -36,6 +37,13 @@ Route:: group(['prefix'=>'products'], function(){
 
 
 
+<<<<<<< HEAD
 Route::get('account/infor/{id}',[UserController::class,'userInfo']);
+=======
+Route::post('account/login/user', [APITaiKhoanController::class,'login']);
+Route::post('account/changepassword/user', [APITaiKhoanController::class,'changePassword']);
+
+Route::get('account/{id}',[UserController::class,'userInfo']);
+>>>>>>> dfe7465163aaeafa25396bf436d99c4d52a605b2
 Route::post('account/sign-up',[UserController::class,'signUp']);
 // Route::post('account/login',[UserUserController::class,'login']);
