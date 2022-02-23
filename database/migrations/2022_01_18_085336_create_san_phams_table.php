@@ -21,6 +21,16 @@ class CreateSanPhamsTable extends Migration
             $table->integer("GiaNhap");
             $table->integer("GiaBan");
             $table->integer("SoLuong");
+            $table->unsignedBigInteger('MaMau');
+            $table->foreign('MaMau')->references('id')->on('MauSac');
+            $table->unsignedBigInteger('MaRam');
+            $table->foreign('MaRam')->references('id')->on('Ram');
+            $table->unsignedBigInteger('MaOCung');
+            $table->foreign('MaOCung')->references('id')->on('OCung');
+            $table->unsignedBigInteger('MaManHinh');
+            $table->foreign('MaManHinh')->references('id')->on('ManHinh');
+            $table->unsignedBigInteger('MaCPU');
+            $table->foreign('MaCPU')->references('id')->on('Cpu');
             $table->unsignedBigInteger('MaNhaSanXuat');
             $table->foreign('MaNhaSanXuat')->references('id')->on('NhaSanXuat');
             $table->string("HinhAnh");

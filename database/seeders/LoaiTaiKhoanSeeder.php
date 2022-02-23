@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Http\Requests;
 use Illuminate\Database\Seeder;
 use App\Models\LoaiTaiKhoan;
 use Illuminate\Support\Facades\DB;
@@ -37,6 +37,11 @@ class LoaiTaiKhoanSeeder extends Seeder
         $LoaiTaiKhoan=new LoaiTaiKhoan();
         $LoaiTaiKhoan->TenLoaiTaiKhoan="Admin";
         $LoaiTaiKhoan->TrangThai_LoaiTaiKhoan=2;
+        $LoaiTaiKhoan->save();
+
+        $LoaiTaiKhoan=new LoaiTaiKhoan();
+        $LoaiTaiKhoan->TenLoaiTaiKhoan="SuperAdmin";
+        $LoaiTaiKhoan->TrangThai_LoaiTaiKhoan=1;
         $LoaiTaiKhoan->save();
     }
 }

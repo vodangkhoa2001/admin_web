@@ -8,6 +8,7 @@ use App\Http\Controllers\APILoaiSanPhamController;
 use App\Http\Controllers\APIHoaDonController;
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\APITaiKhoanController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -48,3 +49,7 @@ Route:: group(['prefix' => 'account'],function(){
 Route:: group(['prefix' => 'invoice'],function(){
     Route::get('/{id}',[APIHoaDonController::class,'getHoaDon']);
 });
+// Route::post('account/login/user', [APITaiKhoanController::class,'login']);
+
+// Route::get('account/{id}',[UserController::class,'userInfo']);
+// Route::post('account/sign-up',[UserController::class,'signUp']);

@@ -26,7 +26,7 @@ class APISanPhamController extends Controller
     }
     // Lấy chi tiết sản phẩm
     public function getProductDetail($id){
-        $detailProduct = SanPham::find($id);
+        $detailProduct = DB::select("SELECT sanpham.*,mausac.TenMau,ocung.TenOCung,ram.TenRam,manhinh.TenManHinh,cpu.TenCPU from sanpham,mausac,ocung,ram,manhinh,cpu WHERE sanpham.MaMau = mausac.id and sanpham.MaManHinh = manhinh.id and sanpham.MaOCung = ocung.id and sanpham.MaRam = ram.id and sanpham.MaCPU = cpu.id and sanpham.id = '{$id}'");
         return response()->json(['data' => $detailProduct], 200);
     }
     //Sản phẩm bán chạy
