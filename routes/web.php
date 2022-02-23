@@ -67,8 +67,8 @@ Route::middleware('auth')->group(function () {
         
         Route::get('/create', [TaiKhoanController::class, 'create'])->name('admin-accounts-create');
         Route::post('/create', [TaiKhoanController::class, 'addAccount'])->name('admin-accounts-addAccount');
-    
-
+    //test
+        Route::get('/id', [TaiKhoanController::class, 'taoiduser'])->name('admin-user-id');
         //edit tai khoan
         Route::post('/edit', [TaiKhoanController::class, 'editTaiKhoan'])->name('admin-accounts-editTaiKhoan');
     });

@@ -28,6 +28,7 @@ Route::post('product/create', [SanPhamController::class,'create']);
 
 
 Route::post('account/login/user', [APITaiKhoanController::class,'login']);
+Route::post('account/changepassword/user', [APITaiKhoanController::class,'changePassword']);
 
 Route::get('account/{id}',[UserController::class,'userInfo']);
 Route::post('account/sign-up',[UserController::class,'signUp']);
