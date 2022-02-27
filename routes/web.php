@@ -38,6 +38,7 @@ Route::get('/register', function () {
 })-> name('register');
 //post
 Route::post('/login',[TaiKhoanController::class,'login'])-> name('xuli-login');
+Route::get('/logout',[TaiKhoanController::class,'logout'])-> name('xuli-logout');
 //list account
 Route::get('/account/user',function(){
     return view('component/account/user');
@@ -61,13 +62,14 @@ Route::get('product/detail/create/{id}', [ChiTietSanPhamController::class,'creat
 Route::put('product/detail/create/{id}', [ChiTietSanPhamController::class,'edit']);
 Route::delete('product/detail/create/{id}', [ChiTietSanPhamController::class,'deystroy']);
 
+
 //Route::resource('sanPham',SanPhamController::class);
 Route::resource('sanPham', 'App\Http\Controllers\SanPhamController');
 Route::resource('ctsp', ChiTietSanPhamController::class);
 
 //
 Route::middleware('auth')->group(function () {
-
+        
     //bill
     Route::get('/bill', function () {
         return view('component/bill/list_bill');
@@ -84,7 +86,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/user',function(){
             return view('component/account/user');
         })->name('list-user');
-
+        
         //hien thi tai khoan admin
         Route::get('/admin', [TaiKhoanController::class,'getTaiKhoanAdmin'])->name("list-admin");
         Route::get('/user', [UserController::class,'getTaiKhoanUser'])->name("list-user");
@@ -92,7 +94,7 @@ Route::middleware('auth')->group(function () {
         // Route::get('/create', function () {
         //     return view('component/account/create_admin');
         // })->name('create-account');
-
+        
         Route::get('/create', [TaiKhoanController::class, 'create'])->name('admin-accounts-create');
         Route::post('/create', [TaiKhoanController::class, 'addAccount'])->name('admin-accounts-addAccount');
     //test
@@ -100,7 +102,7 @@ Route::middleware('auth')->group(function () {
         //edit tai khoan
         Route::post('/edit', [TaiKhoanController::class, 'editTaiKhoan'])->name('admin-accounts-editTaiKhoan');
     });
-    //route chuyen trang
+    //route chuyen trang 
     Route::get('/', function () {
         return view('index');
     })-> name('admin');

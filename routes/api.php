@@ -40,18 +40,13 @@ Route:: group(['prefix'=>'products'], function(){
 
 
 Route:: group(['prefix' => 'account'],function(){
-    Route::post('register','App\Http\Controllers\APITaiKhoanController@register');
+    Route::post('register','App\Http\Controllers\APITaiKhoanController@SignUp');
     Route::post('login','App\Http\Controllers\APITaiKhoanController@login');
-    Route::post('password/{id}','App\Http\Controllers\APITaiKhoanController@changePassword');
+    Route::post('password','App\Http\Controllers\APITaiKhoanController@changePassword');
     Route::get('{id}','App\Http\Controllers\APITaiKhoanController@info');
 
 });
 Route:: group(['prefix' => 'invoice'],function(){
     Route::get('/{id}',[APIHoaDonController::class,'getHoaDon']);
 });
-// Route::post('account/login/user', [APITaiKhoanController::class,'login']);
-Route::post('account/login/user', [APITaiKhoanController::class,'login']);
-Route::post('account/changepassword/user', [APITaiKhoanController::class,'changePassword']);
 
-// Route::get('account/{id}',[UserController::class,'userInfo']);
-// Route::post('account/sign-up',[UserController::class,'signUp']);
