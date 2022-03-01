@@ -8,7 +8,7 @@ use App\Models\SanPham;
 use App\Models\DongSanPham;
 use App\Models\NhaSanXuat;
 
-class SanPhamControler extends Controller
+class SanPhamController extends Controller
 {
     //chạy lệnh này để hiện ảnh: php artisan storage:link
     // protected function fixImage(SanPham $sanPham){
@@ -18,13 +18,12 @@ class SanPhamControler extends Controller
     //         $sanPham->HinhAnh= '/img/no_image_placeholder.png';
     //     }
     // }
-    public function home(){
+    public function index(){
         $lstSanPham = SanPham::all();
         //$lstDongSanPham = DongSanPham::all();
         // foreach($lstSanPham as $sanPham){ 
         //     $this -> fixImage($sanPham);
         // }
-        dd(SanPham::all());
         return view('component.product.list_product',compact('lstSanPham'));
     }
     public function show(SanPham $sanPham){

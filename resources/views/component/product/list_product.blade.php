@@ -14,7 +14,7 @@
         <div class="card-body">
             <h4 class="card-title">Danh sách sản phẩm</h4>
             <div>
-                <a style="margin: 19px;" href="{{ route('sanPham.create')}}" class="btn btn-primary">Thêm sản phẩm
+                <a style="margin: 19px;" href="{{ route('create-product')}}" class="btn btn-primary">Thêm sản phẩm
                     mới</a>
             </div>
             <div class="table-responsive">

@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaiKhoanController;
 use App\Http\Controllers\HoaDonController;
-use App\Http\Controllers\SanPhamControler;
+use App\Http\Controllers\SanPhamController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\UserController;
 /*
@@ -51,16 +51,16 @@ Route::get('/account/user',function(){
 Route::get('/account/admin', [TaiKhoanController::class,'getTaiKhoan'])->name("list-admin");
 
 // ----------------------Sản phẩm-------------------
-Route::get('product/list', [SanPhamControler::class,'home'])->name("list-product");
-Route::get('product/create', [SanPhamControler::class,'create'])->name("create-product");
-Route::post('product/update/{id}', [SanPhamControler::class,'update']);
-Route::put('product/edit/{id}', [SanPhamControler::class,'edit']);
-Route::delete('product/delete/{id}', [SanPhamControler::class,'deystroy']);
+Route::get('product/index', [SanPhamController::class,'index'])->name("list-product");
+Route::get('product/add', [SanPhamController::class,'create'])->name("create-product");
+Route::post('product/update/{id}', [SanPhamController::class,'update']);
+Route::put('product/edit/{id}', [SanPhamController::class,'edit']);
+Route::delete('product/delete/{id}', [SanPhamController::class,'deystroy']);
 //Route::get('product/detail/{id}', [SanPhamController::class,'findProductDetailByProduct']);
 
 
 //Route::resource('sanPham',SanPhamController::class);
-Route::resource('sanPham', SanPhamController::class);
+Route::resource('sanPham', SanPhamController::class);//tạo ra resource để khi gọi các phương thức trong controller chỉ cần sử dụng dấu chấm vd sanPham.create, sanPham.edit
 
 //
 Route::middleware('auth')->group(function () {
