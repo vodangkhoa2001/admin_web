@@ -366,8 +366,8 @@
                                 </a>
                                 <div class="collapse" id="form-elements">
                                     <ul class="nav flex-column sub-menu">
-                                        <li class="nav-item "><a class="nav-link" href="{{route('create_product')}}">Add Product</a></li>
-                                        <li class="nav-item "><a class="nav-link" href="{{route('list_product')}}">List Product</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('list-admin')}}">Add Product</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('list-admin')}}">List Product</a></li>
                                     </ul>
                                 </div>
                             </li>

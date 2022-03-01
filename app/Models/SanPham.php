@@ -22,6 +22,12 @@ class SanPham extends Model
         'GiaBan',
         'SoLuong',
         'MaNhaSanXuat',
+        'MaMau',
+        'MaManHinh',
+        'MaRam',
+        'MaCPU',
+        'MaCardDoHoa',
+        'MaOCung',
         'MaDongSanPham',
         'HinhAnh',
         'MoTa'
@@ -30,6 +36,24 @@ class SanPham extends Model
         return $this->belongsTo(DongSanPham::class);
     }
     public function nhaSanXuat(){
-        return $this->belongsTo('App\Models\NhaSanXuat','id');
+        return $this->belongsTo(NhaSanXuat::class);
+    }
+    public function mauSac(){
+        return $this->belongsTo(MauSac::class);
+    }
+    public function RAM(){
+        return $this->belongsTo(RAM::class);
+    }
+    public function CPU(){
+        return $this->belongsTo(CPU::class);
+    }
+    public function ManHinh(){
+        return $this->belongsTo(ManHinh::class);
+    }
+    public function OCung(){
+        return $this->belongsTo(Ocung::class);
+    }
+    public function cardDoHoa(){
+        return $this->belongsTo(NhaSanXuat::class);
     }
 }

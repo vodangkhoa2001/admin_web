@@ -25,6 +25,7 @@ class SanPhamSeeder extends Seeder
         $SanPham->MaRam=1;
         $SanPham->MaOCung=1;
         $SanPham->MaMau=1;
+        $SanPham->MaCardDoHoa=1;
         $SanPham->MaManHinh=1;
         $SanPham->MaNhaSanXuat=1;
         $SanPham->HinhAnh="nitro.png";
@@ -42,6 +43,7 @@ class SanPhamSeeder extends Seeder
         $SanPham->MaRam=2;
         $SanPham->MaOCung=2;
         $SanPham->MaMau=2;
+        $SanPham->MaCardDoHoa=2;
         $SanPham->MaManHinh=2;
         $SanPham->MaNhaSanXuat=1;
         $SanPham->HinhAnh="aspire7.png";
@@ -59,6 +61,7 @@ class SanPhamSeeder extends Seeder
         $SanPham->MaRam=3;
         $SanPham->MaOCung=3;
         $SanPham->MaMau=3;
+        $SanPham->MaCardDoHoa=4;
         $SanPham->MaManHinh=3;
         $SanPham->MaNhaSanXuat=2;
         $SanPham->HinhAnh="CreatorZ16.png";

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaiKhoanController;
 use App\Http\Controllers\HoaDonController;
+use App\Http\Controllers\SanPhamControler;
 use Illuminate\Http\Request;
 use App\Http\Controllers\UserController;
 /*
@@ -50,22 +51,16 @@ Route::get('/account/user',function(){
 Route::get('/account/admin', [TaiKhoanController::class,'getTaiKhoan'])->name("list-admin");
 
 // ----------------------Sản phẩm-------------------
-Route::get('product/list', [SanPhamController::class,'index'])->name("list-product");
-Route::get('product/create', [SanPhamController::class,'create'])->name("create-product");
-Route::post('product/update', [SanPhamController::class,'update']);
-Route::put('product/edit/{id}', [SanPhamController::class,'edit']);
-Route::delete('product/delete/{id}', [SanPhamController::class,'deystroy']);
+Route::get('product/list', [SanPhamControler::class,'home'])->name("list-product");
+Route::get('product/create', [SanPhamControler::class,'create'])->name("create-product");
+Route::post('product/update/{id}', [SanPhamControler::class,'update']);
+Route::put('product/edit/{id}', [SanPhamControler::class,'edit']);
+Route::delete('product/delete/{id}', [SanPhamControler::class,'deystroy']);
 //Route::get('product/detail/{id}', [SanPhamController::class,'findProductDetailByProduct']);
-// ----------------------Chi tiết sản phẩm--------------------
-Route::get('product/detail/{id}', [ChiTietSanPhamController::class,'show']);
-Route::get('product/detail/create/{id}', [ChiTietSanPhamController::class,'create']);
-Route::put('product/detail/create/{id}', [ChiTietSanPhamController::class,'edit']);
-Route::delete('product/detail/create/{id}', [ChiTietSanPhamController::class,'deystroy']);
 
 
 //Route::resource('sanPham',SanPhamController::class);
-Route::resource('sanPham', 'App\Http\Controllers\SanPhamController');
-Route::resource('ctsp', ChiTietSanPhamController::class);
+Route::resource('sanPham', SanPhamController::class);
 
 //
 Route::middleware('auth')->group(function () {
