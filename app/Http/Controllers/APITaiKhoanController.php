@@ -91,4 +91,17 @@ class APITaiKhoanController extends Controller
         }
     }
 
+    public function changeName($id,Request $request){
+        $user = TaiKhoan::find($id);
+        $user->HoTen = $request->HoTen;
+        $user->save();
+        return response(['message' => 'thanh cong']);
+    }
+    public function changeAddress($id,Request $request){
+        $user = TaiKhoan::find($id);
+        $user->DiaChi = $request->DiaChi;
+        $user->save();
+        return response(['message' => 'thanh cong']);
+    }
+
 }

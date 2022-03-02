@@ -22,7 +22,7 @@ class APISanPhamController extends Controller
         );
     }
     public function getProductByType($typeId){
-        $products = SanPham:: where ('MaDongSanPham',$typeId)->get();
+        $products = DB::select("SELECT sanpham.*,mausac.TenMau,ocung.TenOCung,ram.TenRam,manhinh.TenManHinh,cpu.TenCPU from sanpham,mausac,ocung,ram,manhinh,cpu WHERE sanpham.MaMau = mausac.id and sanpham.MaManHinh = manhinh.id and sanpham.MaOCung = ocung.id and sanpham.MaRam = ram.id and sanpham.MaCPU = cpu.id and sanpham.MaDongSanPham = '{$typeId}'");
         return response()->json(['data' => $products],200);
     }
     // Lấy chi tiết sản phẩm
