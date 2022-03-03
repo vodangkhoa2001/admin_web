@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
+use App\Models\Cpu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\SanPham;
 use App\Models\DongSanPham;
 use App\Models\NhaSanXuat;
+use App\Models\MauSac;
+use App\Models\Ram;
+use App\Models\ManHinh;
+use App\Models\CardDoHoa;
+use App\Models\OCung;
 
 class SanPhamController extends Controller
 {
@@ -26,16 +32,28 @@ class SanPhamController extends Controller
         // }
         return view('component.product.list_product',compact('lstSanPham'));
     }
+    public function detail($id){
+        $detailProduct = SanPham::find($id);
+        return view('component.product.show_detail_product',['sanPham'=>$detailProduct]);
+    }
     public function show(SanPham $sanPham){
         //$this->fiximage($sanPham);
-        return view('component.product.show_product',['sanPham'=>$sanPham]);
+        $lstDongSanPham = DongSanPham::all();
+        $lstNhaSanXuat = NhaSanXuat::all();
+        return view('component.product.show_product',['sanPham'=>$sanPham,'lstDongSanPham'=>$lstDongSanPham,'lstNhaSanXuat'=>$lstNhaSanXuat]);
     }
     public function edit(SanPham $sanPham){
         //$this->fiximage($sanPham);
         $lstDongSanPham = DongSanPham::all();
         $lstNhaSanXuat = NhaSanXuat::all();
+        $lstMauSac = MauSac::all();
+        $lstRAM = Ram::all();
+        $lstCPU = Cpu::all();
+        $lstManHinh = ManHinh::all();
+        $lstCardDoHoa = CardDoHoa::all();
+        $lstOCung = OCung::all();
         //return view('component/product/edit_product',['sanPham'=>$sanPham,'lstLoai'=>$lstLoai]);
-        return view('component.product.edit_product',['sanPham'=>$sanPham,'lstDongSanPham'=>$lstDongSanPham,'lstNhaSanXuat'=>$lstNhaSanXuat]);
+        return view('component.product.edit_product',['sanPham'=>$sanPham,'lstDongSanPham'=>$lstDongSanPham,'lstNhaSanXuat'=>$lstNhaSanXuat,'lstMauSac'=>$lstMauSac,'lstRAM'=>$lstRAM,'lstManHinh'=>$lstManHinh,'lstCardDoHoa'=>$lstCardDoHoa,'lstOCung'=>$lstOCung,'lstCPU'=>$lstCPU,]);
     }
     public function update(Request $request, SanPham $sanPham){
         // if($request->hasFile('HinhAnh')){
@@ -52,8 +70,15 @@ class SanPhamController extends Controller
             'GiaBan'=>$request->input('giaban'),
             'SoLuong'=>$request->input('soluong'),
             'MaNhaSanXuat'=>$request->input('nhasanxuat'),
-            'MoTa'=>$request->input('mota'),
             'MaDongSanPham'=>$request->input('dongsanpham'),
+            'MaMau'=>$request->input('mausac'),
+            'MaRam'=>$request->input('ram'),
+            'MaOCung'=>$request->input('ocung'),
+            'MaManHinh'=>$request->input('manhinh'),
+            'MaCardDoHoa'=>$request->input('carddohoa'),
+            'MaCPU'=>$request->input('cpu'),
+            'MoTa'=>$request->input('mota'),
+            'TrangThai'=>$request->input('active'),
         ]);
         $sanPham->save();
         return Redirect::route('sanPham.show',['sanPham'=>$sanPham]);
@@ -61,7 +86,12 @@ class SanPhamController extends Controller
     public function create(){
         $lstDongSanPham= DongSanPham::all();
         $lstNhaSanXuat = NhaSanXuat::all();
-        $datetime = Date('Ymdhms');
+        $lstMauSac = MauSac::all();
+        $lstRAM = Ram::all();
+        $lstCPU = Cpu::all();
+        $lstManHinh = ManHinh::all();
+        $lstCardDoHoa = CardDoHoa::all();
+        $lstOCung = OCung::all();
         $countAllProducts = SanPham::all()->count() + 1;
         $chuoiID = $countAllProducts;
         if ($countAllProducts > 99)
@@ -73,9 +103,9 @@ class SanPhamController extends Controller
             $chuoiID = '00' . $countAllProducts;
 
         $originalId = $chuoiID;
-        $finalId = 'SP_' . $datetime . $originalId;
+        $finalId = 'SP_' . $originalId;
         //return view('component/product/create_product',['lstLoai'=>$lstLoai]);
-        return view('component.product.create_product',['lstDongSanPham'=>$lstDongSanPham,'lstNhaSanXuat'=>$lstNhaSanXuat,'finalId'=> $finalId]);
+        return view('component.product.create_product',['lstDongSanPham'=>$lstDongSanPham,'lstNhaSanXuat'=>$lstNhaSanXuat,'finalId'=> $finalId,'lstMauSac'=>$lstMauSac,'lstRAM'=>$lstRAM,'lstManHinh'=>$lstManHinh,'lstCardDoHoa'=>$lstCardDoHoa,'lstOCung'=>$lstOCung,'lstCPU'=>$lstCPU]);
     }
     public function store(Request $request){
         // $validateData = $request->validate([
@@ -98,6 +128,13 @@ class SanPhamController extends Controller
         $sanPham->GiaBan = $request->giaban;
         $sanPham->MaDongSanPham = $request->dongsanpham;
         $sanPham->MaNhaSanXuat = $request->nhasanxuat;
+        $sanPham->MaMau = $request->mausac;
+        $sanPham->MaManHinh = $request->manhinh;
+        $sanPham->MaOCung = $request->ocung;
+        $sanPham->MaCardDoHoa = $request->carddohoa;
+        $sanPham->MaCPU = $request->cpu;
+        $sanPham->MaRam = $request->ram;
+        $sanPham->TrangThai = $request->active;
         $nameImg = $request->file('hinhanh')->getClientOriginalName();
         $request->hinhanh->storeAs('product/images', $nameImg);
         $sanPham->HinhAnh = $nameImg;

@@ -38,6 +38,7 @@ class CreateSanPhamsTable extends Migration
             $table->foreign('MaNhaSanXuat')->references('id')->on('NhaSanXuat');
             $table->string("HinhAnh");
             $table->string("MoTa");
+            $table->integer("TrangThai");
             $table->timestamps();
             $table->softDeletes();
         });

@@ -408,6 +408,84 @@
                                     </ul>
                                 </div>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#form-color" aria-expanded="false" aria-controls="form-color">
+                                    <i class="menu-icon mdi mdi-palette"></i>
+                                    <span class="menu-title">Color</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+                                <div class="collapse" id="form-color">
+                                    <ul class="nav flex-column sub-menu">
+                                        <li class="nav-item "><a class="nav-link" href="{{route('create-product')}}">Add Color</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('list-color')}}">List Color</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#form-ram" aria-expanded="false" aria-controls="form-elements">
+                                    <i class="menu-icon mdi mdi-memory"></i>
+                                    <span class="menu-title">Ram</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+                                <div class="collapse" id="form-ram">
+                                    <ul class="nav flex-column sub-menu">
+                                        <li class="nav-item "><a class="nav-link" href="{{route('create-product')}}">Add Ram</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('list-product')}}">List Ram</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#form-ssd" aria-expanded="false" aria-controls="form-elements">
+                                    <i class="menu-icon mdi mdi-harddisk"></i>
+                                    <span class="menu-title">SSD</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+                                <div class="collapse" id="form-ssd">
+                                    <ul class="nav flex-column sub-menu">
+                                        <li class="nav-item "><a class="nav-link" href="{{route('create-product')}}">Add SSD</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('list-product')}}">List SSD</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#form-monitor" aria-expanded="false" aria-controls="form-elements">
+                                    <i class="menu-icon mdi mdi-monitor"></i>
+                                    <span class="menu-title">Monitor</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+                                <div class="collapse" id="form-monitor">
+                                    <ul class="nav flex-column sub-menu">
+                                        <li class="nav-item "><a class="nav-link" href="{{route('create-product')}}">Add Monitor</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('list-product')}}">List Monitor</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#form-card" aria-expanded="false" aria-controls="form-elements">
+                                    <i class="menu-icon mdi mdi-relative-scale"></i>
+                                    <span class="menu-title">Graphics Card</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+                                <div class="collapse" id="form-card">
+                                    <ul class="nav flex-column sub-menu">
+                                        <li class="nav-item "><a class="nav-link" href="{{route('create-product')}}">Add Graphics Card</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('list-product')}}">List Graphics Card</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#form-cpu" aria-expanded="false" aria-controls="form-elements">
+                                    <i class="menu-icon mdi mdi-select-all"></i>
+                                    <span class="menu-title">CPU</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+                                <div class="collapse" id="form-cpu">
+                                    <ul class="nav flex-column sub-menu">
+                                        <li class="nav-item "><a class="nav-link" href="{{route('create-product')}}">Add CPU</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('list-product')}}">List CPU</a></li>
+                                    </ul>
+                                </div>
+                            </li>
                             <li class="nav-item nav-category">pages</li>
                             <li class="nav-item">
                                 <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">

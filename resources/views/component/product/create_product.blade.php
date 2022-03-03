@@ -73,23 +73,72 @@
                                     @endforeach
                                 </select>
                             </div>
-                            {{-- <div class="form-group">
-                                <label for="exampleFormControlSelect2">RAM</label>
-                                <select class="form-control" id="exampleFormControlSelect2">
-                                    <option>4GB</option>
-                                    <option>8GB</option>
-                                    <option>16GB</option>
-                                    <option>32GB</option>
-                                    <option>64GB</option>
+                        </div>
+                    </div>
+                </div>
+                <div class=" grid-margin stretch-card">
+                    <div class=" card">
+                        <div class="card-body">
+                            <h4 class="card-title">Thông số kỹ thuật</h4>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect">Màu sắc</label>
+                                <select class="form-control" name="masac">
+                                    <option value=''>Chọn màu sắc</option>
+                                    @foreach ($lstMauSac as $mauSac)
+                                    <option value="{{ $mauSac->id }}"> {{ $mauSac->TenMau}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlSelect3">Disk Type</label>
-                                <select class="form-control" id="exampleFormControlSelect3">
-                                    <option>SSD</option>
-                                    <option>HDD</option>
+                                <label for="exampleFormControlSelect">RAM</label>
+                                <select class="form-control" name="ram">
+                                    <option value=''>Chọn dung lượng RAM</option>
+                                    @foreach ($lstRAM as $ram)
+                                    <option value=" {{ $ram->id }} "> {{ $ram->TenRam }}
+                                    </option>
+                                    @endforeach
                                 </select>
-                            </div> --}}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect">Màn hình</label>
+                                <select class="form-control" name="manhinh">
+                                    <option value=''>Chọn kích thước màn hình</option>
+                                    @foreach ($lstManHinh as $manHinh)
+                                    <option value=" {{ $manHinh->id }} "> {{ $manHinh->TenManHinh }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect">CPU</label>
+                                <select class="form-control" name="cpu">
+                                    <option value=''>Chọn công nghệ CPU</option>
+                                    @foreach ($lstCPU as $cpu)
+                                    <option value=" {{ $cpu->id }} "> {{ $cpu->TenCPU }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect">Ổ cứng</label>
+                                <select class="form-control" name="ocung">
+                                    <option value=''>Chọn dung lượng ổ cứng</option>
+                                    @foreach ($lstOCung as $oCung)
+                                    <option value=" {{ $oCung->id }} "> {{ $oCung->TenOCung }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect">Card đồ họa</label>
+                                <select class="form-control" name="carddohoa">
+                                    <option value=''>Chọn card đồ họa</option>
+                                    @foreach ($lstCardDoHoa as $cdh)
+                                    <option value=" {{ $cdh->id }} "> {{ $cdh->TenCardDoHoa }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>

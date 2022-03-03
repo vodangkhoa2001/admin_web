@@ -39,21 +39,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="exampleTextarea1">Mô tả</label>
-                    <textarea name="mota" class="form-control" rows="10"
-                        style="height:100px;">{{ $sanPham->MoTa}}</textarea>
-                </div>
                 <div class=" grid-margin stretch-card">
                     <div class=" card">
                         <div class="card-body">
                             <h4 class="card-title">Nhà sản xuất & dòng sản phẩm</h4>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">Nhà sản xuất</label>
-                                <select class="form-control" name="nhasanxuat">
-                                    <option value=''>Chọn nhà sản xuất</option>
+                                <select class="form-control"  name="nhasanxuat">
+                                    <option  value=''>Chọn nhà sản xuất</option>
                                     @foreach ($lstNhaSanXuat as $nhaSanXuat)
-                                    <option value="{{ $nhaSanXuat->id }}" @if ($nhaSanXuat->id==$sanPham->MaNhaSanXuat)
+                                    <option  value="{{ $nhaSanXuat->id }}" @if ($nhaSanXuat->id==$sanPham->MaNhaSanXuat)
                                         selected @endif> {{ $nhaSanXuat->TenNhaSanXuat }}
                                     </option>
                                     @endforeach
@@ -70,24 +65,79 @@
                                     @endforeach
                                 </select>
                             </div>
-
-                            {{-- <div class="form-group">
-                                <label for="exampleFormControlSelect2">RAM</label>
-                                <select class="form-control" id="exampleFormControlSelect2">
-                                    <option>4GB</option>
-                                    <option>8GB</option>
-                                    <option>16GB</option>
-                                    <option>32GB</option>
-                                    <option>64GB</option>
+                        </div>
+                    </div>
+                </div>
+                <div class=" grid-margin stretch-card">
+                    <div class=" card">
+                        <div class="card-body">
+                            <h4 class="card-title">Thông số kỹ thuật</h4>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect">Màu sắc</label>
+                                <select class="form-control" name="masac">
+                                    <option value=''>Chọn màu sắc</option>
+                                    @foreach ($lstMauSac as $mauSac)
+                                    <option value="{{ $mauSac->id }}" @if ($mauSac->id==$sanPham->MaMau)
+                                        selected @endif> {{ $mauSac->TenMau}}
+                                    </option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlSelect3">Disk Type</label>
-                                <select class="form-control" id="exampleFormControlSelect3">
-                                    <option>SSD</option>
-                                    <option>HDD</option>
+                                <label for="exampleFormControlSelect">RAM</label>
+                                <select class="form-control" name="ram">
+                                    <option value=''>Chọn dung lượng RAM</option>
+                                    @foreach ($lstRAM as $ram)
+                                    <option value=" {{ $ram->id }} " @if($ram->id==$sanPham->MaRam) 
+                                        selected @endif> {{ $ram->TenRam }}
+                                    </option>
+                                    @endforeach
                                 </select>
-                            </div> --}}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect">Màn hình</label>
+                                <select class="form-control" name="manhinh">
+                                    <option value=''>Chọn kích thước màn hình</option>
+                                    @foreach ($lstManHinh as $manHinh)
+                                    <option value=" {{ $manHinh->id }} " @if($manHinh->id==$sanPham->MaManHinh) 
+                                        selected @endif> {{ $manHinh->TenManHinh }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect">CPU</label>
+                                <select class="form-control" name="cpu">
+                                    <option value=''>Chọn công nghệ CPU</option>
+                                    @foreach ($lstCPU as $cpu)
+                                    <option value=" {{ $cpu->id }} " @if($cpu->id==$sanPham->MaCPU) 
+                                        selected @endif> {{ $cpu->TenCPU }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect">Ổ cứng</label>
+                                <select class="form-control" name="ocung">
+                                    <option value=''>Chọn dung lượng ổ cứng</option>
+                                    @foreach ($lstOCung as $oCung)
+                                    <option value=" {{ $oCung->id }} " @if($oCung->id==$sanPham->MaOCung) 
+                                        selected @endif> {{ $oCung->TenOCung }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect">Card đồ họa</label>
+                                <select class="form-control" name="carddohoa">
+                                    <option value=''>Chọn card đồ họa</option>
+                                    @foreach ($lstCardDoHoa as $cdh)
+                                    <option value=" {{ $cdh->id }} " @if($cdh->id==$sanPham->MaCardDoHoa) 
+                                        selected @endif> {{ $cdh->TenCardDoHoa }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -109,21 +159,21 @@
                             <input name="soluong" value="{{ $sanPham->SoLuong }}" type="number"
                                 class="form-control form-control-sm" placeholder="Amount" aria-label="Amount">
                         </div>
-                        {{-- <div class="form-group">
-                            <label>Color code</label>
-                            <input type="text" class="form-control form-control-sm" placeholder="Color code"
-                                aria-label="ColorCode">
-                        </div> --}}
                     </div>
                 </div>
-                {{-- <div class="form-group">
+                <div class="form-group">
+                    <label for="exampleTextarea1">Mô tả</label>
+                    <textarea name="mota" class="form-control" rows="10"
+                        style="height:100px;">{{ $sanPham->MoTa}}</textarea>
+                </div>
+                <div class="form-group">
                     <div class="form-check form-check-primary">
                         <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" checked>
-                            Sell
+                            <input type="checkbox" name="active" class="form-check-input" checked>
+                            Sản phẩm bán (hoạt động)
                         </label>
                     </div>
-                </div> --}}
+                </div>
                 <div class="form-group mt-4">
                     <button type="submit" class="btn btn-primary me-2">Cập nhật</button>
                     <button href="{{route('list-product')}}" class="btn btn-light">Quay lại</button>

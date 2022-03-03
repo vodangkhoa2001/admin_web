@@ -16,6 +16,7 @@ class CreateRamsTable extends Migration
         Schema::create('Ram', function (Blueprint $table) {
             $table->id();
             $table->string('TenRam');
+            $table->integer("TrangThai");
             $table->timestamps();
             $table->softDeletes();
         });

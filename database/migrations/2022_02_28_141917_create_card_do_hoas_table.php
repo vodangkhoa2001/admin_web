@@ -16,6 +16,7 @@ class CreateCardDoHoasTable extends Migration
         Schema::create('CardDoHoa', function (Blueprint $table) {
             $table->id();
             $table->string('TenCardDoHoa');
+            $table->integer("TrangThai");
             $table->timestamps();
             $table->softDeletes();
         });

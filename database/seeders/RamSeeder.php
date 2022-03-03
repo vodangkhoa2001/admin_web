@@ -16,15 +16,19 @@ class RamSeeder extends Seeder
     {
         $Ram = new Ram();
         $Ram->TenRam="4 GB";
+        $Ram ->TrangThai = 1;
         $Ram->save();
         $Ram = new Ram();
         $Ram->TenRam="8 GB";
+        $Ram ->TrangThai = 1;
         $Ram->save();
         $Ram = new Ram();
         $Ram->TenRam="16 GB";
+        $Ram ->TrangThai = 1;
         $Ram->save();
         $Ram = new Ram();
         $Ram->TenRam="32 GB";
+        $Ram ->TrangThai = 1;
         $Ram->save();
     }
 }

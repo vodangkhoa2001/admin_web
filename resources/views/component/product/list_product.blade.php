@@ -37,16 +37,10 @@
                                 Số lượng
                             </th>
                             <th>
-                                Giá nhập
-                            </th>
-                            <th>
                                 Giá bán
                             </th>
                             <th>
                                 Hình ảnh
-                            </th>
-                            <th>
-                                Mô tả
                             </th>
                             <th>
 
@@ -72,16 +66,10 @@
                                 {{ $sanPham->SoLuong }}
                             </td>
                             <td>
-                                {{ $sanPham->GiaNhap }}
-                            </td>
-                            <td>
                                 {{ $sanPham->GiaBan }}
                             </td>
                             <td class="py-1">
                                 <img src="{{ asset('product/images')}}/{{ $sanPham->HinhAnh }}">
-                            </td>
-                            <td>
-                                {{ $sanPham->MoTa}}
                             </td>
                             <td>
                                 <a href=""

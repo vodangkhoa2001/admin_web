@@ -17,18 +17,23 @@ class MauSacSeeder extends Seeder
         //
         $MauSac=new MauSac();
         $MauSac->TenMau="Trắng";
+        $MauSac ->TrangThai = 1;
         $MauSac->save();
         $MauSac=new MauSac();
         $MauSac->TenMau="Đen";
+        $MauSac ->TrangThai = 1;
         $MauSac->save();
         $MauSac=new MauSac();
         $MauSac->TenMau="Bạc";
+        $MauSac ->TrangThai = 1;
         $MauSac->save();
         $MauSac=new MauSac();
         $MauSac->TenMau="Hồng";
+        $MauSac ->TrangThai = 1;
         $MauSac->save();
         $MauSac=new MauSac();
         $MauSac->TenMau="Vàng";
+        $MauSac ->TrangThai = 1;
         $MauSac->save();
 
     }

@@ -30,6 +30,7 @@ class SanPhamSeeder extends Seeder
         $SanPham->MaNhaSanXuat=1;
         $SanPham->HinhAnh="nitro.png";
         $SanPham->MoTa="Nitro 5 AN515-45 R6EV được trang bị bộ vi xử lý AMD Ryzen 5 5600H";
+        $SanPham->TrangThai = 1;
         $SanPham->save();
 
         $SanPham=new SanPham();
@@ -48,6 +49,7 @@ class SanPhamSeeder extends Seeder
         $SanPham->MaNhaSanXuat=1;
         $SanPham->HinhAnh="aspire7.png";
         $SanPham->MoTa="Acer Aspire 7 2020 A715 42G tích hợp card đồ họa NVIDIA GTX1650 4GB GDDR6 ra mắt năm 2020, là laptop chơi game tốt nhất phân khúc.";
+        $SanPham->TrangThai = 1;
         $SanPham->save();
 
         $SanPham=new SanPham();
@@ -66,6 +68,7 @@ class SanPhamSeeder extends Seeder
         $SanPham->MaNhaSanXuat=2;
         $SanPham->HinhAnh="CreatorZ16.png";
         $SanPham->MoTa="Laptop MSI Creator Z16 A11UET dựa trên triết lý thiết kế lấy con người làm trọng tâm, áp dụng Tỷ lệ vàng trong thiết kế sản phẩm với công nghệ tiên tiến hàng đầu.";
+        $SanPham->TrangThai = 1;
         $SanPham->save();
     }
 }

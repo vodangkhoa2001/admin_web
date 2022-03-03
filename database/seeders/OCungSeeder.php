@@ -16,18 +16,23 @@ class OCungSeeder extends Seeder
     {
         $Ocung = new OCung();
         $Ocung ->TenOCung="SSD 2 TB";
+        $Ocung ->TrangThai = 1;
         $Ocung->save();
         $Ocung = new OCung();
         $Ocung ->TenOCung="SSD 1 TB";
+        $Ocung ->TrangThai = 1;
         $Ocung->save();
         $Ocung = new OCung();
         $Ocung ->TenOCung="SSD 512 GB";
+        $Ocung ->TrangThai = 1;
         $Ocung->save();
         $Ocung = new OCung();
         $Ocung ->TenOCung="SSD 256 GB";
+        $Ocung ->TrangThai = 1;
         $Ocung->save();
         $Ocung = new OCung();
         $Ocung ->TenOCung="SSD 128 GB";
+        $Ocung ->TrangThai = 1;
         $Ocung->save();
     }
 }

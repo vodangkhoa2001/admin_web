@@ -16,18 +16,23 @@ class CPUSeeder extends Seeder
     {
         $CPU = new Cpu();
         $CPU ->TenCPU = "Intel Core i7";
+        $CPU ->TrangThai = 1;
         $CPU->save();
         $CPU = new Cpu();
         $CPU ->TenCPU = "Intel Core i5";
+        $CPU ->TrangThai = 1;
         $CPU->save();
         $CPU = new Cpu();
         $CPU ->TenCPU = "Intel Core i3";
+        $CPU ->TrangThai = 1;
         $CPU->save();
         $CPU = new Cpu();
         $CPU ->TenCPU = "Intel Celeron/Pentium";
+        $CPU ->TrangThai = 1;
         $CPU->save();
         $CPU = new Cpu();
         $CPU ->TenCPU = "ADM";
+        $CPU ->TrangThai = 1;
         $CPU->save();
     }
 }

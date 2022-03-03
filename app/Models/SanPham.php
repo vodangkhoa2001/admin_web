@@ -30,7 +30,8 @@ class SanPham extends Model
         'MaOCung',
         'MaDongSanPham',
         'HinhAnh',
-        'MoTa'
+        'MoTa',
+        'TrangThai'
     ];
     public function dongSanPham(){
         return $this->belongsTo(DongSanPham::class);

@@ -16,6 +16,7 @@ class CreateManHinhsTable extends Migration
         Schema::create('ManHinh', function (Blueprint $table) {
             $table->id();
             $table->string('TenManHinh');
+            $table->integer("TrangThai");
             $table->timestamps();
             $table->softDeletes();
         });

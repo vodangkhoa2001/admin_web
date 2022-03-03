@@ -16,6 +16,7 @@ class CreateOCungsTable extends Migration
         Schema::create('OCung', function (Blueprint $table) {
             $table->id();
             $table->string('TenOCung');
+            $table->integer("TrangThai");
             $table->timestamps();
             $table->softDeletes();
         });

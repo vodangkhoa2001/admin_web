@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaiKhoanController;
 use App\Http\Controllers\HoaDonController;
 use App\Http\Controllers\SanPhamController;
+use App\Http\Controllers\MauSacController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\UserController;
 /*
@@ -52,16 +53,22 @@ Route::get('/account/admin', [TaiKhoanController::class,'getTaiKhoan'])->name("l
 
 // ----------------------Sản phẩm-------------------
 Route::get('product/index', [SanPhamController::class,'index'])->name("list-product");
+// Route::get('product/detail/{id}', [SanPhamController::class,'detail'])->name("detail-product");
 Route::get('product/add', [SanPhamController::class,'create'])->name("create-product");
-Route::post('product/update/{id}', [SanPhamController::class,'update']);
-Route::put('product/edit/{id}', [SanPhamController::class,'edit']);
-Route::delete('product/delete/{id}', [SanPhamController::class,'deystroy']);
-//Route::get('product/detail/{id}', [SanPhamController::class,'findProductDetailByProduct']);
-
+Route::get('product/store', [SanPhamController::class,'store'])->name("store-product");
+Route::post('product/update', [SanPhamController::class,'update'])->name("update-product");
+Route::put('product/edit/{id}', [SanPhamController::class,'edit'])->name("edit-product");
+Route::delete('product/delete/{id}', [SanPhamController::class,'deystroy'])->name("delete-product");
 
 //Route::resource('sanPham',SanPhamController::class);
 Route::resource('sanPham', SanPhamController::class);//tạo ra resource để khi gọi các phương thức trong controller chỉ cần sử dụng dấu chấm vd sanPham.create, sanPham.edit
-
+//----------------------Màu sắc-------------------------
+Route::get('color/index', [MauSacController::class,'index'])->name('list-color');
+Route::get('color/create', [MauSacController::class,'create'])->name('create-color');
+Route::get('color/show', [MauSacController::class,'show'])->name('show-color');
+Route::get('color/edit/{id}', [MauSacController::class,'edit'])->name('edit-color');
+Route::post('color/update', [MauSacController::class,'update'])->name('update-color');
+Route::post('color/store', [MauSacController::class,'store'])->name('store-color');
 //
 Route::middleware('auth')->group(function () {
         
