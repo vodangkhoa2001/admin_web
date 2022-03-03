@@ -44,6 +44,8 @@ Route:: group(['prefix' => 'account'],function(){
     Route::post('login','App\Http\Controllers\APITaiKhoanController@login');
     Route::post('password','App\Http\Controllers\APITaiKhoanController@changePassword');
     Route::get('{id}','App\Http\Controllers\APITaiKhoanController@info');
+    Route::post('edit-name/{id}','App\Http\Controllers\APITaiKhoanController@changeName');
+    Route::post('edit-address/{id}','App\Http\Controllers\APITaiKhoanController@changeAddress');
 
 });
 Route:: group(['prefix' => 'invoice'],function(){
