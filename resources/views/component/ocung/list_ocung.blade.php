@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'List Product')
+@section('title', 'Danh Sách Ổ Cứng')
 
 @section('navbar')
 @parent
@@ -12,19 +12,19 @@
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Danh sách màu sắc</h4>
+            <h4 class="card-title">Danh sách ổ cứng</h4>
             <div>
-                <a style="margin: 19px;" href="{{route('color.create')}}" class="btn btn-primary">Thêm màu mới</a>
+                <a style="margin: 19px;" href="{{route('oCung.create')}}" class="btn btn-primary">Thêm ổ cứng mới</a>
             </div>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>
-                                Mã màu
+                                Mã ổ cứng
                             </th>
                             <th>
-                                Tên màu
+                                Tên ổ cứng
                             </th>
                             <th>
                                 Trạng thái
@@ -35,19 +35,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($mauSac as $mau)
+                        @forelse ($oCung as $ocung)
                         <tr>
                             <td>
-                                {{$mau->id }}
+                                {{$ocung->id }}
                             </td>
                             <td>
-                                {{$mau->TenMau}}
+                                {{$ocung->TenOCung}}
                             </td>
                             <td>
-                                {{$mau->TrangThai}}
+                                {{$ocung->TrangThai}}
                             </td>
                             <td>
-                                <a href="{{route('color.edit',$mau->id)}}"
+                                <a href="{{route('oCung.edit',$ocung->id)}}"
                                     class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil">Cập nhật</a>
                             </td>
                         </tr>

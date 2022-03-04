@@ -396,28 +396,43 @@
                                     </ul>
                                 </div>
                             </li>
+                            
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
-                                    <i class="menu-icon mdi mdi-layers-outline"></i>
-                                    <span class="menu-title">Icons</span>
+                                <a class="nav-link" data-bs-toggle="collapse" href="#form-type" aria-expanded="false" aria-controls="form-elements">
+                                    <i class="menu-icon mdi mdi-view-list"></i>
+                                    <span class="menu-title">Type</span>
                                     <i class="menu-arrow"></i>
                                 </a>
-                                <div class="collapse" id="icons">
+                                <div class="collapse" id="form-type">
                                     <ul class="nav flex-column sub-menu">
-                                        <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('type.create')}}">Add Type</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('type.index')}}">List Type</a></li>
                                     </ul>
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="collapse" href="#form-color" aria-expanded="false" aria-controls="form-color">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#form-manufacturer" aria-expanded="false" aria-controls="form-elements">
+                                    <i class="menu-icon mdi mdi-home-modern"></i>
+                                    <span class="menu-title">Manufacturer</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+                                <div class="collapse" id="form-manufacturer">
+                                    <ul class="nav flex-column sub-menu">
+                                        <li class="nav-item "><a class="nav-link" href="{{route('manufacturer.create')}}">Add Manufacturer</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('manufacturer.index')}}">List Manufacturer</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#form-color" aria-expanded="false" aria-controls="form-elements">
                                     <i class="menu-icon mdi mdi-palette"></i>
                                     <span class="menu-title">Color</span>
                                     <i class="menu-arrow"></i>
                                 </a>
                                 <div class="collapse" id="form-color">
                                     <ul class="nav flex-column sub-menu">
-                                        <li class="nav-item "><a class="nav-link" href="{{route('create-product')}}">Add Color</a></li>
-                                        <li class="nav-item "><a class="nav-link" href="{{route('list-color')}}">List Color</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('color.create')}}">Add Color</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('color.index')}}">List Color</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -429,8 +444,8 @@
                                 </a>
                                 <div class="collapse" id="form-ram">
                                     <ul class="nav flex-column sub-menu">
-                                        <li class="nav-item "><a class="nav-link" href="{{route('create-product')}}">Add Ram</a></li>
-                                        <li class="nav-item "><a class="nav-link" href="{{route('list-product')}}">List Ram</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('ram.create')}}">Add Ram</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('ram.index')}}">List Ram</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -442,8 +457,8 @@
                                 </a>
                                 <div class="collapse" id="form-ssd">
                                     <ul class="nav flex-column sub-menu">
-                                        <li class="nav-item "><a class="nav-link" href="{{route('create-product')}}">Add SSD</a></li>
-                                        <li class="nav-item "><a class="nav-link" href="{{route('list-product')}}">List SSD</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('oCung.create')}}">Add SSD</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('oCung.index')}}">List SSD</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -455,8 +470,8 @@
                                 </a>
                                 <div class="collapse" id="form-monitor">
                                     <ul class="nav flex-column sub-menu">
-                                        <li class="nav-item "><a class="nav-link" href="{{route('create-product')}}">Add Monitor</a></li>
-                                        <li class="nav-item "><a class="nav-link" href="{{route('list-product')}}">List Monitor</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('monitor.create')}}">Add Monitor</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('monitor.index')}}">List Monitor</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -468,8 +483,8 @@
                                 </a>
                                 <div class="collapse" id="form-card">
                                     <ul class="nav flex-column sub-menu">
-                                        <li class="nav-item "><a class="nav-link" href="{{route('create-product')}}">Add Graphics Card</a></li>
-                                        <li class="nav-item "><a class="nav-link" href="{{route('list-product')}}">List Graphics Card</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('carddohoa.create')}}">Add Graphics Card</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('carddohoa.index')}}">List Graphics Card</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -481,8 +496,8 @@
                                 </a>
                                 <div class="collapse" id="form-cpu">
                                     <ul class="nav flex-column sub-menu">
-                                        <li class="nav-item "><a class="nav-link" href="{{route('create-product')}}">Add CPU</a></li>
-                                        <li class="nav-item "><a class="nav-link" href="{{route('list-product')}}">List CPU</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('cpu.create')}}">Add CPU</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('cpu.index')}}">List CPU</a></li>
                                     </ul>
                                 </div>
                             </li>

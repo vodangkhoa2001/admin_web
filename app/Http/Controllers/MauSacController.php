@@ -9,51 +9,36 @@ use Illuminate\Support\Facades\Redirect;
 class MauSacController extends Controller
 {
     public function index(){
-        $lstMauSac = MauSac::all();
-        return view('component.color.list_color',compact('lstMauSac'));
+        $mauSac = MauSac::all();
+        return view('component.color.list_color',compact('mauSac'));
     }
     public function show($id){
-        $lstMauSac = MauSac::find($id);
-        return view('component.color.show_color',compact('lstMauSac'));
+        $mauSac = MauSac::find($id);
+        return view('component.color.show_color',compact('mauSac'));
     }
     public function edit($id){
-        $lstMauSac = MauSac::find($id);
-        return view('component.color.edit_color',compact('lstMauSac'));
+        $mauSac = MauSac::find($id);
+        return view('component.color.edit_color',compact('mauSac'));
     }
-    public function update(Request $request){
-        $mauSac = MauSac::find($request->id);
-        MauSac::where('id',$request->id)->update(
-            [
-                'id'=>$request->id,
-                'TenMauSac'=>$request->tenmausac,
-            ]
-        );
-        // $mauSac -> TenMau = $request-> TenMau;
-        // $mauSac->save();
-        return Redirect::route('show-color',compact('mauSac'));
+    public function update(Request $request,$id){
+        $mauSac = MauSac::find($id);
+        $mauSac -> TenMau = $request->get('tenmausac');
+        $mauSac -> TrangThai = $request->get('trangthai');
+        $mauSac->save();
+        return Redirect::route('color.show',compact('mauSac'));
     }
     public function create(){
         $countAllColors = MauSac::all()->count() + 1;
-        $chuoiID = $countAllColors;
-        if ($countAllColors > 99)
-            $chuoiID = $$countAllColors;
-
-        if ($countAllColors > 9)
-            $chuoiID = '0' . $countAllColors;
-        else
-            $chuoiID = '00' . $countAllColors;
-
-        $originalId = $chuoiID;
-        $finalId = $originalId;
-        //return view('component/product/create_product',['lstLoai'=>$lstLoai]);
+        $finalId = $countAllColors;
         return view('component.color.create_color',['finalId'=> $finalId]);
     }
     public function store(Request $request){
         $mauSac= new MauSac;
         $mauSac->id = $request->id;
         $mauSac->TenMau = $request->tenmausac;
+        $mauSac->TrangThai = $request->trangthai;
         $mauSac->save();
-        return Redirect::route('show-color',['mauSac'=>$mauSac])->with('message', 'Màu sắc được tạo thành công với ID: ' . $mauSac->id);
+        return Redirect::route('color.index',['mauSac'=>$mauSac])->with('message', 'Màu sắc được tạo thành công với ID: ' . $mauSac->id);
     }
 
 }

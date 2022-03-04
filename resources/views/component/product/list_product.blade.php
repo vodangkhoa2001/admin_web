@@ -22,7 +22,7 @@
                     <thead>
                         <tr>
                             <th>
-                                Mã sản phẩm
+                                ID
                             </th>
                             <th>
                                 Tên sản phẩm

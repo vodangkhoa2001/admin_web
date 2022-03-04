@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Create Product')
+@section('title', 'Create Graphics Card')
 
 @section('navbar')
 @parent
@@ -15,7 +15,7 @@
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Thêm màu mới</h4>
+            <h4 class="card-title">Thêm Card đồ họa mới</h4>
             {{-- @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -25,16 +25,16 @@
                     </ul>
                 </div>
             @endif --}}
-            <form class="forms-sample" action="{{ route('color.store') }}" method="post"
+            <form class="forms-sample" action="{{ route('carddohoa.store') }}" method="post"
                 enctype="multipart/form-data"> @csrf
                 <div class="form-group">
-                    <label for="exampleInputName1">Mã màu</label>
+                    <label for="exampleInputName1">Mã Card đồ họa</label>
                 <input type="text" class="form-control" id="exampleInputName1" value="{{$finalId}}" disabled >
                 <input type="hidden" class="form-control" id="exampleInputName1" value="{{$finalId}}" name="id">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputName1">Tên màu sắc</label>
-                    <input name="tenmausac" type="text" class="form-control" placeholder="Color Name">
+                    <label for="exampleInputName1">Tên Card đồ họa</label>
+                    <input name="tencarddohoa" type="text" class="form-control" placeholder="Graphics card Name">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect">Tình trạng</label>

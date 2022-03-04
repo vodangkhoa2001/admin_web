@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'List Product')
+@section('title', 'List CPU')
 
 @section('navbar')
 @parent
@@ -12,19 +12,19 @@
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Danh sách màu sắc</h4>
+            <h4 class="card-title">Danh sách CPU</h4>
             <div>
-                <a style="margin: 19px;" href="{{route('color.create')}}" class="btn btn-primary">Thêm màu mới</a>
+                <a style="margin: 19px;" href="{{route('cpu.create')}}" class="btn btn-primary">Thêm CPU mới</a>
             </div>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>
-                                Mã màu
+                                Mã CPU
                             </th>
                             <th>
-                                Tên màu
+                                Tên CPU
                             </th>
                             <th>
                                 Trạng thái
@@ -35,19 +35,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($mauSac as $mau)
+                        @forelse ($cpu as $c)
                         <tr>
                             <td>
-                                {{$mau->id }}
+                                {{$c->id }}
                             </td>
                             <td>
-                                {{$mau->TenMau}}
+                                {{$c->TenCPU}}
                             </td>
                             <td>
-                                {{$mau->TrangThai}}
+                                {{$c->TrangThai}}
                             </td>
                             <td>
-                                <a href="{{route('color.edit',$mau->id)}}"
+                                <a href="{{route('cpu.edit',$c->id)}}"
                                     class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil">Cập nhật</a>
                             </td>
                         </tr>

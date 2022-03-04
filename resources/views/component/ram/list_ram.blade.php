@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'List Product')
+@section('title', 'List RAM')
 
 @section('navbar')
 @parent
@@ -12,19 +12,19 @@
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Danh sách màu sắc</h4>
+            <h4 class="card-title">Danh sách RAM</h4>
             <div>
-                <a style="margin: 19px;" href="{{route('color.create')}}" class="btn btn-primary">Thêm màu mới</a>
+                <a style="margin: 19px;" href="{{route('ram.create')}}" class="btn btn-primary">Thêm RAM mới</a>
             </div>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>
-                                Mã màu
+                                Mã RAM
                             </th>
                             <th>
-                                Tên màu
+                                Tên RAM
                             </th>
                             <th>
                                 Trạng thái
@@ -35,26 +35,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($mauSac as $mau)
+                        @forelse ($ram as $r)
                         <tr>
                             <td>
-                                {{$mau->id }}
+                                {{$r->id }}
                             </td>
                             <td>
-                                {{$mau->TenMau}}
+                                {{$r->TenRam}}
                             </td>
                             <td>
-                                {{$mau->TrangThai}}
+                                {{$r->TrangThai}}
                             </td>
                             <td>
-                                <a href="{{route('color.edit',$mau->id)}}"
+                                <a href="{{route('ram.edit',$r->id)}}"
                                     class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil">Cập nhật</a>
                             </td>
                         </tr>
                         @empty
                         <tr>
                             <td colspan="9">
-                                Chưa có màu mới
+                                 Chưa hiển thị RAM
                             </td>
                         </tr>
                         @endforelse

@@ -12,19 +12,19 @@
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Danh sách màu sắc</h4>
+            <h4 class="card-title">Danh sách nhà sản xuất</h4>
             <div>
-                <a style="margin: 19px;" href="{{route('color.create')}}" class="btn btn-primary">Thêm màu mới</a>
+                <a style="margin: 19px;" href="{{route('manufacturer.create')}}" class="btn btn-primary">Thêm nhà sản xuất mới</a>
             </div>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>
-                                Mã màu
+                                Mã nhà sản xuất
                             </th>
                             <th>
-                                Tên màu
+                                Tên nhà sản xuất
                             </th>
                             <th>
                                 Trạng thái
@@ -35,19 +35,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($mauSac as $mau)
+                        @forelse ($manufacturer as $m)
                         <tr>
                             <td>
-                                {{$mau->id }}
+                                {{$m->id }}
                             </td>
                             <td>
-                                {{$mau->TenMau}}
+                                {{$m->TenNhaSanXuat}}
                             </td>
                             <td>
-                                {{$mau->TrangThai}}
+                                {{$m->TrangThai_NhaSanXuat}}
                             </td>
                             <td>
-                                <a href="{{route('color.edit',$mau->id)}}"
+                                <a href="{{route('manufacturer.edit',$m->id)}}"
                                     class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil">Cập nhật</a>
                             </td>
                         </tr>

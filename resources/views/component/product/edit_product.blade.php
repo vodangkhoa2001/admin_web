@@ -176,7 +176,7 @@
                 </div>
                 <div class="form-group mt-4">
                     <button type="submit" class="btn btn-primary me-2">Cập nhật</button>
-                    <button href="{{route('list-product')}}" class="btn btn-light">Quay lại</button>
+                    <a href="{{route('list-product')}}" class="btn btn-light">Quay lại</a>
                 </div>
             </form>
         </div>

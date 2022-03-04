@@ -4,7 +4,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaiKhoanController;
 use App\Http\Controllers\HoaDonController;
 use App\Http\Controllers\SanPhamController;
+use App\Http\Controllers\LoaiSanPhamController;
+use App\Http\Controllers\NhaSanXuatController;
 use App\Http\Controllers\MauSacController;
+use App\Http\Controllers\RamController;
+use App\Http\Controllers\OCungController;
+use App\Http\Controllers\MonitorController;
+use App\Http\Controllers\CardDoHoaController;
+use App\Http\Controllers\CPUController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\UserController;
 /*
@@ -63,13 +70,29 @@ Route::delete('product/delete/{id}', [SanPhamController::class,'deystroy'])->nam
 //Route::resource('sanPham',SanPhamController::class);
 Route::resource('sanPham', SanPhamController::class);//tạo ra resource để khi gọi các phương thức trong controller chỉ cần sử dụng dấu chấm vd sanPham.create, sanPham.edit
 //----------------------Màu sắc-------------------------
-Route::get('color/index', [MauSacController::class,'index'])->name('list-color');
-Route::get('color/create', [MauSacController::class,'create'])->name('create-color');
-Route::get('color/show', [MauSacController::class,'show'])->name('show-color');
-Route::get('color/edit/{id}', [MauSacController::class,'edit'])->name('edit-color');
-Route::post('color/update', [MauSacController::class,'update'])->name('update-color');
-Route::post('color/store', [MauSacController::class,'store'])->name('store-color');
-//
+// Route::get('color/index', [MauSacController::class,'index'])->name('list-color');
+// Route::get('color/create', [MauSacController::class,'create'])->name('create-color');
+// Route::get('color/show{id}', [MauSacController::class,'show'])->name('show-color');
+// Route::get('color/edit/{id}', [MauSacController::class,'edit'])->name('edit-color');
+// Route::post('color/update{id}', [MauSacController::class,'update'])->name('update-color');
+// Route::post('color/store', [MauSacController::class,'store'])->name('store-color');
+Route::resource('color', MauSacController::class);
+//--------------------------Ram----------------------------------
+Route::resource('ram', RamController::class);
+//--------------------------Ổ Cứng----------------------------------
+Route::resource('oCung', OCungController::class);
+//--------------------------Màn Hình----------------------------------
+Route::resource('monitor', MonitorController::class);
+//--------------------------Card Đồ Họa----------------------------------
+Route::resource('carddohoa', CardDoHoaController::class);
+//--------------------------CPU----------------------------------
+Route::resource('cpu', CPUController::class);
+//--------------------------Dòng sản phẩm----------------------------------
+Route::resource('type', LoaiSanPhamController::class);
+//--------------------------Nhà sản xuất----------------------------------
+Route::resource('manufacturer', NhaSanXuatController::class);
+
+//-------------------------------------------------------------
 Route::middleware('auth')->group(function () {
         
     //bill

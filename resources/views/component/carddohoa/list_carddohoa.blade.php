@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'List Product')
+@section('title', 'List Graphics Card')
 
 @section('navbar')
 @parent
@@ -12,19 +12,19 @@
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Danh sách màu sắc</h4>
+            <h4 class="card-title">Danh sách Card đồ họa</h4>
             <div>
-                <a style="margin: 19px;" href="{{route('color.create')}}" class="btn btn-primary">Thêm màu mới</a>
+                <a style="margin: 19px;" href="{{route('carddohoa.create')}}" class="btn btn-primary">Thêm Card đồ họa mới</a>
             </div>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>
-                                Mã màu
+                                Mã Card đồ họa
                             </th>
                             <th>
-                                Tên màu
+                                Tên Card đồ họa
                             </th>
                             <th>
                                 Trạng thái
@@ -35,19 +35,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($mauSac as $mau)
+                        @forelse ($carddohoa as $card)
                         <tr>
                             <td>
-                                {{$mau->id }}
+                                {{$card->id }}
                             </td>
                             <td>
-                                {{$mau->TenMau}}
+                                {{$card->TenCardDoHoa}}
                             </td>
                             <td>
-                                {{$mau->TrangThai}}
+                                {{$card->TrangThai}}
                             </td>
                             <td>
-                                <a href="{{route('color.edit',$mau->id)}}"
+                                <a href="{{route('carddohoa.edit',$card->id)}}"
                                     class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil">Cập nhật</a>
                             </td>
                         </tr>
