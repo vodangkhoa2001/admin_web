@@ -48,6 +48,11 @@ Route:: group(['prefix' => 'account'],function(){
     Route::post('edit-address/{id}','App\Http\Controllers\APITaiKhoanController@changeAddress');
 
 });
+Route::post('add-cart','App\Http\Controllers\APIGioHangController@addToCart');
+Route::post('remove-cart','App\Http\Controllers\APIGioHangController@removeCart');
+Route::post('get-cart','App\Http\Controllers\APIGioHangController@getCart');
+
+
 Route:: group(['prefix' => 'invoice'],function(){
     Route::get('/{id}',[APIHoaDonController::class,'getHoaDon']);
 });
