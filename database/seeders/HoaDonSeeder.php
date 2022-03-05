@@ -37,6 +37,7 @@ class HoaDonSeeder extends Seeder
                 'DiaChiGiaoHang'=>'hcm',
                 'SDT_GiaoHang'=> '0909876789',
                 'TongTien'=>40000000,
+                'GhiChu'=>'',
                 'TrangThoai_HoaDon'=>1,
             ),
             array(
@@ -45,6 +46,7 @@ class HoaDonSeeder extends Seeder
                 'DiaChiGiaoHang'=>'hcm',
                 'SDT_GiaoHang'=> '0909876789',
                 'TongTien'=>20000000,
+                'GhiChu'=>'',
                 'TrangThoai_HoaDon'=>0,
             ),
             array(
@@ -53,6 +55,7 @@ class HoaDonSeeder extends Seeder
                 'DiaChiGiaoHang'=>'hcm',
                 'SDT_GiaoHang'=> '0909876789',
                 'TongTien'=>20000000,
+                'GhiChu'=>'',
                 'TrangThoai_HoaDon'=>3,
             ),
             array(
@@ -61,6 +64,7 @@ class HoaDonSeeder extends Seeder
                 'DiaChiGiaoHang'=>'hcm',
                 'SDT_GiaoHang'=> '0909876789',
                 'TongTien'=>20000000,
+                'GhiChu'=>'',
                 'TrangThoai_HoaDon'=>2,
             ),
         ]);
