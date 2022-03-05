@@ -15,7 +15,7 @@ class SanPhamSeeder extends Seeder
     {
         //
         $SanPham=new SanPham();
-        $SanPham->id="SP01";
+        $SanPham->id="SP001";
         $SanPham->MaDongSanPham=1;
         $SanPham->TenSanPham="Laptop Gaming Acer Nitro 5 AN515 45 R6EV";
         $SanPham->GiaNhap=20000000;
@@ -34,7 +34,7 @@ class SanPhamSeeder extends Seeder
         $SanPham->save();
 
         $SanPham=new SanPham();
-        $SanPham->id="SP02";
+        $SanPham->id="SP002";
         $SanPham->MaDongSanPham=1;
         $SanPham->TenSanPham="Laptop Gaming Acer Aspire 7 A715 42G R1SB";
         $SanPham->GiaNhap=19000000;
@@ -53,7 +53,7 @@ class SanPhamSeeder extends Seeder
         $SanPham->save();
 
         $SanPham=new SanPham();
-        $SanPham->id="SP03";
+        $SanPham->id="SP003";
         $SanPham->MaDongSanPham=2;
         $SanPham->TenSanPham="Laptop MSI Creator Z16 A11UET 217VN";
         $SanPham->GiaNhap=54000000;

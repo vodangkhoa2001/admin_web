@@ -44,7 +44,7 @@
                                 {{$m->TenManHinh}}
                             </td>
                             <td>
-                                {{$m->TrangThai}}
+                                @if ( $m->TrangThai==0) Ngừng kinh doanh @endif @if ( $m->TrangThai==1) Kinh doanh @endif
                             </td>
                             <td>
                                 <a href="{{route('monitor.edit',$m->id)}}"

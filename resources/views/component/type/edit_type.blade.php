@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-group mt-4">
                     <button type="submit" class="btn btn-primary me-2">Cập nhật</button>
-                    <a href="{{route('type.index')}}" class="btn btn-light">Quay lại</a>
+                    <a href="{{route('type.index')}}" class="btn btn-warning">Quay lại</a>
                 </div>
             </form>
            

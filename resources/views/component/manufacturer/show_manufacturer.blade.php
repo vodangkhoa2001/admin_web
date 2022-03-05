@@ -8,6 +8,9 @@
     <label><strong>Mã nhà sản xuất: </strong> {{ $manufacturer->id }} </label>  <br />
     <label><strong>Tên nhà sản xuất: </strong> {{ $manufacturer->TenNhaSanXuat }} </label>  <br />
     <label><strong>Trạng thái: </strong> @if ( $manufacturer->TrangThai_NhaSanXuat==0) Ngừng kinh doanh @endif @if ( $manufacturer->TrangThai_NhaSanXuat==1) Kinh doanh @endif</label>  <br />
+    <div class="form-group mt-4">
+        <a href="{{route('manafacturer.index')}}" class="btn btn-warning">Quay lại</a>
+    </div>
 </form>
 
 @endsection

@@ -26,21 +26,14 @@ class SanPhamController extends Controller
     // }
     public function index(){
         $lstSanPham = SanPham::all();
-        //$lstDongSanPham = DongSanPham::all();
         // foreach($lstSanPham as $sanPham){ 
         //     $this -> fixImage($sanPham);
         // }
         return view('component.product.list_product',compact('lstSanPham'));
     }
-    public function detail($id){
-        $detailProduct = SanPham::find($id);
-        return view('component.product.show_detail_product',['sanPham'=>$detailProduct]);
-    }
     public function show(SanPham $sanPham){
         //$this->fiximage($sanPham);
-        $lstDongSanPham = DongSanPham::all();
-        $lstNhaSanXuat = NhaSanXuat::all();
-        return view('component.product.show_product',['sanPham'=>$sanPham,'lstDongSanPham'=>$lstDongSanPham,'lstNhaSanXuat'=>$lstNhaSanXuat]);
+        return view('component.product.show_product',['sanPham'=>$sanPham]);
     }
     public function edit(SanPham $sanPham){
         //$this->fiximage($sanPham);
@@ -78,7 +71,7 @@ class SanPhamController extends Controller
             'MaCardDoHoa'=>$request->input('carddohoa'),
             'MaCPU'=>$request->input('cpu'),
             'MoTa'=>$request->input('mota'),
-            'TrangThai'=>$request->input('active'),
+            'TrangThai'=>$request->input('trangthai'),
         ]);
         $sanPham->save();
         return Redirect::route('sanPham.show',['sanPham'=>$sanPham]);
@@ -103,7 +96,7 @@ class SanPhamController extends Controller
             $chuoiID = '00' . $countAllProducts;
 
         $originalId = $chuoiID;
-        $finalId = 'SP_' . $originalId;
+        $finalId = 'SP' . $originalId;
         //return view('component/product/create_product',['lstLoai'=>$lstLoai]);
         return view('component.product.create_product',['lstDongSanPham'=>$lstDongSanPham,'lstNhaSanXuat'=>$lstNhaSanXuat,'finalId'=> $finalId,'lstMauSac'=>$lstMauSac,'lstRAM'=>$lstRAM,'lstManHinh'=>$lstManHinh,'lstCardDoHoa'=>$lstCardDoHoa,'lstOCung'=>$lstOCung,'lstCPU'=>$lstCPU]);
     }
@@ -134,7 +127,7 @@ class SanPhamController extends Controller
         $sanPham->MaCardDoHoa = $request->carddohoa;
         $sanPham->MaCPU = $request->cpu;
         $sanPham->MaRam = $request->ram;
-        $sanPham->TrangThai = $request->active;
+        $sanPham->TrangThai = $request->trangthai;
         $nameImg = $request->file('hinhanh')->getClientOriginalName();
         $request->hinhanh->storeAs('product/images', $nameImg);
         $sanPham->HinhAnh = $nameImg;

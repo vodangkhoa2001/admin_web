@@ -17,8 +17,6 @@ class CreateKhuyenMaisTable extends Migration
             $table->id();
             $table->string('MaSanPhamKhuyenMai');
             $table->foreign('MaSanPhamKhuyenMai')->references('id')->on('SanPham');
-            $table->string('MaTaiKhoan');
-            $table->foreign('MaTaiKhoan')->references('id')->on('TaiKhoan');
             $table->integer("DonGiaKhuyenMai");
             $table->string("MoTa");
             $table->integer("SoLuongKhuyenMai");

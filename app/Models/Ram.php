@@ -9,4 +9,7 @@ class Ram extends Model
 {
     use HasFactory;
     protected $table="ram";
+    public function sanPham(){
+        return $this->hasMany('App\Models\SanPham');
+    }
 }

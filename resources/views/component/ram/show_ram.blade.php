@@ -8,6 +8,9 @@
     <label><strong>Mã Ram: </strong> {{ $ram->id }} </label>  <br />
     <label><strong>Tên RAM: </strong> {{ $ram->TenRam }} </label>  <br />
     <label><strong>Trạng thái: </strong> @if ( $ram->TrangThai==0) Ngừng kinh doanh @endif @if ( $ram->TrangThai==1) Kinh doanh @endif</label>  <br />
+    <div class="form-group mt-4">
+        <a href="{{route('ram.index')}}" class="btn btn-warning">Quay lại</a>
+    </div>
 </form>
 
 @endsection

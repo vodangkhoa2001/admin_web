@@ -44,7 +44,7 @@
                                 {{$c->TenCPU}}
                             </td>
                             <td>
-                                {{$c->TrangThai}}
+                                @if ( $c->TrangThai==0) Ngừng kinh doanh @endif @if ( $c->TrangThai==1) Kinh doanh @endif
                             </td>
                             <td>
                                 <a href="{{route('cpu.edit',$c->id)}}"

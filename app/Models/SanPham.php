@@ -5,6 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\MauSac;
+use App\Models\Cpu;
+use App\Models\OCung;
+use App\Models\ManHinh;
+use App\Models\CardDoHoa;
 
 class SanPham extends Model
 {
@@ -34,27 +39,27 @@ class SanPham extends Model
         'TrangThai'
     ];
     public function dongSanPham(){
-        return $this->belongsTo(DongSanPham::class);
+        return $this->belongsTo('App\Models\DongSanPham','MaDongSanPham','id');
     }
     public function nhaSanXuat(){
-        return $this->belongsTo(NhaSanXuat::class);
+        return $this->belongsTo('App\Models\NhaSanXuat','MaNhaSanXuat','id');
     }
     public function mauSac(){
-        return $this->belongsTo(MauSac::class);
+        return $this->belongsTo(MauSac::class,'MaMau','id');
     }
     public function RAM(){
-        return $this->belongsTo(RAM::class);
+        return $this->belongsTo('App\Models\Ram','MaRam','id');
     }
     public function CPU(){
-        return $this->belongsTo(CPU::class);
+        return $this->belongsTo(CPU::class,'MaCPU','id');
     }
     public function ManHinh(){
-        return $this->belongsTo(ManHinh::class);
+        return $this->belongsTo(ManHinh::class,'MaManHinh','id');
     }
     public function OCung(){
-        return $this->belongsTo(Ocung::class);
+        return $this->belongsTo(Ocung::class,'MaOCung','id');
     }
     public function cardDoHoa(){
-        return $this->belongsTo(NhaSanXuat::class);
+        return $this->belongsTo(CardDoHoa::class,'MaCardDoHoa','id');
     }
 }

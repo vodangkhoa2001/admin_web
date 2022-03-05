@@ -44,7 +44,7 @@
                                 {{$r->TenRam}}
                             </td>
                             <td>
-                                {{$r->TrangThai}}
+                                @if ( $r->TrangThai==0) Ngừng kinh doanh @endif @if ( $r->TrangThai==1) Kinh doanh @endif
                             </td>
                             <td>
                                 <a href="{{route('ram.edit',$r->id)}}"

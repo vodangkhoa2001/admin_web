@@ -44,7 +44,7 @@
                                 {{$mau->TenMau}}
                             </td>
                             <td>
-                                {{$mau->TrangThai}}
+                                @if ( $mau->TrangThai==0) Ngừng kinh doanh @endif @if ( $mau->TrangThai==1) Kinh doanh @endif
                             </td>
                             <td>
                                 <a href="{{route('color.edit',$mau->id)}}"

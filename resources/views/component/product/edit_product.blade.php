@@ -74,7 +74,7 @@
                             <h4 class="card-title">Thông số kỹ thuật</h4>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">Màu sắc</label>
-                                <select class="form-control" name="masac">
+                                <select class="form-control" name="mausac">
                                     <option value=''>Chọn màu sắc</option>
                                     @foreach ($lstMauSac as $mauSac)
                                     <option value="{{ $mauSac->id }}" @if ($mauSac->id==$sanPham->MaMau)
@@ -167,16 +167,21 @@
                         style="height:100px;">{{ $sanPham->MoTa}}</textarea>
                 </div>
                 <div class="form-group">
-                    <div class="form-check form-check-primary">
-                        <label class="form-check-label">
-                            <input type="checkbox" name="active" class="form-check-input" checked>
-                            Sản phẩm bán (hoạt động)
-                        </label>
-                    </div>
+                    <label for="exampleFormControlSelect">Tình trạng</label>
+                    <select class="form-control" name="trangthai">
+                        @if ( $ram->TrangThai==1)
+                            <option value="1" checked> Kinh doanh</option>
+                            <option value="0"> Ngừng kinh doanh</option>
+                        @endif
+                        @if ( $ram->TrangThai==0)
+                            <option value="0" checked> Ngừng kinh doanh</option>
+                            <option value="1"> Kinh doanh</option>
+                        @endif
+                    </select>
                 </div>
                 <div class="form-group mt-4">
                     <button type="submit" class="btn btn-primary me-2">Cập nhật</button>
-                    <a href="{{route('list-product')}}" class="btn btn-light">Quay lại</a>
+                    <a href="{{route('list-product')}}" class="btn btn-warning">Quay lại</a>
                 </div>
             </form>
         </div>

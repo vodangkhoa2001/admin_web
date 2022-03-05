@@ -8,6 +8,9 @@
     <label><strong>Mã màn hình: </strong> {{ $monitor->id }} </label>  <br />
     <label><strong>Tên màn hình: </strong> {{ $monitor->TenManHinh }} </label>  <br />
     <label><strong>Trạng thái: </strong> @if ( $monitor->TrangThai==0) Ngừng kinh doanh @endif @if ( $monitor->TrangThai==1) Kinh doanh @endif</label>  <br />
+    <div class="form-group mt-4">
+        <a href="{{route('monitor.index')}}" class="btn btn-warning">Quay lại</a>
+    </div>
 </form>
 
 @endsection

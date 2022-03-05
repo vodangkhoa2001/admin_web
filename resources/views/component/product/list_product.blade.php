@@ -57,10 +57,10 @@
                                 {{ $sanPham->TenSanPham }}
                             </td>
                             <td>
-                                {{ $sanPham->MaDongSanPham }}
+                                {{ $sanPham->dongSanPham->TenDongSanPham}}
                             </td>
                             <td>
-                                {{ $sanPham->MaNhaSanXuat }}
+                                {{ $sanPham->nhaSanXuat->TenNhaSanXuat }}
                             </td>
                             <td>
                                 {{ $sanPham->SoLuong }}
@@ -72,10 +72,10 @@
                                 <img src="{{ asset('product/images')}}/{{ $sanPham->HinhAnh }}">
                             </td>
                             <td>
-                                <a href=""
+                                <a href="{{route('sanPham.show',$sanPham->id)}}"
                                     class="btn btn-sm btn btn-info"><span class="glyphicon glyphicon-pencil">Chi tiết</a>
                                 <a href="{{ route('sanPham.edit',['sanPham'=>$sanPham]) }}"
-                                    class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil">Sửa</a>
+                                    class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil">Cập nhật</a>
                                 <a href="{{ route('sanPham.destroy',['sanPham'=>$sanPham]) }}"
                                     class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash">Xóa</a>
                             </td>

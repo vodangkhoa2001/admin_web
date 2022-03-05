@@ -8,6 +8,9 @@
     <label><strong>Mã CPU: </strong> {{ $cpu->id }} </label>  <br />
     <label><strong>Tên CPU: </strong> {{ $cpu->TenCPU }} </label>  <br />
     <label><strong>Trạng thái: </strong> @if ( $cpu->TrangThai==0) Ngừng kinh doanh @endif @if ( $cpu->TrangThai==1) Kinh doanh @endif</label>  <br />
+    <div class="form-group mt-4">
+        <a href="{{route('cpu.index')}}" class="btn btn-warning">Quay lại</a>
+    </div>
 </form>
 
 @endsection

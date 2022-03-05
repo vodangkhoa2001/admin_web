@@ -82,7 +82,7 @@
                             <h4 class="card-title">Thông số kỹ thuật</h4>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">Màu sắc</label>
-                                <select class="form-control" name="masac">
+                                <select class="form-control" name="mausac">
                                     <option value=''>Chọn màu sắc</option>
                                     @foreach ($lstMauSac as $mauSac)
                                     <option value="{{ $mauSac->id }}"> {{ $mauSac->TenMau}}</option>
@@ -175,6 +175,13 @@
                         </label>
                     </div>
                 </div> --}}
+                <div class="form-group">
+                    <label for="exampleFormControlSelect">Tình trạng</label>
+                    <select class="form-control" name="trangthai">
+                            <option value="1"> Kinh doanh</option>
+                            <option value="0"> Ngừng kinh doanh</option>
+                    </select>
+                </div>
                 <div class="form-group mt-4">
                     <button type="submit" class="btn btn-primary me-2">Thêm</button>
                 </div>

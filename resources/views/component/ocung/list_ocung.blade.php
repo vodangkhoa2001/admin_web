@@ -44,7 +44,7 @@
                                 {{$ocung->TenOCung}}
                             </td>
                             <td>
-                                {{$ocung->TrangThai}}
+                                @if ( $ocung->TrangThai==0) Ngừng kinh doanh @endif @if ( $ocung->TrangThai==1) Kinh doanh @endif
                             </td>
                             <td>
                                 <a href="{{route('oCung.edit',$ocung->id)}}"

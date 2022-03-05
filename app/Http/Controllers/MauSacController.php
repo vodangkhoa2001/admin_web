@@ -12,8 +12,8 @@ class MauSacController extends Controller
         $mauSac = MauSac::all();
         return view('component.color.list_color',compact('mauSac'));
     }
-    public function show($id){
-        $mauSac = MauSac::find($id);
+    public function show(MauSac $mauSac){
+        //$mauSac = MauSac::find($id);
         return view('component.color.show_color',compact('mauSac'));
     }
     public function edit($id){

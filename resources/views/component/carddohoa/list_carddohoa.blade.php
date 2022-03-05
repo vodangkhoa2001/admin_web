@@ -44,7 +44,7 @@
                                 {{$card->TenCardDoHoa}}
                             </td>
                             <td>
-                                {{$card->TrangThai}}
+                                @if ( $card->TrangThai==0) Ngừng kinh doanh @endif @if ( $card->TrangThai==1) Kinh doanh @endif
                             </td>
                             <td>
                                 <a href="{{route('carddohoa.edit',$card->id)}}"

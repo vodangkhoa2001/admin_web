@@ -12,4 +12,7 @@ class DongSanPham extends Model
     protected $fillable = [
         'TenDongSanPham',
     ];
+    public function sanPham(){
+        return $this->hasMany('App\Models\SanPham');
+    }
 }

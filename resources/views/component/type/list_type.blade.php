@@ -44,7 +44,7 @@
                                 {{$t->TenDongSanPham}}
                             </td>
                             <td>
-                                {{$t->TrangThai_DongSanPham}}
+                                @if ( $t->TrangThai_DongSanPham==0) Ngừng kinh doanh @endif @if ( $t->TrangThai_DongSanPham==1) Kinh doanh @endif
                             </td>
                             <td>
                                 <a href="{{route('type.edit',$t->id)}}"
