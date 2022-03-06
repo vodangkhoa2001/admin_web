@@ -23,6 +23,10 @@ class NhaSanXuatController extends Controller
     public function update(Request $request,$id){
         $manufacturer = NhaSanXuat::find($id);
         $manufacturer -> TenNhaSanXuat = $request->get('tennhasanxuat');
+        $manufacturer -> SDT_NhaSanXuat = $request->get('sdt');
+        $manufacturer -> DiaChiNhaSanXuat = $request->get('diachi');
+        $manufacturer -> EmailNhaSanXuat = $request->get('email');
+        $manufacturer -> Fax = $request->get('fax');
         $manufacturer -> TrangThai_NhaSanXuat = $request->get('trangthai');
         $manufacturer->save();
         return Redirect::route('manufacturer.show',compact('manufacturer'));
@@ -36,6 +40,10 @@ class NhaSanXuatController extends Controller
         $manufacturer= new NhaSanXuat;
         $manufacturer->id = $request->id;
         $manufacturer->TenNhaSanXuat = $request->tennhasanxuat;
+        $manufacturer -> SDT_NhaSanXuat = $request->sdt;
+        $manufacturer -> DiaChiNhaSanXuat = $request->diachi;
+        $manufacturer -> EmailNhaSanXuat = $request->email;
+        $manufacturer -> Fax = $request->fax;
         $manufacturer->TrangThai_NhaSanXuat = $request->trangthai;
         $manufacturer->save();
         return Redirect::route('manufacturer.index',['manufacturer'=>$manufacturer])->with('message', 'Nhà sản xuất được tạo thành công với ID: ' . $manufacturer->id);

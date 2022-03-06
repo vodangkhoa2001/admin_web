@@ -34,7 +34,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Tên ổ cứng</label>
-                    <input name="tenocung" type="text" class="form-control" placeholder="Color Name">
+                    <input name="tenocung" type="text" class="form-control" placeholder="Hard Dirve Name">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect">Tình trạng</label>

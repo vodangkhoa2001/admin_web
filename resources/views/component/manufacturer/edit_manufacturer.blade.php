@@ -30,7 +30,26 @@
                     <input name="tennhasanxuat" type="text" class="form-control" placeholder="Product Name"
                         value="{{ $manufacturer->TenNhaSanXuat}}">
                 </div>
-                
+                <div class="form-group">
+                    <label for="exampleInputName1">Số điện thoại</label>
+                    <input name="sdt" type="text" class="form-control" placeholder="Product Name"
+                        value="{{ $manufacturer->SDT_NhaSanXuat}}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Địa chỉ</label>
+                    <input name="diachi" type="text" class="form-control" placeholder="Product Name"
+                        value="{{ $manufacturer->DiaChiNhaSanXuat}}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Email</label>
+                    <input name="email" type="text" class="form-control" placeholder="Product Name"
+                        value="{{ $manufacturer->EmailNhaSanXuat}}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Số FAX</label>
+                    <input name="fax" type="text" class="form-control" placeholder="Product Name"
+                        value="{{ $manufacturer->Fax}}">
+                </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect">Tình trạng</label>
                     <select class="form-control" name="trangthai">

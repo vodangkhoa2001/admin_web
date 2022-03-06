@@ -34,7 +34,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Tên Card đồ họa</label>
-                    <input name="tencarddohoa" type="text" class="form-control" placeholder="Graphics card Name">
+                    <input name="tencarddohoa" type="text" class="form-control" placeholder="Graphics Card Name">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect">Tình trạng</label>

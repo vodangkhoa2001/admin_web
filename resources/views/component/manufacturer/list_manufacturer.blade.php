@@ -21,10 +21,22 @@
                     <thead>
                         <tr>
                             <th>
-                                Mã nhà sản xuất
+                                ID
                             </th>
                             <th>
                                 Tên nhà sản xuất
+                            </th>
+                            <th>
+                                SĐT
+                            </th>
+                            <th>
+                                Địa chỉ
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                Fax
                             </th>
                             <th>
                                 Trạng thái
@@ -43,6 +55,10 @@
                             <td>
                                 {{$m->TenNhaSanXuat}}
                             </td>
+                            <td>{{$m->SDT_NhaSanXuat }}</td>
+                            <td>{{$m->DiaChiNhaSanXuat }}</td>
+                            <td>{{$m->EmailNhaSanXuat }}</td>
+                            <td>{{$m->Fax }}</td>
                             <td>
                                 @if ( $m->TrangThai_NhaSanXuat==0) Ngừng kinh doanh @endif @if ( $m->TrangThai_NhaSanXuat==1) Kinh doanh @endif
                             </td>

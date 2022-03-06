@@ -34,7 +34,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Tên RAM</label>
-                    <input name="tenram" type="text" class="form-control" placeholder="Color Name">
+                    <input name="tenram" type="text" class="form-control" placeholder="RAM Name">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect">Tình trạng</label>

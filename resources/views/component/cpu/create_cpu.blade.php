@@ -34,7 +34,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Tên CPU</label>
-                    <input name="tencpu" type="text" class="form-control" placeholder="Color Name">
+                    <input name="tencpu" type="text" class="form-control" placeholder="CPU Name">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect">Tình trạng</label>
