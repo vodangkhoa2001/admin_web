@@ -52,8 +52,10 @@ Route::post('add-cart','App\Http\Controllers\APIGioHangController@addToCart');
 Route::post('remove-cart','App\Http\Controllers\APIGioHangController@removeCart');
 Route::post('get-cart','App\Http\Controllers\APIGioHangController@getCart');
 
-
-Route:: group(['prefix' => 'invoice'],function(){
-    Route::get('/{id}',[APIHoaDonController::class,'getHoaDon']);
+Route:: group(['prefix' => 'invoice/'],function(){
+    Route::post('add','App\Http\Controllers\APIHoaDonController@createInvoice');
+    Route::post('{id}','App\Http\Controllers\APIHoaDonController@addInvoiceDetail');
+    Route::get('cancle/{id}','App\Http\Controllers\APIHoaDonController@cancleInvoice');
+    Route::get('get/{id}',[APIHoaDonController::class,'getHoaDon']);
 });
 
