@@ -21,6 +21,13 @@ class CardDoHoaController extends Controller
         return view('component.carddohoa.edit_carddohoa',compact('carddohoa'));
     }
     public function update(Request $request,$id){
+        $request->validate([
+            'tencarddohoa'=>'required|max:50|min:2',
+        ],[
+            'tencarddohoa.required' =>'Vui lòng nhập tên Card đồ họa !',
+            'tencarddohoa.max' =>'Tên Card đồ họa quá dài !',
+            'tencarddohoa.min' =>'Tên Card đồ họa quá ngắn !',
+        ]);
         $carddohoa = CardDoHoa::find($id);
         $carddohoa -> TenCardDoHoa = $request->get('tencarddohoa');
         $carddohoa -> TrangThai = $request->get('trangthai');
@@ -33,6 +40,14 @@ class CardDoHoaController extends Controller
         return view('component.carddohoa.create_carddohoa',['finalId'=> $finalId]);
     }
     public function store(Request $request){
+        $request->validate([
+            'tencarddohoa'=>'required|unique:carddohoa|max:50|min:2',
+        ],[
+            'tencarddohoa.required' =>'Vui lòng nhập tên Card đồ họa !',
+            'tencarddohoa.unique' =>'Tên Card đồ họa đã tồn tại !',
+            'tencarddohoa.max' =>'Tên Card đồ họa quá dài !',
+            'tencarddohoa.min' =>'Tên Card đồ họa quá ngắn !',
+        ]);
         $carddohoa= new CardDoHoa;
         $carddohoa->id = $request->id;
         $carddohoa->TenCardDoHoa  = $request->tencarddohoa;

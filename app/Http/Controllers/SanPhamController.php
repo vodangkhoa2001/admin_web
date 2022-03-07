@@ -52,6 +52,52 @@ class SanPhamController extends Controller
         // if($request->hasFile('HinhAnh')){
         //     $sanPham->HinhAnh=$request->file('HinhAnh')->store('product/images/'.$sanPham->id,'public');
         // }
+        $request->validate([
+            'tensanpham'=>['required','min:2,max:100'],//unique không được trùng
+            'mota'=>['required','max:255'],
+            'soluong'=>['required','numeric','integer'],
+            'gianhap'=>['required','numeric','integer','min:3'],
+            'giaban'=>['required','numeric','integer','min:3'],
+            'dongsanpham'=>['required'],
+            'nhasanxuat'=>['required'],
+            'mausac'=>['required'],
+            'manhinh'=>['required'],
+            'ocung'=>['required'],
+            'carddohoa'=>['required'],
+            'cpu'=>['required'],
+            'ram'=>['required'],
+            'hinhanh'=>['mimetypes:image/*'],//hoặc image/png,jpg
+        ],[
+            'tensanpham.required'=>'Vui lòng nhập tên sản phẩm !',
+            'tensanpham.min'=>'Tên sản phẩm quá ngắn !',
+            'tensanpham.max'=>'Tên sản phẩm quá dài !',
+            'mota.required'=>'Vui lòng nhập mô tả sản phẩm !',
+            'mota.max'=>'Mô tả sản phẩm quá dài !',
+            'soluong.required'=>'Vui lòng nhập số lượng sản phẩm !',
+            'soluong.numeric'=>'Số lượng sản phẩm phải là số !',
+            'soluong.interger'=>'Số lượng sản phẩm phải là số nguyên !',
+            'gianhap.required'=>'Vui lòng nhập giá nhập sản phẩm !',
+            'gianhap.numeric'=>'Giá nhập sản phẩm phải là số !',
+            'gianhap.interger'=>'Giá nhập sản phẩm phải là số nguyên !',
+            'gianhap.min'=>'Giá nhập sản phẩm quá nhỏ !',
+            'giaban.required'=>'Vui lòng nhập giá bán sản phẩm !',
+            'giaban.numeric'=>'Giá bán sản phẩm phải là số !',
+            'giaban.interger'=>'Giá bán sản phẩm phải là số nguyên !',
+            'giaban.min'=>'Giá bán sản phẩm quá nhỏ !',
+            'dongsanpham.required'=>'Vui lòng chọn dòng sản phẩm !',
+            'nhasanxuat.required'=>'Vui lòng chọn nhà sản xuất !',
+            'mausac.required'=>'Vui lòng chọn màu sắc !',
+            'ram.required'=>'Vui lòng chọn dung lượng RAM !',
+            'cpu.required'=>'Vui lòng chọn CPU !',
+            'carddohoa.required'=>'Vui lòng chọn Card đồ họa !',
+            'manhinh.required'=>'Vui lòng chọn kích thước màn hình !',
+            'ocung.required'=>'Vui lòng chọn ổ cứng !',
+        ]);
+        if($request->gianhap >= $request->giaban){
+            $request->validate([
+                'gianhap'=>'Giá nhập lớn hơn giá bán?'
+            ]);
+        }
         if($request->hasFile('hinhanh')){
             $newImg = $request->file('hinhanh')->getClientOriginalName();
             $request->hinhanh->storeAs('product/images', $newImg);
@@ -111,7 +157,53 @@ class SanPhamController extends Controller
         //     'NhaSanXuat'=>['required','numeric','integer'],
         //     'HinhAnh'=>['required','mimetypes:image/*','integer','max:2000'],//hoặc image/png,jpg
         // ]);
-
+        $request->validate([
+            'tensanpham'=>['required','unique:sanpham,ten_san_pham','min:2,max:100'],//unique không được trùng
+            'mota'=>['required','max:255'],
+            'soluong'=>['required','numeric','integer'],
+            'gianhap'=>['required','numeric','integer','min:3'],
+            'giaban'=>['required','numeric','integer','min:3'],
+            'dongsanpham'=>['required'],
+            'nhasanxuat'=>['required'],
+            'mausac'=>['required'],
+            'manhinh'=>['required'],
+            'ocung'=>['required'],
+            'carddohoa'=>['required'],
+            'cpu'=>['required'],
+            'ram'=>['required'],
+            'hinhanh'=>['required','mimetypes:image/*','integer','max:2000'],//hoặc image/png,jpg
+        ],[
+            'tensanpham.required'=>'Vui lòng nhập tên sản phẩm !',
+            'tensanpham.unique'=>'Tên sản phẩm đã tồn tại !',
+            'tensanpham.min'=>'Tên sản phẩm quá ngắn !',
+            'tensanpham.max'=>'Tên sản phẩm quá dài !',
+            'mota.required'=>'Vui lòng nhập mô tả sản phẩm !',
+            'mota.max'=>'Mô tả sản phẩm quá dài !',
+            'soluong.required'=>'Vui lòng nhập số lượng sản phẩm !',
+            'soluong.numeric'=>'Số lượng sản phẩm phải là số !',
+            'soluong.interger'=>'Số lượng sản phẩm phải là số nguyên !',
+            'gianhap.required'=>'Vui lòng nhập giá nhập sản phẩm !',
+            'gianhap.numeric'=>'Giá nhập sản phẩm phải là số !',
+            'gianhap.interger'=>'Giá nhập sản phẩm phải là số nguyên !',
+            'gianhap.min'=>'Giá nhập sản phẩm quá nhỏ !',
+            'giaban.required'=>'Vui lòng nhập giá bán sản phẩm !',
+            'giaban.numeric'=>'Giá bán sản phẩm phải là số !',
+            'giaban.interger'=>'Giá bán sản phẩm phải là số nguyên !',
+            'giaban.min'=>'Giá bán sản phẩm quá nhỏ !',
+            'dongsanpham.required'=>'Vui lòng chọn dòng sản phẩm !',
+            'nhasanxuat.required'=>'Vui lòng chọn nhà sản xuất !',
+            'mausac.required'=>'Vui lòng chọn màu sắc !',
+            'ram.required'=>'Vui lòng chọn dung lượng RAM !',
+            'cpu.required'=>'Vui lòng chọn CPU !',
+            'carddohoa.required'=>'Vui lòng chọn Card đồ họa !',
+            'manhinh.required'=>'Vui lòng chọn kích thước màn hình !',
+            'ocung.required'=>'Vui lòng chọn ổ cứng !',
+            'hinhanh.required'=>'Vui lòng hình ảnh !',
+            'hinhanh.max'=>'Kích thước ảnh lớn hơn 2mb!',
+        ]);
+        if($request->gianhap >= $request->giaban){
+            return 'Giá nhập lớn hơn giá bán';
+        }
         $sanPham= new SanPham;
         $sanPham->id = $request->id;
         $sanPham->TenSanPham = $request->tensanpham;

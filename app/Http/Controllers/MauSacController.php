@@ -21,6 +21,13 @@ class MauSacController extends Controller
         return view('component.color.edit_color',compact('mauSac'));
     }
     public function update(Request $request,$id){
+        $request->validate([
+            'tenmausac'=>'required|max:30|min:1',
+        ],[
+            'tenmausac.required' =>'Vui lòng nhập tên màu !',
+            'tenmausac.max' =>'Tên màu quá dài !',
+            'tenmausac.min' =>'Tên màu quá ngắn !',
+        ]);
         $mauSac = MauSac::find($id);
         $mauSac -> TenMau = $request->get('tenmausac');
         $mauSac -> TrangThai = $request->get('trangthai');
@@ -33,6 +40,14 @@ class MauSacController extends Controller
         return view('component.color.create_color',['finalId'=> $finalId]);
     }
     public function store(Request $request){
+        $request->validate([
+            'tenmausac'=>'required|unique:mausac,TenMau|max:30|min:1',
+        ],[
+            'tenmausac.required' =>'Vui lòng nhập tên màu !',
+            'tenmausac.unique' =>'Tên màu đã tồn tại !',
+            'tenmausac.max' =>'Tên màu quá dài !',
+            'tenmausac.min' =>'Tên màu quá ngắn !',
+        ]);
         $mauSac= new MauSac;
         $mauSac->id = $request->id;
         $mauSac->TenMau = $request->tenmausac;

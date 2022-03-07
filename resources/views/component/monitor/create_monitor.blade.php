@@ -15,7 +15,7 @@
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Thêm tỉ lệ màn hình mới</h4>
+            <h4 class="card-title">Thêm kích thước màn hình mới</h4>
             {{-- @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -35,6 +35,11 @@
                 <div class="form-group">
                     <label for="exampleInputName1">Tên màn hình</label>
                     <input name="tenmanhinh" type="text" class="form-control" placeholder="Monitor Name">
+                    @if ($errors->any())
+                        <div style="margin-top:5px" class="alert alert-danger ">
+                            @if($errors->has('tenmanhinh')) <h6>{{ $errors->first('tenmanhinh')}}</h6>@endif
+                        </div>
+                    @endif    
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect">Tình trạng</label>

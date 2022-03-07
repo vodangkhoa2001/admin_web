@@ -21,6 +21,13 @@ class MonitorController extends Controller
         return view('component.monitor.edit_monitor',compact('monitor'));
     }
     public function update(Request $request,$id){
+        $request->validate([
+            'tenmanhinh'=>'required|max:50|min:2',
+        ],[
+            'tenmanhinh.required' =>'Vui lòng nhập kích thước màn hình !',
+            'tenmanhinh.max' =>'Kích thước màn hình quá dài !',
+            'tenmanhinh.min' =>'Kích thước màn hình quá ngắn !',
+        ]);
         $monitor = ManHinh::find($id);
         $monitor -> TenManHinh = $request->get('tenmanhinh');
         $monitor -> TrangThai = $request->get('trangthai');
@@ -33,6 +40,14 @@ class MonitorController extends Controller
         return view('component.monitor.create_monitor',['finalId'=> $finalId]);
     }
     public function store(Request $request){
+        $request->validate([
+            'tenmanhinh'=>'required|unique:manhinh|max:50|min:2',
+        ],[
+            'tenmanhinh.required' =>'Vui lòng nhập kích thước màn hình !',
+            'tenmanhinh.unique' =>'Kích thước màn hình đã tồn tại !',
+            'tenmanhinh.max' =>'Kích thước màn hình quá dài !',
+            'tenmanhinh.min' =>'Kích thước màn hình quá ngắn !',
+        ]);
         $monitor= new ManHinh;
         $monitor->id = $request->id;
         $monitor->TenManHinh = $request->tenmanhinh;

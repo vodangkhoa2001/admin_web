@@ -21,6 +21,13 @@ class RamController extends Controller
         return view('component.ram.edit_ram',compact('ram'));
     }
     public function update(Request $request,$id){
+        $request->validate([
+            'tenram'=>'required|max:50|min:2',
+        ],[
+            'tenram.required' =>'Vui lòng nhập tên RAM !',
+            'tenram.max' =>'Tên RAM quá dài !',
+            'tenram.min' =>'Tên RAM quá ngắn !',
+        ]);
         $ram = Ram::find($id);
         $ram -> TenRam = $request->get('tenram');
         $ram -> TrangThai = $request->get('trangthai');
@@ -33,6 +40,14 @@ class RamController extends Controller
         return view('component.ram.create_ram',['finalId'=> $finalId]);
     }
     public function store(Request $request){
+        $request->validate([
+            'tenram'=>'required|unique:ram|max:50|min:2',
+        ],[
+            'tenram.required' =>'Vui lòng nhập tên RAM !',
+            'tenram.unique' =>'Tên RAM đã tồn tại !',
+            'tenram.max' =>'Tên RAM quá dài !',
+            'tenram.min' =>'Tên RAM quá ngắn !',
+        ]);
         $ram= new Ram;
         $ram->id = $request->id;
         $ram->TenRam = $request->tenram;

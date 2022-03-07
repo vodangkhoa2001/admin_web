@@ -29,6 +29,11 @@
                     <label for="exampleInputName1">Tên thương hiệu</label>
                     <input name="tendongsanpham" type="text" class="form-control" placeholder="Type Name"
                         value="{{ $type->TenDongSanPham}}">
+                    @if ($errors->any())
+                        <div style="margin-top:5px" class="alert alert-danger ">
+                            @if($errors->has('tendongsanpham')) <h6>{{ $errors->first('tendongsanpham')}}</h6>@endif
+                        </div>
+                    @endif
                 </div>
                 
                 <div class="form-group">

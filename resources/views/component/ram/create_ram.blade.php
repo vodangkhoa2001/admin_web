@@ -35,6 +35,11 @@
                 <div class="form-group">
                     <label for="exampleInputName1">Tên RAM</label>
                     <input name="tenram" type="text" class="form-control" placeholder="RAM Name">
+                    @if ($errors->any())
+                        <div style="margin-top:5px" class="alert alert-danger ">
+                            @if($errors->has('tenram')) <h6>{{ $errors->first('tenram')}}</h6>@endif
+                        </div>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect">Tình trạng</label>

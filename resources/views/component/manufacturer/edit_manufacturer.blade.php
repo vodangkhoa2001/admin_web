@@ -29,27 +29,52 @@
                     <label for="exampleInputName1">Tên nhà sản xuất</label>
                     <input name="tennhasanxuat" type="text" class="form-control" placeholder="Product Name"
                         value="{{ $manufacturer->TenNhaSanXuat}}">
-                </div>
+                        @if ($errors->has('tennhasanxuat'))
+                            <div style="margin-top:5px" class="alert alert-danger ">
+                                <h6>{{ $errors->first('tennhasanxuat')}}</h6>
+                            </div>
+                        @endif
+                    </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Số điện thoại</label>
                     <input name="sdt" type="text" class="form-control" placeholder="Product Name"
                         value="{{ $manufacturer->SDT_NhaSanXuat}}">
-                </div>
+                        @if ($errors->has('sdt'))
+                            <div style="margin-top:5px" class="alert alert-danger ">
+                                <h6>{{ $errors->first('sdt')}}</h6>
+                            </div>
+                        @endif
+                    </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Địa chỉ</label>
                     <input name="diachi" type="text" class="form-control" placeholder="Product Name"
                         value="{{ $manufacturer->DiaChiNhaSanXuat}}">
-                </div>
+                        @if ($errors->has('diachi'))
+                            <div style="margin-top:5px" class="alert alert-danger ">
+                                <h6>{{ $errors->first('diachi')}}</h6>
+                            </div>
+                        @endif
+                    </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Email</label>
                     <input name="email" type="text" class="form-control" placeholder="Product Name"
                         value="{{ $manufacturer->EmailNhaSanXuat}}">
-                </div>
+                        @if ($errors->has('email'))
+                            <div style="margin-top:5px" class="alert alert-danger ">
+                                <h6>{{ $errors->first('email')}}</h6>
+                            </div>
+                        @endif
+                    </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Số FAX</label>
                     <input name="fax" type="text" class="form-control" placeholder="Product Name"
                         value="{{ $manufacturer->Fax}}">
-                </div>
+                        @if ($errors->has('fax'))
+                            <div style="margin-top:5px" class="alert alert-danger ">
+                                <h6>{{ $errors->first('fax')}}</h6>
+                            </div>
+                        @endif
+                    </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect">Tình trạng</label>
                     <select class="form-control" name="trangthai">

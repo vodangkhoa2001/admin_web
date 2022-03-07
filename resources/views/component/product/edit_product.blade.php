@@ -27,6 +27,11 @@
                     <label for="exampleInputName1">Tên sản phẩm</label>
                     <input name="tensanpham" type="text" class="form-control" placeholder="Product Name"
                         value="{{ $sanPham->TenSanPham}}">
+                        @if ($errors->has('tensanpham'))
+                            <div style="margin-top:5px" class="alert alert-danger ">
+                                <h6>{{ $errors->first('tensanpham')}}</h6>
+                            </div>
+                        @endif
                 </div>
                 <div class="row">
                     <div class="col-md-6">
@@ -36,6 +41,11 @@
                                 src="{{ asset('product/images')}}/{{ $sanPham->HinhAnh }}">
                             {{-- <input type="file" name="hinhanh" class="file-upload-default"> --}}
                             <input type="file" class="input-file" name="hinhanh"><br />
+                            @if ($errors->has('hinhanh'))
+                            <div style="margin-top:5px" class="alert alert-danger ">
+                                <h6>{{ $errors->first('hinhanh')}}</h6>
+                            </div>
+                        @endif
                         </div>
                     </div>
                 </div>
@@ -53,6 +63,11 @@
                                     </option>
                                     @endforeach
                                 </select>
+                                @if ($errors->has('nhasanxuat'))
+                            <div style="margin-top:5px" class="alert alert-danger ">
+                                <h6>{{ $errors->first('nhasanxuat')}}</h6>
+                            </div>
+                        @endif
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">Dòng sản phẩm</label>
@@ -64,6 +79,11 @@
                                     </option>
                                     @endforeach
                                 </select>
+                                @if ($errors->has('dongsanpham'))
+                            <div style="margin-top:5px" class="alert alert-danger ">
+                                <h6>{{ $errors->first('dongsanpham')}}</h6>
+                            </div>
+                        @endif
                             </div>
                         </div>
                     </div>
@@ -82,6 +102,11 @@
                                     </option>
                                     @endforeach
                                 </select>
+                                @if ($errors->has('mausac'))
+                            <div style="margin-top:5px" class="alert alert-danger ">
+                                <h6>{{ $errors->first('mausac')}}</h6>
+                            </div>
+                        @endif
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">RAM</label>
@@ -93,6 +118,11 @@
                                     </option>
                                     @endforeach
                                 </select>
+                                @if ($errors->has('ram'))
+                            <div style="margin-top:5px" class="alert alert-danger ">
+                                <h6>{{ $errors->first('ram')}}</h6>
+                            </div>
+                        @endif
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">Màn hình</label>
@@ -104,6 +134,11 @@
                                     </option>
                                     @endforeach
                                 </select>
+                                @if ($errors->has('manhinh'))
+                            <div style="margin-top:5px" class="alert alert-danger ">
+                                <h6>{{ $errors->first('manhinh')}}</h6>
+                            </div>
+                        @endif
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">CPU</label>
@@ -115,6 +150,11 @@
                                     </option>
                                     @endforeach
                                 </select>
+                                @if ($errors->has('cpu'))
+                            <div style="margin-top:5px" class="alert alert-danger ">
+                                <h6>{{ $errors->first('cpu')}}</h6>
+                            </div>
+                        @endif
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">Ổ cứng</label>
@@ -126,6 +166,11 @@
                                     </option>
                                     @endforeach
                                 </select>
+                                @if ($errors->has('ocung'))
+                            <div style="margin-top:5px" class="alert alert-danger ">
+                                <h6>{{ $errors->first('ocung')}}</h6>
+                            </div>
+                        @endif
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">Card đồ họa</label>
@@ -137,6 +182,11 @@
                                     </option>
                                     @endforeach
                                 </select>
+                                @if ($errors->has('carddohoa'))
+                            <div style="margin-top:5px" class="alert alert-danger ">
+                                <h6>{{ $errors->first('carddohoa')}}</h6>
+                            </div>
+                        @endif
                             </div>
                         </div>
                     </div>
@@ -148,23 +198,43 @@
                             <label>Giá bán</label>
                             <input name="giaban" value="{{ $sanPham->GiaBan }}" type="number"
                                 class="form-control form-control-sm" placeholder="Price" aria-label="Price">
-                        </div>
+                                @if ($errors->has('giaban'))
+                            <div style="margin-top:5px" class="alert alert-danger ">
+                                <h6>{{ $errors->first('giaban')}}</h6>
+                            </div>
+                        @endif
+                            </div>
                         <div class="form-group">
                             <label>Giá nhập</label>
                             <input name="gianhap" value="{{ $sanPham->GiaNhap }}" type="number"
                                 class="form-control form-control-sm" placeholder="Price" aria-label="Price">
-                        </div>
+                                @if ($errors->has('gianhap'))
+                            <div style="margin-top:5px" class="alert alert-danger ">
+                                <h6>{{ $errors->first('gianhap')}}</h6>
+                            </div>
+                        @endif
+                            </div>
                         <div class="form-group">
                             <label>Số lượng</label>
                             <input name="soluong" value="{{ $sanPham->SoLuong }}" type="number"
                                 class="form-control form-control-sm" placeholder="Amount" aria-label="Amount">
-                        </div>
+                                @if ($errors->has('soluong'))
+                                <div style="margin-top:5px" class="alert alert-danger ">
+                                    <h6>{{ $errors->first('soluong')}}</h6>
+                                </div>
+                            @endif
+                            </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="exampleTextarea1">Mô tả</label>
                     <textarea name="mota" class="form-control" rows="10"
                         style="height:100px;">{{ $sanPham->MoTa}}</textarea>
+                        @if ($errors->has('mota'))
+                            <div style="margin-top:5px" class="alert alert-danger ">
+                                <h6>{{ $errors->first('mota')}}</h6>
+                            </div>
+                        @endif
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect">Tình trạng</label>

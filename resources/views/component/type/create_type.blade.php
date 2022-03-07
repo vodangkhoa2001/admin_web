@@ -32,9 +32,15 @@
                 <input type="text" class="form-control" id="exampleInputName1" value="{{$finalId}}" disabled >
                 <input type="hidden" class="form-control" id="exampleInputName1" value="{{$finalId}}" name="id">
                 </div>
+                
                 <div class="form-group">
                     <label for="exampleInputName1">Tên thương hiệu</label>
                     <input name="tendongsanpham" type="text" class="form-control" placeholder="Type Name">
+                    @if ($errors->any())
+                        <div style="margin-top:5px" class="alert alert-danger ">
+                            @if($errors->has('tendongsanpham')) <h6>{{ $errors->first('tendongsanpham')}}</h6>@endif
+                        </div>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect">Tình trạng</label>

@@ -35,6 +35,11 @@
                 <div class="form-group">
                     <label for="exampleInputName1">Tên ổ cứng</label>
                     <input name="tenocung" type="text" class="form-control" placeholder="Hard Dirve Name">
+                    @if ($errors->any())
+                        <div style="margin-top:5px" class="alert alert-danger ">
+                            @if($errors->has('tenocung')) <h6>{{ $errors->first('tenocung')}}</h6>@endif
+                        </div>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect">Tình trạng</label>

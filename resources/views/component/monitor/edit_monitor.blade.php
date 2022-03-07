@@ -16,7 +16,7 @@
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Chỉnh sửa màn hình</h4>
+            <h4 class="card-title">cập nhật kích thước màn hình</h4>
             <form class="forms-sample" action="{{ route('monitor.update',$monitor->id)}}" method="post"
                 enctype="multipart/form-data"> @csrf
                 @method('PATCH')
@@ -29,7 +29,12 @@
                     <label for="exampleInputName1">Tên màn hình</label>
                     <input name="tenmanhinh" type="text" class="form-control" placeholder="Monitor Name"
                         value="{{ $monitor->TenManHinh}}">
-                </div>
+                        @if ($errors->any())
+                        <div style="margin-top:5px" class="alert alert-danger ">
+                            @if($errors->has('tenmanhinh')) <h6>{{ $errors->first('tenmanhinh')}}</h6>@endif
+                        </div>
+                    @endif 
+                    </div>
                 
                 <div class="form-group">
                     <label for="exampleFormControlSelect">Tình trạng</label>

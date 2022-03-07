@@ -35,6 +35,11 @@
                 <div class="form-group">
                     <label for="exampleInputName1">Tên màu sắc</label>
                     <input name="tenmausac" type="text" class="form-control" placeholder="Color Name">
+                    @if ($errors->any())
+                        <div style="margin-top:5px" class="alert alert-danger ">
+                            @if($errors->has('tenmausac')) <h6>{{ $errors->first('tenmausac')}}</h6>@endif
+                        </div>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect">Tình trạng</label>

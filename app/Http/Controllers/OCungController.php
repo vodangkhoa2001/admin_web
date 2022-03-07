@@ -21,11 +21,18 @@ class OCungController extends Controller
         return view('component.ocung.edit_ocung',compact('oCung'));
     }
     public function update(Request $request,$id){
+        $request->validate([
+            'tenocung'=>'required|max:50|min:2',
+        ],[
+            'tenocung.required' =>'Vui lòng nhập tên ổ cứng !',
+            'tenocung.max' =>'Tên ổ cứng quá dài !',
+            'tenocung.min' =>'Tên ổ cứng quá ngắn !',
+        ]);
         $oCung = OCung::find($id);
         $oCung -> TenOCung = $request->get('tenocung');
         $oCung -> TrangThai = $request->get('trangthai');
         $oCung->save();
-        return Redirect::route('ocung.show',compact('oCung'));
+        return Redirect::route('oCung.show',compact('oCung'));
     }
     public function create(){
         $countAllocungs = OCung::all()->count() + 1;
@@ -33,11 +40,19 @@ class OCungController extends Controller
         return view('component.ocung.create_ocung',['finalId'=> $finalId]);
     }
     public function store(Request $request){
+        $request->validate([
+            'tenocung'=>'required|unique:ocung|max:50|min:2',
+        ],[
+            'tenocung.required' =>'Vui lòng nhập tên ổ cứng !',
+            'tenocung.unique' =>'Tên ổ cứng đã tồn tại !',
+            'tenocung.max' =>'Tên ổ cứng quá dài !',
+            'tenocung.min' =>'Tên ổ cứng quá ngắn !',
+        ]);
         $oCung= new OCung;
         $oCung->id = $request->id;
         $oCung->TenOCung = $request->tenocung;
         $oCung->TrangThai = $request->trangthai;
         $oCung->save();
-        return Redirect::route('ocung.index',['oCung'=>$oCung])->with('message', 'Màu sắc được tạo thành công với ID: ' . $oCung->id);
+        return Redirect::route('oCung.index',['oCung'=>$oCung])->with('message', 'Màu sắc được tạo thành công với ID: ' . $oCung->id);
     }
 }
