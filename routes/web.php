@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TaiKhoanController;
 use App\Http\Controllers\HoaDonController;
 use App\Http\Controllers\SanPhamController;
+use App\Http\Controllers\PromoteController;
 use App\Http\Controllers\LoaiSanPhamController;
 use App\Http\Controllers\NhaSanXuatController;
 use App\Http\Controllers\MauSacController;
@@ -12,6 +14,7 @@ use App\Http\Controllers\OCungController;
 use App\Http\Controllers\MonitorController;
 use App\Http\Controllers\CardDoHoaController;
 use App\Http\Controllers\CPUController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\UserController;
 /*
@@ -24,6 +27,7 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/admin/home', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/', function () {
     return view('index');
@@ -56,6 +60,8 @@ Route::get('/account/user',function(){
 //     return view('component/account/admin');
 // })->name('list-admin');
 
+Route::get('/home', [DashboardController::class, 'index'])->name('dashboard');
+
 Route::get('/account/admin', [TaiKhoanController::class,'getTaiKhoan'])->name("list-admin");
 
 // ----------------------Sản phẩm-------------------
@@ -66,9 +72,12 @@ Route::get('product/store', [SanPhamController::class,'store'])->name("store-pro
 Route::post('product/update', [SanPhamController::class,'update'])->name("update-product");
 Route::put('product/edit/{id}', [SanPhamController::class,'edit'])->name("edit-product");
 Route::delete('product/delete/{id}', [SanPhamController::class,'deystroy'])->name("delete-product");
-
 //Route::resource('sanPham',SanPhamController::class);
 Route::resource('sanPham', SanPhamController::class);//tạo ra resource để khi gọi các phương thức trong controller chỉ cần sử dụng dấu chấm vd sanPham.create, sanPham.edit
+Route::get('/search', [SearchController::class,'searchResult'])->name("search-product");
+// Route::get('search/name', [SearchController::class,'getSearchAjax'])->name("search-product");
+//----------------------Sản phẩm khuyến mãi-------------------------
+Route::resource('promote', PromoteController::class);
 //----------------------Màu sắc-------------------------
 // Route::get('color/index', [MauSacController::class,'index'])->name('list-color');
 // Route::get('color/create', [MauSacController::class,'create'])->name('create-color');

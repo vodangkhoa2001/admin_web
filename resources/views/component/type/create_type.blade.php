@@ -35,7 +35,7 @@
                 
                 <div class="form-group">
                     <label for="exampleInputName1">Tên thương hiệu</label>
-                    <input name="tendongsanpham" type="text" class="form-control" placeholder="Type Name">
+                    <input name="tendongsanpham" value="{{ old('tenthuonghieu') }}" type="text" class="form-control" placeholder="Type Name">
                     @if ($errors->any())
                         <div style="margin-top:5px" class="alert alert-danger ">
                             @if($errors->has('tendongsanpham')) <h6>{{ $errors->first('tendongsanpham')}}</h6>@endif

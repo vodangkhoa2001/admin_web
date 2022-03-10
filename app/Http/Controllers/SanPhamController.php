@@ -25,7 +25,7 @@ class SanPhamController extends Controller
     //     }
     // }
     public function index(){
-        $lstSanPham = SanPham::all();
+        $lstSanPham = SanPham::paginate(5);
         // foreach($lstSanPham as $sanPham){ 
         //     $this -> fixImage($sanPham);
         // }
@@ -66,7 +66,7 @@ class SanPhamController extends Controller
             'carddohoa'=>['required'],
             'cpu'=>['required'],
             'ram'=>['required'],
-            'hinhanh'=>['mimetypes:image/*'],//hoặc image/png,jpg
+            'hinhanh'=>['required'],//hoặc image/png,jpg
         ],[
             'tensanpham.required'=>'Vui lòng nhập tên sản phẩm !',
             'tensanpham.min'=>'Tên sản phẩm quá ngắn !',
@@ -92,12 +92,8 @@ class SanPhamController extends Controller
             'carddohoa.required'=>'Vui lòng chọn Card đồ họa !',
             'manhinh.required'=>'Vui lòng chọn kích thước màn hình !',
             'ocung.required'=>'Vui lòng chọn ổ cứng !',
+            'hinhanh.required'=>'Vui lòng chọn ảnh sản phẩm !',
         ]);
-        if($request->gianhap >= $request->giaban){
-            $request->validate([
-                'gianhap'=>'Giá nhập lớn hơn giá bán?'
-            ]);
-        }
         if($request->hasFile('hinhanh')){
             $newImg = $request->file('hinhanh')->getClientOriginalName();
             $request->hinhanh->storeAs('product/images', $newImg);
@@ -158,7 +154,7 @@ class SanPhamController extends Controller
         //     'HinhAnh'=>['required','mimetypes:image/*','integer','max:2000'],//hoặc image/png,jpg
         // ]);
         $request->validate([
-            'tensanpham'=>['required','unique:sanpham,ten_san_pham','min:2,max:100'],//unique không được trùng
+            'tensanpham'=>['required','unique:sanpham,TenSanPham','min:2,max:100'],//unique không được trùng
             'mota'=>['required','max:255'],
             'soluong'=>['required','numeric','integer'],
             'gianhap'=>['required','numeric','integer','min:3'],
@@ -171,7 +167,7 @@ class SanPhamController extends Controller
             'carddohoa'=>['required'],
             'cpu'=>['required'],
             'ram'=>['required'],
-            'hinhanh'=>['required','mimetypes:image/*','integer','max:2000'],//hoặc image/png,jpg
+            'hinhanh'=>['required','mimetypes:image/*','max:2000'],//hoặc image/png,jpg
         ],[
             'tensanpham.required'=>'Vui lòng nhập tên sản phẩm !',
             'tensanpham.unique'=>'Tên sản phẩm đã tồn tại !',
@@ -198,7 +194,7 @@ class SanPhamController extends Controller
             'carddohoa.required'=>'Vui lòng chọn Card đồ họa !',
             'manhinh.required'=>'Vui lòng chọn kích thước màn hình !',
             'ocung.required'=>'Vui lòng chọn ổ cứng !',
-            'hinhanh.required'=>'Vui lòng hình ảnh !',
+            'hinhanh.required'=>'Vui lòng chọn ảnh của sảm phẩm!',
             'hinhanh.max'=>'Kích thước ảnh lớn hơn 2mb!',
         ]);
         if($request->gianhap >= $request->giaban){
@@ -251,5 +247,13 @@ class SanPhamController extends Controller
     //     //dd($sp);
     //     return view('component.product.product_detail.show_detail',compact('sp'));
     // }
+    public function searchByName(Request $request){
+        $sanPham = SanPham::where('TenSanPham','like','%'.$request->value.'%')->get();
+        return response()->json($sanPham);
+    }
+    public function searchByID(Request $request){
+        $sanPham = SanPham::where('id','like','%'.$request->value.'%')->get();
+        return response()->json($sanPham);
+    }
 
 }

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 class LoaiSanPhamController extends Controller
 {
     public function index(){
-        $type = DongSanPham::all();
+        $type = DongSanPham::paginate(5);
         return view('component.type.list_type',compact('type'));
     }
     public function show($id){
@@ -53,5 +53,10 @@ class LoaiSanPhamController extends Controller
         $type->TrangThai_DongSanPham = $request->trangthai;
         $type->save();
         return Redirect::route('type.index',['type'=>$type])->with('message', 'Dòng sản phẩm được tạo thành công với ID: ' . $type->id);
+    }
+    public function destroy($id){
+        $promote = DongSanPham::find($id);
+        $promote ->delete();
+        return Redirect::route('type.index');
     }
 }

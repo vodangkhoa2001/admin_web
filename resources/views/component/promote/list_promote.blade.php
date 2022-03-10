@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'List Product')
+@section('title', 'List Promote Product')
 
 @section('navbar')
 @parent
@@ -12,9 +12,10 @@
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Danh sách nhà sản xuất</h4>
+            <h4 class="card-title">Danh sách sản phẩm khuyến mãi</h4>
             <div>
-                <a style="margin: 19px;" href="{{route('manufacturer.create')}}" class="btn btn-primary">Thêm nhà sản xuất mới</a>
+                <a style="margin: 19px;" href="{{ route('promote.create')}}" class="btn btn-primary">Thêm sản phẩm
+                    mới</a>
             </div>
             <div class="table-responsive">
                 <table class="table table-striped">
@@ -24,55 +25,65 @@
                                 ID
                             </th>
                             <th>
-                                Tên nhà sản xuất
+                                Tên sản phẩm khuyến mãi
                             </th>
                             <th>
-                                SĐT
+                               Đơn giá khuyến mãi
                             </th>
                             <th>
-                                Địa chỉ
+                                Số lượng
                             </th>
                             <th>
-                                Email
+                                Ngày bắt đầu
                             </th>
                             <th>
-                                Fax
+                                Ngày kết thúc
                             </th>
-                            <th>
-                                Trạng thái
-                            </th>
+                            {{-- <th>
+                                Mô tả
+                            </th> --}}
                             <th>
 
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($manufacturer as $m)
+                        @forelse ($promote as $p)
                         <tr>
                             <td>
-                                {{$m->id }}
+                                {{ $p->id}}
                             </td>
                             <td>
-                                {{$m->TenNhaSanXuat}}
-                            </td>
-                            <td>{{$m->SDT_NhaSanXuat }}</td>
-                            <td>{{$m->DiaChiNhaSanXuat }}</td>
-                            <td>{{$m->EmailNhaSanXuat }}</td>
-                            <td>{{$m->Fax }}</td>
-                            <td>
-                                @if ( $m->TrangThai_NhaSanXuat==0) Ngừng kinh doanh @endif @if ( $m->TrangThai_NhaSanXuat==1) Kinh doanh @endif
+                                {{ $p->sanPham->TenSanPham }}
                             </td>
                             <td>
-                                <a href="{{ route('manufacturer.edit',$m->id) }}"
+                                {{ number_format(( $p->DonGiaKhuyenMai), 0, ',', '.')." VNĐ"}}
+                            </td>
+                            <td>
+                                {{ $p->SoLuongKhuyenMai }}
+                            </td>
+                            <td>
+                                {{ $p->NgayBatDau }}
+                            </td>
+                            <td>
+                                {{ $p->NgayKetThuc }}
+                            </td>
+                            {{-- <td>
+                                {{ $p->MoTa }}
+                            </td> --}}
+                            <td>
+                                <a href="{{route('promote.show',$p->id)}}"
+                                    class="btn btn-sm btn btn-info"><span style="font-size: 20px;" class="menu-icon mdi mdi-dots-horizontal"></a>
+                                <a href="{{ route('promote.edit',$p->id) }}"
                                     class="btn btn-sm btn-warning"><span  style="font-size: 20px;" class="menu-icon mdi mdi-table-edit"></a>
-                                <a href="{{ route('manufacturer.destroy',$m->id) }}"
+                                <a href="{{ route('promote.destroy',$p->id) }}"
                                     class="btn btn-sm btn-danger"><span style="font-size: 20px;" class="menu-icon mdi mdi-delete"></a>
                             </td>
                         </tr>
                         @empty
                         <tr>
                             <td colspan="9">
-                                Chưa có màu mới
+                                Không có sản phẩm khuyến mãi nào hết
                             </td>
                         </tr>
                         @endforelse
@@ -82,7 +93,7 @@
         </div>
     </div>
 </div>
-{{$manufacturer->appends(request()->all())->links()}}
+{{$promote->appends(request()->all())->links()}}
 @endsection
 @section('script')
 @parent

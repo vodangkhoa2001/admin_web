@@ -38,6 +38,9 @@ class SanPham extends Model
         'MoTa',
         'TrangThai'
     ];
+    public static function productSearch($keyword, $paginate){
+        return SanPham::where('TensanPham', 'like', '%' . $keyword . '%')->paginate($paginate, ['*'], 'pp');
+    }
     public function dongSanPham(){
         return $this->belongsTo('App\Models\DongSanPham','MaDongSanPham','id');
     }

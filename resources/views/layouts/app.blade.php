@@ -65,11 +65,18 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <form class="search-form" action="#">
+                        <form class="search-form" action="{{ route('search-product') }}" method="get">
                             <i class="icon-search"></i>
-                            <input type="search" class="form-control" placeholder="Search Here" title="Search here">
+                            <input type="search" name="search" value="{{ old('serch') }}" class="form-control" placeholder="Search Here" title="Search here">
+                            <input type="submit" name="ok" value="search" />
                         </form>
                     </li>
+                    {{-- {!! Form::open(array('url' => '/search', 'class' => 'navbar-form navbar-left', 'method' => 'get')) !!}
+                    <div class="form-group">
+                        {!! Form::text('search', '', array('class' => 'form-control', 'placeholder' => 'Nhập từ khóa...')) !!}
+                    </div>
+                    {!! Form::submit('Tìm kiếm', array('class' => 'btn btn-default')) !!}
+                    {!! Form::close() !!} --}}
                     <li class="nav-item dropdown">
                         <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
                             <i class="icon-mail icon-lg"></i>
@@ -352,7 +359,7 @@
                     <nav class="sidebar sidebar-offcanvas" id="sidebar">
                         <ul class="nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('admin')}}">
+                                <a class="nav-link" href="{{route('dashboard')}}">
                                     <i class="mdi mdi-grid-large menu-icon"></i>
                                     <span class="menu-title">Dashboard</span>
                                 </a>
@@ -368,6 +375,19 @@
                                     <ul class="nav flex-column sub-menu">
                                         <li class="nav-item "><a class="nav-link" href="{{route('create-product')}}">Add Product</a></li>
                                         <li class="nav-item "><a class="nav-link" href="{{route('list-product')}}">List Product</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#form-promote" aria-expanded="false" aria-controls="form-promote">
+                                    <i class="menu-icon mdi mdi-fire"></i>
+                                    <span class="menu-title">Promotes</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+                                <div class="collapse" id="form-promote">
+                                    <ul class="nav flex-column sub-menu">
+                                        <li class="nav-item "><a class="nav-link" href="{{route('promote.create')}}">Add Promote</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('promote.index')}}">List Promote</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -398,7 +418,7 @@
                             </li>
                             
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="collapse" href="#form-type" aria-expanded="false" aria-controls="form-elements">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#form-type" aria-expanded="false" aria-controls="form-type">
                                     <i class="menu-icon mdi mdi-view-list"></i>
                                     <span class="menu-title">Type</span>
                                     <i class="menu-arrow"></i>
@@ -411,7 +431,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="collapse" href="#form-manufacturer" aria-expanded="false" aria-controls="form-elements">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#form-manufacturer" aria-expanded="false" aria-controls="form-manufacturer">
                                     <i class="menu-icon mdi mdi-home-modern"></i>
                                     <span class="menu-title">Manufacturer</span>
                                     <i class="menu-arrow"></i>
@@ -424,7 +444,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="collapse" href="#form-color" aria-expanded="false" aria-controls="form-elements">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#form-color" aria-expanded="false" aria-controls="form-color">
                                     <i class="menu-icon mdi mdi-palette"></i>
                                     <span class="menu-title">Color</span>
                                     <i class="menu-arrow"></i>
@@ -437,7 +457,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="collapse" href="#form-ram" aria-expanded="false" aria-controls="form-elements">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#form-ram" aria-expanded="false" aria-controls="form-ram">
                                     <i class="menu-icon mdi mdi-memory"></i>
                                     <span class="menu-title">Ram</span>
                                     <i class="menu-arrow"></i>
@@ -450,7 +470,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="collapse" href="#form-ssd" aria-expanded="false" aria-controls="form-elements">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#form-ssd" aria-expanded="false" aria-controls="form-ssd">
                                     <i class="menu-icon mdi mdi-harddisk"></i>
                                     <span class="menu-title">SSD</span>
                                     <i class="menu-arrow"></i>
@@ -463,7 +483,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="collapse" href="#form-monitor" aria-expanded="false" aria-controls="form-elements">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#form-monitor" aria-expanded="false" aria-controls="form-monitor">
                                     <i class="menu-icon mdi mdi-monitor"></i>
                                     <span class="menu-title">Monitor</span>
                                     <i class="menu-arrow"></i>
@@ -476,7 +496,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="collapse" href="#form-card" aria-expanded="false" aria-controls="form-elements">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#form-card" aria-expanded="false" aria-controls="form-card">
                                     <i class="menu-icon mdi mdi-relative-scale"></i>
                                     <span class="menu-title">Graphics Card</span>
                                     <i class="menu-arrow"></i>
@@ -489,7 +509,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="collapse" href="#form-cpu" aria-expanded="false" aria-controls="form-elements">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#form-cpu" aria-expanded="false" aria-controls="form-cpu">
                                     <i class="menu-icon mdi mdi-select-all"></i>
                                     <span class="menu-title">CPU</span>
                                     <i class="menu-arrow"></i>

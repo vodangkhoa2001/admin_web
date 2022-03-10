@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Redirect;
 class NhaSanXuatController extends Controller
 {
     public function index(){
-        $manufacturer = NhaSanXuat::all();
+        $manufacturer = NhaSanXuat::paginate(5);
         return view('component.manufacturer.list_manufacturer',compact('manufacturer'));
     }
     public function show($id){
@@ -84,5 +84,10 @@ class NhaSanXuatController extends Controller
         $manufacturer->TrangThai_NhaSanXuat = $request->trangthai;
         $manufacturer->save();
         return Redirect::route('manufacturer.index',['manufacturer'=>$manufacturer])->with('message', 'Nhà sản xuất được tạo thành công với ID: ' . $manufacturer->id);
+    }
+    public function destroy($id){
+        $promote = NhaSanXuat::find($id);
+        $promote ->delete();
+        return Redirect::route('manufacturer.index');
     }
 }

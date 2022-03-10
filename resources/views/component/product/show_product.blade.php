@@ -12,8 +12,8 @@
     <label><strong>Dòng sản phẩm: </strong> {{ $sanPham->dongSanPham->TenDongSanPham}}</label> <br />
     <label><strong>Nhà sản xuất: </strong>{{ $sanPham->nhaSanXuat->TenNhaSanXuat }}</label> <br />
     <label><strong>Số lượng: </strong> {{ $sanPham->SoLuong }}</label> <br />
-    <label><strong>Giá nhập: </strong> {{ $sanPham->GiaNhap }}</label> <br />
-    <label><strong>Giá bán: </strong> {{ $sanPham->GiaBan }}</label> <br />
+    <label><strong>Giá nhập: </strong> {{ number_format(( $sanPham->GiaNhap), 0, ',', '.')." VNĐ"}}</label> <br />
+    <label><strong>Giá bán: </strong> {{ number_format(( $sanPham->GiaBan), 0, ',', '.')." VNĐ"}}</label> <br />
     <label><strong>Màu sắc: </strong> {{ $sanPham->mauSac->TenMau }}</label> <br />
     <label><strong>Dung lượng RAM: </strong> {{ $sanPham->RAM->TenRam }}</label> <br />
     <label><strong>Card màn hình: </strong> {{ $sanPham->cardDoHoa->TenCardDoHoa }}</label> <br />
@@ -28,7 +28,7 @@
             src="{{ asset('product/images')}}/{{ $sanPham->HinhAnh }}">
     </div>
     <div class="form-group mt-4">
-        <a href="{{route('sanPham.index')}}" class="btn btn-warning">Quay lại</a>
+        <a href="{{route('list-product')}}" class="btn btn-warning"><span style="font-size: 17px;" class="menu-icon mdi mdi-keyboard-return"></a>
     </div>
 </form>
 

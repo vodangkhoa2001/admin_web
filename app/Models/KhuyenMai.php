@@ -9,4 +9,15 @@ class KhuyenMai extends Model
 {
     use HasFactory;
     protected $table="khuyenmai";
+    protected $fillable = [
+        'MaSanPhamKhuyenMai',
+        'DonGiaKhuyenMai',
+        'MoTa',
+        'SoLuongKhuyenMai',
+        'NgayBatDau',
+        'NgayKetThuc',
+    ];
+    public function sanPham(){
+        return $this->belongsTo('App\Models\SanPham','MaSanPhamKhuyenMai','id');
+    }
 }

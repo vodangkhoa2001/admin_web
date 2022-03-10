@@ -12,8 +12,8 @@ class MauSacController extends Controller
         $mauSac = MauSac::all();
         return view('component.color.list_color',compact('mauSac'));
     }
-    public function show(MauSac $mauSac){
-        //$mauSac = MauSac::find($id);
+    public function show($id){
+        $mauSac = MauSac::find($id);
         return view('component.color.show_color',compact('mauSac'));
     }
     public function edit($id){
@@ -32,7 +32,7 @@ class MauSacController extends Controller
         $mauSac -> TenMau = $request->get('tenmausac');
         $mauSac -> TrangThai = $request->get('trangthai');
         $mauSac->save();
-        return Redirect::route('color.show',compact('mauSac'));
+        return Redirect::route('color.index',compact('mauSac'));
     }
     public function create(){
         $countAllColors = MauSac::all()->count() + 1;

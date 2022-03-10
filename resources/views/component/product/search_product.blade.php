@@ -12,7 +12,7 @@
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Danh sách sản phẩm</h4>
+            <h4 class="card-title">Sản phẩm cần tìm</h4>
             <div>
                 <a style="margin: 19px;" href="{{ route('create-product')}}" class="btn btn-primary">Thêm sản phẩm
                     mới</a>
@@ -48,7 +48,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($lstSanPham as $sanPham)
+                        @forelse ($productResult as $sanPham)
                         <tr>
                             <td>
                                 {{ $sanPham->id }}
@@ -94,7 +94,7 @@
     </div>
 </div>
 {{-- {{$lstSanPham->links("pagination::bootstrap-4")}} --}}
-{{$lstSanPham->appends(request()->all())->links()}}
+{{ $productResult->appends(Request::all())->links() }}
 @endsection
 @section('script')
 @parent

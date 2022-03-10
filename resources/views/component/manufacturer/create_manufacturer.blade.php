@@ -34,7 +34,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Tên nhà sản xuất</label>
-                    <input name="tennhasanxuat" type="text" class="form-control" placeholder="Manufacturer Name">
+                    <input name="tennhasanxuat" value="{{ old('tennhasanxuat') }}" type="text" class="form-control" placeholder="Manufacturer Name">
                     @if ($errors->has('tennhasanxuat'))
                     <div style="margin-top:5px" class="alert alert-danger ">
                         <h6>{{ $errors->first('tennhasanxuat')}}</h6>
@@ -43,7 +43,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Số điện thoại</label>
-                    <input name="sdt" type="number" class="form-control" placeholder="Phone Number">
+                    <input name="sdt" value="{{ old('sdt') }}" type="number" class="form-control" placeholder="Phone Number">
                     @if ($errors->has('sdt'))
                             <div style="margin-top:5px" class="alert alert-danger ">
                                 <h6>{{ $errors->first('sdt')}}</h6>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Địa chỉ nhà sản xuất</label>
-                    <input name="diachi" type="text" class="form-control" placeholder="Address">
+                    <input name="diachi" value="{{ old('diachi') }}" type="text" class="form-control" placeholder="Address">
                     @if ($errors->has('diachi'))
                             <div style="margin-top:5px" class="alert alert-danger ">
                                 <h6>{{ $errors->first('diachi')}}</h6>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Email nhà sản xuất</label>
-                    <input name="email" type="text" class="form-control" placeholder="Email">
+                    <input name="email" value="{{ old('email') }}" type="text" class="form-control" placeholder="Email">
                     @if ($errors->has('email'))
                             <div style="margin-top:5px" class="alert alert-danger ">
                                 <h6>{{ $errors->first('email')}}</h6>
@@ -70,7 +70,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Số FAX</label>
-                    <input name="fax" type="text" class="form-control" placeholder="FAX">
+                    <input name="fax" value="{{ old('fax') }}" type="text" class="form-control" placeholder="FAX">
                     @if ($errors->has('fax'))
                             <div style="margin-top:5px" class="alert alert-danger ">
                                 <h6>{{ $errors->first('fax')}}</h6>

@@ -16,9 +16,6 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Thêm sản phẩm</h4>
-            <p class="card-description">
-                Thêm chi tiết sản phẩm mới
-            </p>
             {{-- @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -37,7 +34,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Tên sản phẩm</label>
-                    <input name="tensanpham" type="text" class="form-control" placeholder="Product Name">
+                    <input name="tensanpham" value="{{ old('tensanpham') }}" type="text" class="form-control" placeholder="Product Name">
                     @if ($errors->has('tensanpham'))
                             <div style="margin-top:5px" class="alert alert-danger ">
                                 <h6>{{ $errors->first('tensanpham')}}</h6>
@@ -48,7 +45,7 @@
                  <div class="form-group">
                     <label class="col-sm-10">Ảnh sản phẩm</label>
                     <div class="col-sm-10">
-                        <input class="input-file" id="my-file" type="file" name="hinhanh">
+                        <input class="input-file" id="my-file" type="file" name="hinhanh" value="{{ old('hinhanh') }}">
                         <label tabindex="0" for="my-file" class="input-file-trigger"></label>
                         @if ($errors->has('hinhanh'))
                     <div style="margin-top:5px" class="alert alert-danger ">
@@ -59,7 +56,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleTextarea1">Mô tả</label>
-                    <textarea class="form-control" name="mota" rows="10" style="height:100px;"></textarea>
+                    <textarea class="form-control" name="mota" value="{{ old('mota') }}" rows="10" style="height:100px;"></textarea>
                     @if ($errors->has('mota'))
                     <div style="margin-top:5px" class="alert alert-danger ">
                         <h6>{{ $errors->first('mota')}}</h6>
@@ -73,9 +70,11 @@
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">Nhà sản xuất</label>
                                 <select class="form-control" name="nhasanxuat">
-                                    <option value=''>Chọn thương hiệu</option>
+                                    <option value='' disabled selected>Chọn thương hiệu</option>
                                     @foreach ($lstNhaSanXuat as $nhaSanXuat)
-                                    <option value="{{ $nhaSanXuat->id }}">{{ $nhaSanXuat->TenNhaSanXuat }}</option>
+                                        @if ($nhaSanXuat->TrangThai_NhaSanXuat==1)
+                                            <option value="{{ $nhaSanXuat->id }}">{{ $nhaSanXuat->TenNhaSanXuat }}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 @if ($errors->has('nhasanxuat'))
@@ -87,9 +86,11 @@
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">Dòng sản phẩm</label>
                                 <select class="form-control" name="dongsanpham">
-                                    <option value=''>Chọn dòng sản phẩm</option>
+                                    <option value='' disabled selected>Chọn dòng sản phẩm</option>
                                     @foreach ($lstDongSanPham as $dongSanPham)
-                                    <option value="{{ $dongSanPham->id }}">{{ $dongSanPham->TenDongSanPham }}</option>
+                                        @if ($dongSanPham->TrangThai_DongSanPham==1)
+                                            <option value="{{ $dongSanPham->id }}">{{ $dongSanPham->TenDongSanPham }}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 @if ($errors->has('dongsanpham'))
@@ -108,9 +109,11 @@
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">Màu sắc</label>
                                 <select class="form-control" name="mausac">
-                                    <option value=''>Chọn màu sắc</option>
+                                    <option value='' disabled selected>Chọn màu sắc</option>
                                     @foreach ($lstMauSac as $mauSac)
-                                    <option value="{{ $mauSac->id }}"> {{ $mauSac->TenMau}}</option>
+                                        @if ($mauSac->TrangThai==1)
+                                            <option value="{{ $mauSac->id }}"> {{ $mauSac->TenMau}}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 @if ($errors->has('mausac'))
@@ -122,10 +125,11 @@
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">RAM</label>
                                 <select class="form-control" name="ram">
-                                    <option value=''>Chọn dung lượng RAM</option>
+                                    <option value='' disabled selected>Chọn dung lượng RAM</option>
                                     @foreach ($lstRAM as $ram)
-                                    <option value=" {{ $ram->id }} "> {{ $ram->TenRam }}
-                                    </option>
+                                        @if ($ram->TrangThai==1)
+                                            <option value=" {{ $ram->id }} "> {{ $ram->TenRam }}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 @if ($errors->has('ram'))
@@ -137,9 +141,11 @@
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">Màn hình</label>
                                 <select class="form-control" name="manhinh">
-                                    <option value=''>Chọn kích thước màn hình</option>
+                                    <option value='' disabled selected>Chọn kích thước màn hình</option>
                                     @foreach ($lstManHinh as $manHinh)
-                                    <option value=" {{ $manHinh->id }} "> {{ $manHinh->TenManHinh }}
+                                        @if ($manHinh->TrangThai==1)
+                                            <option value=" {{ $manHinh->id }} "> {{ $manHinh->TenManHinh }}</option>
+                                        @endif
                                     </option>
                                     @endforeach
                                 </select>
@@ -152,10 +158,11 @@
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">CPU</label>
                                 <select class="form-control" name="cpu">
-                                    <option value=''>Chọn công nghệ CPU</option>
+                                    <option value='' disabled selected>Chọn công nghệ CPU</option>
                                     @foreach ($lstCPU as $cpu)
-                                    <option value=" {{ $cpu->id }} "> {{ $cpu->TenCPU }}
-                                    </option>
+                                        @if ($cpu->TrangThai==1)
+                                            <option value=" {{ $cpu->id }} "> {{ $cpu->TenCPU }}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 @if ($errors->has('cpu'))
@@ -167,10 +174,12 @@
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">Ổ cứng</label>
                                 <select class="form-control" name="ocung">
-                                    <option value=''>Chọn dung lượng ổ cứng</option>
+                                    <option value='' disabled selected>Chọn dung lượng ổ cứng</option>
                                     @foreach ($lstOCung as $oCung)
-                                    <option value=" {{ $oCung->id }} "> {{ $oCung->TenOCung }}
-                                    </option>
+                                        @if ($oCung->TrangThai==1)
+                                            <option value=" {{ $oCung->id }} "> {{ $oCung->TenOCung }}
+                                        </option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 @if ($errors->has('ocung'))
@@ -182,10 +191,12 @@
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">Card đồ họa</label>
                                 <select class="form-control" name="carddohoa">
-                                    <option value=''>Chọn card đồ họa</option>
+                                    <option value='' disabled selected>Chọn card đồ họa</option>
                                     @foreach ($lstCardDoHoa as $cdh)
-                                    <option value=" {{ $cdh->id }} "> {{ $cdh->TenCardDoHoa }}
-                                    </option>
+                                        @if ($cdh->TrangThai==1)
+                                            <option value=" {{ $cdh->id }} "> {{ $cdh->TenCardDoHoa }}
+                                            </option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 @if ($errors->has('carddohoa'))
@@ -222,7 +233,7 @@
                             </div>
                         <div class="form-group">
                             <label>Số lượng</label>
-                            <input type="number" name="soluong" class="form-control form-control-sm"
+                            <input type="number" name="soluong" value="{{ old('soluong') }}" class="form-control form-control-sm"
                                 placeholder="Amount" aria-label="Amount">
                                 @if ($errors->has('soluong'))
                     <div style="margin-top:5px" class="alert alert-danger ">
