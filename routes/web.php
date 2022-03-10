@@ -108,7 +108,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/bill', function () {
         return view('component/bill/list_bill');
     })-> name('list-bill');
-    Route::get('/bill', [HoaDonController::class,'getHoaDon'])->name("list-HoaDon");
+    Route::get('/bill/bill', [HoaDonController::class,'getHoaDon'])->name("list-HoaDon");
+
+    Route::get('/bill/huy', [HoaDonController::class,'getHoaDonHuy'])->name("list-HoaDonHuy");
+    Route::get('/bill/choxacnhan', [HoaDonController::class,'getHoaDonChoXacNhan'])->name("list-HoaDonChoXacNhan");
+    Route::get('/bill/daxacnhan', [HoaDonController::class,'getHoaDonDaXacNhan'])->name("list-HoaDonDaXacNhan");
+    Route::get('/bill/chovanchuyen', [HoaDonController::class,'getHoaDonChoVanChuyen'])->name("list-HoaDonChoVanChuyen");
+    Route::get('/bill/dangvangchuyen', [HoaDonController::class,'getHoaDonDangVanChuyen'])->name("list-HoaDonDangVanChuyen");
+    Route::get('/bill/dagiao', [HoaDonController::class,'getHoaDonDaGiao'])->name("list-HoaDonDaGiao");
+    Route::get('/bill/{id}', [HoaDonController::class,'TrangThaiHoaDon'])->name("xacnhan-trangthai-hoadon");
+    Route::get('/bill/huy/{id}', [HoaDonController::class,'HuyHoaDon'])->name("huy-hoadon");
+    
 
 
     //Them Tai Khoan
@@ -128,6 +138,12 @@ Route::middleware('auth')->group(function () {
         // Route::get('/create', function () {
         //     return view('component/account/create_admin');
         // })->name('create-account');
+
+        //xoa tai khoan 
+        Route::get('/delete/{id}', [TaiKhoanController::class,'delete'])->name("delete-account");
+            //edit list account
+        Route::get('/edit/{id}', [TaiKhoanController::class,'show'])->name("show-account");
+        Route::post('/edit/account', [TaiKhoanController::class, 'editTaiKhoanUser'])->name('editTaiKhoanUser');
         
         Route::get('/create', [TaiKhoanController::class, 'create'])->name('admin-accounts-create');
         Route::post('/create', [TaiKhoanController::class, 'addAccount'])->name('admin-accounts-addAccount');
@@ -135,6 +151,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/id', [TaiKhoanController::class, 'taoiduser'])->name('admin-user-id');
         //edit tai khoan
         Route::post('/edit', [TaiKhoanController::class, 'editTaiKhoan'])->name('admin-accounts-editTaiKhoan');
+        //doi mat khau 
+        Route::post('/changepassword', [TaiKhoanController::class, 'changePassword'])->name('admin-accounts-changePassword');
     });
     //route chuyen trang 
     Route::get('/', function () {

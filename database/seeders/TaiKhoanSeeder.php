@@ -41,34 +41,34 @@ class TaiKhoanSeeder extends Seeder
         //     )
         // ]);
 
-        //
-        // $TaiKhoan = new TaiKhoan();
-        // $TaiKhoan->id="TAIKHOAN01";
-        // $TaiKhoan->TenDangNhap="huy556";
-        // $TaiKhoan->password= Hash::make("123456");
-        // $TaiKhoan->Email="huynguyen@gmail.com";
-        // $TaiKhoan->SDT="0123541485";
-        // $TaiKhoan->DiaChi="TP Hồ Chí Minh";
-        // $TaiKhoan->HoTen="Nguyễn Văn A";
-        // $TaiKhoan->HinhAnh="user01.png";
-        // $TaiKhoan->ID_LoaiTaiKhoan=1;
-        // $TaiKhoan->TrangThai_TaiKhoan=1;
-        // $TaiKhoan->save();
+        //user
+        $TaiKhoan = new TaiKhoan();
+        $TaiKhoan->id="TAIKHOAN01";
+        $TaiKhoan->TenDangNhap=null;
+        $TaiKhoan->password= Hash::make("123456");
+        $TaiKhoan->Email="huynguyen@gmail.com";
+        $TaiKhoan->SDT="0123541485";
+        $TaiKhoan->DiaChi="TP Hồ Chí Minh";
+        $TaiKhoan->HoTen="Nguyễn Văn A";
+        $TaiKhoan->HinhAnh="user01.png";
+        $TaiKhoan->ID_LoaiTaiKhoan=1;
+        $TaiKhoan->TrangThai_TaiKhoan=1;
+        $TaiKhoan->save();
 
-        // $TaiKhoan = new TaiKhoan();
-        // $TaiKhoan->id="TAIKHOAN02";
-        // $TaiKhoan->TenDangNhap="Khoa112";
-        // $TaiKhoan->password= Hash::make("123456");
-        // $TaiKhoan->Email="khoanguyen@gmail.com";
-        // $TaiKhoan->SDT="0123546485";
-        // $TaiKhoan->DiaChi="TP Hồ Chí Minh";
-        // $TaiKhoan->HoTen="Nguyễn Văn Khoa";
-        // $TaiKhoan->HinhAnh="user1.png";
-        // $TaiKhoan->ID_LoaiTaiKhoan=1;
-        // $TaiKhoan->TrangThai_TaiKhoan=1;
-        // $TaiKhoan->save();
+        $TaiKhoan = new TaiKhoan();
+        $TaiKhoan->id="TAIKHOAN02";
+        $TaiKhoan->TenDangNhap=null;
+        $TaiKhoan->password= Hash::make("123456");
+        $TaiKhoan->Email="khoanguyen@gmail.com";
+        $TaiKhoan->SDT="0123546485";
+        $TaiKhoan->DiaChi="TP Hồ Chí Minh";
+        $TaiKhoan->HoTen="Nguyễn Văn Khoa";
+        $TaiKhoan->HinhAnh="user01.png";
+        $TaiKhoan->ID_LoaiTaiKhoan=1;
+        $TaiKhoan->TrangThai_TaiKhoan=1;
+        $TaiKhoan->save();
 
-
+//admin
         $TaiKhoan = new TaiKhoan();
         $TaiKhoan->id="ACCOUNTADMIN20221225010100006";
         $TaiKhoan->TenDangNhap="admin";

@@ -75,8 +75,8 @@
                             @if(Auth::User()->ID_LoaiTaiKhoan==3)
                             <td>
                               
-                              <a href="{{route('edit_product')}}" class="btn btn-sm btn-warning">Edit</a>
-                              <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                              {{-- <a href="{{route('show-account',['id' => $lst->id])}}" class="btn btn-sm btn-warning">Edit</a> --}}
+                              <a href="{{route('delete-account',['id' => $lst->id])}}" class="btn btn-sm btn-danger">Delete</a>
                             </td>
                             @endif
                         </tr>
