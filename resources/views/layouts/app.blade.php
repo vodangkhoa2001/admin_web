@@ -385,7 +385,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="charts">
                                     <i class="menu-icon mdi mdi-table"></i>
                                     <span class="menu-title">Bill</span>
                                     <i class="menu-arrow"></i>
@@ -393,6 +393,13 @@
                                 <div class="collapse" id="tables">
                                     <ul class="nav flex-column sub-menu">
                                         <li class="nav-item"> <a class="nav-link" href="{{route('list-HoaDon')}}">Bill</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="{{route('list-HoaDonChoXacNhan')}}">Chờ Xác Nhận</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="{{route('list-HoaDonDaXacNhan')}}">Đã Xác Nhận</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="{{route('list-HoaDonChoVanChuyen')}}">Chờ Vận Chuyển</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="{{route('list-HoaDonDangVanChuyen')}}">Đang Vận Chuyển</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="{{route('list-HoaDonDaGiao')}}">Đã Giao</a></li>
+                                        <li class="nav-item"> <a class="nav-link" href="{{route('list-HoaDonHuy')}}">Bill Hủy</a></li>
+                                        
                                     </ul>
                                 </div>
                             </li>

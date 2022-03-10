@@ -16,10 +16,22 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Tài Khoản </h4>
+                @if ( Session::has('success') )
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <strong>{{ Session::get('success') }}</strong>
+            
+                </div>
+            @endif
+            @if ( Session::has('error') )
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <strong>{{ Session::get('error') }}</strong>
+        
+            </div>
+        @endif
                 <p class="card-description">
                     tài khoản 
                 </p>
-                <form class="forms-sample" enctype="multipart/form-data" action="{{route("admin-accounts-editTaiKhoan")}}" method="POST">
+                <form class="forms-sample"  action="{{route("admin-accounts-changePassword")}}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputName1">ID</label>
@@ -28,38 +40,22 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputName1">Tên Đăng Nhập</label>
-                        <input type="hidden" class="form-control" id="exampleInputName1" value="{{Auth::User()->TenDangNhap}}" name="TenDangNhap">
+                        <input type="hidden" class="form-control" id="exampleInputName1" value="" name="TenDangNhap">
                         <input type="text" class="form-control" id="exampleInputName1" placeholder="Tên Đăng Nhập" value="{{Auth::User()->TenDangNhap}}" name="TenDangNhap" disabled>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputName1">Mật Khẩu Cũ</label>
-                        <input type="email" class="form-control" id="exampleInputName1" placeholder="Email" value="{{Auth::User()->Email}}" name="Email">
+                        <input type="password" class="form-control" id="exampleInputName1" placeholder="Mật Khẩu Cũ" value="" name="MatKhauCu">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputName1">Mật Khẩu Mới</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Số Điện Thoại" value="{{Auth::User()->SDT}}" name="SDT">
+                        <input type="password" class="form-control" id="exampleInputName1" placeholder="Mật Khẩu Mới" value="" name="MatKhauMoi">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputName1">Địa Chỉ</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Địa Chỉ" value="{{Auth::User()->DiaChi}}" name="DiaChi">
+                        <label for="exampleInputName1">Xác Nhận Mật Khẩu Mới</label>
+                        <input type="password" class="form-control" id="exampleInputName1" placeholder="Xác Nhận Mật Khẩu Mới" value="" name="XacNhanMatKhau">
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputName1">Họ Tên</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Họ Tên" value="{{Auth::User()->HoTen}}" name="HoTen">
-                    </div>
-                    <div>
-                        <label class="col-sm-10">Ảnh đại diện</label>   
-                    </div>
-                    <div class="form-group">
-                       <img src="{{asset('admin/images')}}/{{Auth::User()->HinhAnh}}" style="width:130px ;height:130px;background-size:cover">
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-10">Ảnh đại diện</label>
-                        <div class="col-sm-10">
-                            <input class="input-file" id="my-file" type="file" name="HinhAnh">
-                            <label tabindex="0" for="my-file" class="input-file-trigger"></label>
-                        </div>
-                    </div>
+                    
                     <div class="form-group mt-4">
                         <button type="submit" class="btn btn-primary me-2">Lưu</button>
                     </div>

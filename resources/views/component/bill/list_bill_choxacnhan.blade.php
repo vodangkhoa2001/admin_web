@@ -12,11 +12,11 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">List Product</h4>
+                  <h4 class="card-title">List Product Chờ Xác Nhận</h4>
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
-                        <tr>
+                       <tr>
                             <th>
                                 id
                             </th>
@@ -86,8 +86,9 @@
                                 @endif --}}
                             </td>
                             <td> 
-                              {{-- <a href="{{route('edit_product')}}" class="btn btn-sm btn-warning">Edit</a>
-                              <a href="#" class="btn btn-sm btn-danger">Delete</a> --}}
+                              <a href="{{route('xacnhan-trangthai-hoadon',['id' => $lst->id])}}" class="btn btn-sm btn-success">✔</a>
+                              <a href="{{route('huy-hoadon',['id' => $lst->id])}}" class="btn btn-sm btn-danger">✘</a>
+                              {{-- <a href="#" class="btn btn-sm btn-danger">Delete</a> --}}
                             </td>
                         </tr>
                         @empty

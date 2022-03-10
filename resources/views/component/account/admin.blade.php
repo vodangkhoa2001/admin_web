@@ -45,6 +45,9 @@
                             Họ Tên
                             </th>
                             <th>
+                             Email
+                              </th>
+                            <th>
                             Số Điện Thoại
                             </th>
                             @if(Auth::User()->ID_LoaiTaiKhoan==3)
@@ -72,7 +75,9 @@
                             <td>
                                 {{$lst->HoTen}}
                             </td>
-
+                            <td>
+                              {{$lst->Email}}
+                          </td>
                             <td>
                                {{$lst->SDT}}
                             </td>
@@ -88,8 +93,8 @@
                             @if(Auth::User()->ID_LoaiTaiKhoan==3)
                             <td>
 
-                              <a href="{{route('edit_product')}}" class="btn btn-sm btn-warning">Edit</a>
-                              <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                              <a href="{{route('show-account',['id' => $lst->id])}}" class="btn btn-sm btn-warning">Edit</a>
+                              <a href="{{route('delete-account',['id' => $lst->id])}}" class="btn btn-sm btn-danger">Delete</a>
                             </td>
                             @endif
                         </tr>

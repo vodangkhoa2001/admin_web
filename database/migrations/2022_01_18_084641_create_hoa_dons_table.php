@@ -21,7 +21,7 @@ class CreateHoaDonsTable extends Migration
             $table->string("SDT_GiaoHang");
             $table->integer("TongTien");
             $table->string("GhiChu");
-            $table->integer("TrangThoai_HoaDon");
+            $table->integer("TrangThai_HoaDon");
             $table->timestamps();
             $table->softDeletes();
         });

@@ -12,11 +12,11 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">List Product</h4>
+                  <h4 class="card-title">List Product Đang Vận Chuyển</h4>
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
-                        <tr>
+                       <tr>
                             <th>
                                 id
                             </th>
@@ -67,8 +67,6 @@
                                    Đang Vận Chuyển
                                 @elseif ($lst->TrangThai_HoaDon==4)
                                    Đã Giao
-                                   @elseif ($lst->TrangThai_HoaDon==5)
-                                   Chờ Xác Nhận
                                 @else
                                    <div class="text-danger">
                                     Đã Hủy
@@ -86,8 +84,9 @@
                                 @endif --}}
                             </td>
                             <td> 
-                              {{-- <a href="{{route('edit_product')}}" class="btn btn-sm btn-warning">Edit</a>
-                              <a href="#" class="btn btn-sm btn-danger">Delete</a> --}}
+                              <a href="{{route('xacnhan-trangthai-hoadon',['id' => $lst->id])}}" class="btn btn-sm btn-success">✔</a>
+                             <a href="{{route('huy-hoadon',['id' => $lst->id])}}" class="btn btn-sm btn-danger">✘</a>
+                              {{-- <a href="#" class="btn btn-sm btn-danger">Delete</a> --}}
                             </td>
                         </tr>
                         @empty
