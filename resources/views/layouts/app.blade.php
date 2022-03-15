@@ -423,7 +423,18 @@
                                     </ul>
                                 </div>
                             </li>
-                            
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#rate" aria-expanded="false" aria-controls="rate">
+                                    <i class="menu-icon mdi mdi-star-circle"></i>
+                                    <span class="menu-title">Rate</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+                                <div class="collapse" id="rate">
+                                    <ul class="nav flex-column sub-menu">
+                                        <li class="nav-item "><a class="nav-link" href="{{route('rate.index')}}">List Rate</a></li>
+                                    </ul>
+                                </div>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-bs-toggle="collapse" href="#form-type" aria-expanded="false" aria-controls="form-type">
                                     <i class="menu-icon mdi mdi-view-list"></i>
@@ -558,8 +569,8 @@
                         <!-- partial:partials/_footer.html -->
                         <footer class="footer">
                             <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
-                                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2021. All rights reserved.</span>
+                                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">423-Nguyễn Huy  432-Trần Hiếu Khoa  433-Võ Đăng Khoa</span>
+                                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Đồ án lập trình WEB PHP nâng cao</span>
                             </div>
                         </footer>
         <!-- partial -->

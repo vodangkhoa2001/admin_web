@@ -41,7 +41,7 @@ class TaiKhoanController extends Controller
                 if(Auth::User()->ID_LoaiTaiKhoan==2||Auth::User()->ID_LoaiTaiKhoan==3)
                 {
                 Session::flash('success', 'Đăng Nhập thành công');
-                return redirect()->route('admin');
+                return redirect()->route('dashboard');
                 }
                 else
                 {
