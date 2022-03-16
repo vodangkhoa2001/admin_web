@@ -36,7 +36,7 @@
                             <img class="img-thumbnail" style="width:200px;max-height:200px;object-fit:contain;margin:17px;"
                                 src="{{ asset('product/images')}}/{{ $sanPham->HinhAnh }}">
                             {{-- <input type="file" name="hinhanh" class="file-upload-default"> --}}
-                            <input type="file" class="input-file" name="hinhanh" value="{{ old('hinhanh') }}"><br />
+                            <input type="file" class="input-file" name="hinhanh" ><br />
                             {{-- @if ($errors->has('hinhanh'))
                             <div style="margin-top:5px" class="alert alert-danger ">
                                 <h6>{{ $errors->first('hinhanh')}}</h6>
@@ -251,11 +251,11 @@
                 <div class="form-group">
                     <label for="exampleFormControlSelect">Tình trạng</label>
                     <select class="form-control" name="trangthai" value="{{ old('trangthai') }}">
-                        @if ( $ram->TrangThai==1)
+                        @if ( $sanPham->TrangThai==1)
                             <option value="1" checked> Kinh doanh</option>
                             <option value="0"> Ngừng kinh doanh</option>
                         @endif
-                        @if ( $ram->TrangThai==0)
+                        @if ( $sanPham->TrangThai==0)
                             <option value="0" checked> Ngừng kinh doanh</option>
                             <option value="1"> Kinh doanh</option>
                         @endif

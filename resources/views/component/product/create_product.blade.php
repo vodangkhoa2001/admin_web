@@ -45,8 +45,8 @@
                  <div class="form-group">
                     <label class="col-sm-10">Ảnh sản phẩm</label>
                     <div class="col-sm-10">
-                        <input class="input-file" id="my-file" type="file" name="hinhanh" value="{{ old('hinhanh') }}">
-                        <label tabindex="0" for="my-file" class="input-file-trigger"></label>
+                        <input name="hinhanh" value="{{ old('hinhanh') }}"  class="input-file" id="my-file" type="file" >
+                        <label tabindex="0" for="my-file" class="input-file-trigger">{{ old('hinhanh') }}</label>
                         @if ($errors->has('hinhanh'))
                     <div style="margin-top:5px" class="alert alert-danger ">
                         <h6>{{ $errors->first('hinhanh')}}</h6>
@@ -56,7 +56,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleTextarea1">Mô tả</label>
-                    <textarea class="form-control" name="mota" value="{{ old('mota') }}" rows="10" style="height:100px;"></textarea>
+                    <textarea class="form-control" name="mota"  rows="10" style="height:100px;">{{old('mota')}}</textarea>
                     @if ($errors->has('mota'))
                     <div style="margin-top:5px" class="alert alert-danger ">
                         <h6>{{ $errors->first('mota')}}</h6>
@@ -69,11 +69,11 @@
                             <h4 class="card-title">Chọn nhà sản xuất và dòng sản phẩm</h4>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">Nhà sản xuất</label>
-                                <select class="form-control" name="nhasanxuat">
-                                    <option value='' disabled selected>Chọn thương hiệu</option>
+                                <select class="form-control" name="nhasanxuat" value="{{ old('nhasanxuat') }}">
+                                    <option  disabled selected>Chọn nhà sản xuất</option>
                                     @foreach ($lstNhaSanXuat as $nhaSanXuat)
-                                        @if ($nhaSanXuat->TrangThai_NhaSanXuat==1)
-                                            <option value="{{ $nhaSanXuat->id }}">{{ $nhaSanXuat->TenNhaSanXuat }}</option>
+                                        @if ($nhaSanXuat->TrangThai_NhaSanXuat==1) 
+                                        <option value="{{ $nhaSanXuat->id}}"{{ (collect(old('nhasanxuat'))->contains($nhaSanXuat->id)) ? 'selected':'' }}>{{ $nhaSanXuat->TenNhaSanXuat }}</option>
                                         @endif
                                     @endforeach
                                 </select>
@@ -86,10 +86,10 @@
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">Dòng sản phẩm</label>
                                 <select class="form-control" name="dongsanpham">
-                                    <option value='' disabled selected>Chọn dòng sản phẩm</option>
+                                    <option value="">Chọn dòng sản phẩm</option>
                                     @foreach ($lstDongSanPham as $dongSanPham)
                                         @if ($dongSanPham->TrangThai_DongSanPham==1)
-                                            <option value="{{ $dongSanPham->id }}">{{ $dongSanPham->TenDongSanPham }}</option>
+                                            <option value="{{ $dongSanPham->id }}" {{ (collect(old('dongsanpham'))->contains($dongSanPham->id)) ? 'selected':'' }}>{{ $dongSanPham->TenDongSanPham }}</option>
                                         @endif
                                     @endforeach
                                 </select>
@@ -108,11 +108,11 @@
                             <h4 class="card-title">Thông số kỹ thuật</h4>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">Màu sắc</label>
-                                <select class="form-control" name="mausac">
-                                    <option value='' disabled selected>Chọn màu sắc</option>
+                                <select class="form-control" name="mausac"  value="{{ old('mausac') }}">
+                                    <option value="{{ old('mausac') }}" disabled selected >Chọn màu</option>
                                     @foreach ($lstMauSac as $mauSac)
                                         @if ($mauSac->TrangThai==1)
-                                            <option value="{{ $mauSac->id }}"> {{ $mauSac->TenMau}}</option>
+                                            <option value="{{ $mauSac->id }}" {{ (collect(old('mausac'))->contains($mauSac->id)) ? 'selected':'' }}> {{ $mauSac->TenMau}}</option>
                                         @endif
                                     @endforeach
                                 </select>
@@ -124,11 +124,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">RAM</label>
-                                <select class="form-control" name="ram">
+                                <select class="form-control" name="ram" value="{{ old('ram') }}">
                                     <option value='' disabled selected>Chọn dung lượng RAM</option>
                                     @foreach ($lstRAM as $ram)
                                         @if ($ram->TrangThai==1)
-                                            <option value=" {{ $ram->id }} "> {{ $ram->TenRam }}</option>
+                                            <option value=" {{ $ram->id }}" {{ (collect(old('ram'))->contains($ram->id)) ? 'selected':'' }}> {{ $ram->TenRam }}</option>
                                         @endif
                                     @endforeach
                                 </select>
@@ -140,11 +140,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">Màn hình</label>
-                                <select class="form-control" name="manhinh">
+                                <select class="form-control" name="manhinh" value="{{ old('manhinh') }}">
                                     <option value='' disabled selected>Chọn kích thước màn hình</option>
                                     @foreach ($lstManHinh as $manHinh)
                                         @if ($manHinh->TrangThai==1)
-                                            <option value=" {{ $manHinh->id }} "> {{ $manHinh->TenManHinh }}</option>
+                                            <option value=" {{ $manHinh->id }}" {{ (collect(old('manhinh'))->contains($manHinh->id)) ? 'selected':'' }}> {{ $manHinh->TenManHinh }}</option>
                                         @endif
                                     </option>
                                     @endforeach
@@ -157,11 +157,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">CPU</label>
-                                <select class="form-control" name="cpu">
+                                <select class="form-control" name="cpu" value="{{ old('cpu') }}">
                                     <option value='' disabled selected>Chọn công nghệ CPU</option>
                                     @foreach ($lstCPU as $cpu)
                                         @if ($cpu->TrangThai==1)
-                                            <option value=" {{ $cpu->id }} "> {{ $cpu->TenCPU }}</option>
+                                            <option value=" {{ $cpu->id }}" {{ (collect(old('cpu'))->contains($cpu->id)) ? 'selected':'' }}> {{ $cpu->TenCPU }}</option>
                                         @endif
                                     @endforeach
                                 </select>
@@ -173,11 +173,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">Ổ cứng</label>
-                                <select class="form-control" name="ocung">
+                                <select class="form-control" name="ocung" value="{{ old('ocung') }}">
                                     <option value='' disabled selected>Chọn dung lượng ổ cứng</option>
                                     @foreach ($lstOCung as $oCung)
                                         @if ($oCung->TrangThai==1)
-                                            <option value=" {{ $oCung->id }} "> {{ $oCung->TenOCung }}
+                                            <option value=" {{ $oCung->id }}" {{ (collect(old('ocung'))->contains($oCung->id)) ? 'selected':'' }}> {{ $oCung->TenOCung }}
                                         </option>
                                         @endif
                                     @endforeach
@@ -190,11 +190,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect">Card đồ họa</label>
-                                <select class="form-control" name="carddohoa">
+                                <select class="form-control" name="carddohoa" value="{{ old('carddohoa') }}">
                                     <option value='' disabled selected>Chọn card đồ họa</option>
                                     @foreach ($lstCardDoHoa as $cdh)
                                         @if ($cdh->TrangThai==1)
-                                            <option value=" {{ $cdh->id }} "> {{ $cdh->TenCardDoHoa }}
+                                            <option value=" {{ $cdh->id }}" {{ (collect(old('carddohoa'))->contains($cdh->id)) ? 'selected':'' }}> {{ $cdh->TenCardDoHoa }}
                                             </option>
                                         @endif
                                     @endforeach
@@ -225,11 +225,16 @@
                             <label>Giá bán</label>
                             <input type="number" name="giaban" value="{{ old('giaban') }}"
                                 class=" form-control form-control-sm" placeholder="Price" aria-label="Price">
-                                @if ($errors->has('giaban'))
-                    <div style="margin-top:5px" class="alert alert-danger ">
-                        <h6>{{ $errors->first('giaban')}}</h6>
-                    </div>
-                @endif
+                            @if ($errors->has('giaban'))
+                                <div style="margin-top:5px" class="alert alert-danger ">
+                                    <h6>{{ $errors->first('giaban')}}</h6>
+                                </div>
+                            @endif
+                            @if ( Session::has('error') )
+                                <div style="margin-top:5px" class="alert alert-danger ">
+                                    <h6>{{ Session::get('error') }}</h6>
+                                </div>
+                            @endif
                             </div>
                         <div class="form-group">
                             <label>Số lượng</label>

@@ -13,6 +13,7 @@ use App\Models\Ram;
 use App\Models\ManHinh;
 use App\Models\CardDoHoa;
 use App\Models\OCung;
+use Illuminate\Support\Facades\Session;
 
 class SanPhamController extends Controller
 {
@@ -56,8 +57,8 @@ class SanPhamController extends Controller
             'tensanpham'=>['required','min:2,max:100'],//unique không được trùng
             'mota'=>['required','max:255'],
             'soluong'=>['required','numeric','integer'],
-            'gianhap'=>['required','numeric','integer','min:3'],
-            'giaban'=>['required','numeric','integer','min:3'],
+            'gianhap'=>['required','numeric','integer','min:2,max:9'],
+            'giaban'=>['required','numeric','integer','min:2,max:9'],
             'dongsanpham'=>['required'],
             'nhasanxuat'=>['required'],
             'mausac'=>['required'],
@@ -66,7 +67,6 @@ class SanPhamController extends Controller
             'carddohoa'=>['required'],
             'cpu'=>['required'],
             'ram'=>['required'],
-            'hinhanh'=>['required'],//hoặc image/png,jpg
         ],[
             'tensanpham.required'=>'Vui lòng nhập tên sản phẩm !',
             'tensanpham.min'=>'Tên sản phẩm quá ngắn !',
@@ -80,10 +80,12 @@ class SanPhamController extends Controller
             'gianhap.numeric'=>'Giá nhập sản phẩm phải là số !',
             'gianhap.interger'=>'Giá nhập sản phẩm phải là số nguyên !',
             'gianhap.min'=>'Giá nhập sản phẩm quá nhỏ !',
+            'gianhap.max'=>'Giá nhập sản phẩm quá lớn !',
             'giaban.required'=>'Vui lòng nhập giá bán sản phẩm !',
             'giaban.numeric'=>'Giá bán sản phẩm phải là số !',
             'giaban.interger'=>'Giá bán sản phẩm phải là số nguyên !',
             'giaban.min'=>'Giá bán sản phẩm quá nhỏ !',
+            'giaban.max'=>'Giá bán sản phẩm quá lớn !',
             'dongsanpham.required'=>'Vui lòng chọn dòng sản phẩm !',
             'nhasanxuat.required'=>'Vui lòng chọn nhà sản xuất !',
             'mausac.required'=>'Vui lòng chọn màu sắc !',
@@ -92,7 +94,6 @@ class SanPhamController extends Controller
             'carddohoa.required'=>'Vui lòng chọn Card đồ họa !',
             'manhinh.required'=>'Vui lòng chọn kích thước màn hình !',
             'ocung.required'=>'Vui lòng chọn ổ cứng !',
-            'hinhanh.required'=>'Vui lòng chọn ảnh sản phẩm !',
         ]);
         if($request->hasFile('hinhanh')){
             $newImg = $request->file('hinhanh')->getClientOriginalName();
@@ -198,7 +199,8 @@ class SanPhamController extends Controller
             'hinhanh.max'=>'Kích thước ảnh lớn hơn 2mb!',
         ]);
         if($request->gianhap >= $request->giaban){
-            return 'Giá nhập lớn hơn giá bán';
+            Session::flash('error', 'Vui lòng nhập giá bán lớn hơn!');
+            return redirect('product/add');
         }
         $sanPham= new SanPham;
         $sanPham->id = $request->id;

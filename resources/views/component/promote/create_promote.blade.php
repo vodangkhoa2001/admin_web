@@ -25,9 +25,10 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect">Chọn sản phẩm khuyến mãi</label>
-                    <select class="form-control" name="masanphamkhuyenmai">
+                    <select class="form-control" value="{{ old('masanphamkhuyenmai') }}" name="masanphamkhuyenmai" >
+                        <option value='' disabled>Chọn sản phẩm khuyến mãi</option>
                         @foreach ($sanPham as $sanpham)
-                        <option value="{{ $sanpham->id }}">{{ $sanpham->TenSanPham }}</option>
+                        <option value="{{ $sanpham->id }}" {{ (collect(old('masanphamkhuyenmai'))->contains($sanpham->id)) ? 'selected':'' }}>{{ $sanpham->TenSanPham }}</option>
                         @endforeach
                     </select>
                         @if ($errors->has('masanphamkhuyenmai'))

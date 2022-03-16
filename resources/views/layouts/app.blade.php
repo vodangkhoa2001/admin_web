@@ -381,7 +381,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" data-bs-toggle="collapse" href="#form-promote" aria-expanded="false" aria-controls="form-promote">
                                     <i class="menu-icon mdi mdi-fire"></i>
-                                    <span class="menu-title">Promotes</span>
+                                    <span class="menu-title">Promote</span>
                                     <i class="menu-arrow"></i>
                                 </a>
                                 <div class="collapse" id="form-promote">
