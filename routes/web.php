@@ -15,6 +15,7 @@ use App\Http\Controllers\MonitorController;
 use App\Http\Controllers\CardDoHoaController;
 use App\Http\Controllers\CPUController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\DanhGiaController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\UserController;
 /*
@@ -60,7 +61,7 @@ Route::get('/account/user',function(){
 //     return view('component/account/admin');
 // })->name('list-admin');
 
-Route::get('/home', [DashboardController::class, 'index'])->name('dashboard');
+// Route::get('/home', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/account/admin', [TaiKhoanController::class,'getTaiKhoan'])->name("list-admin");
 
@@ -100,6 +101,10 @@ Route::resource('cpu', CPUController::class);
 Route::resource('type', LoaiSanPhamController::class);
 //--------------------------Nhà sản xuất----------------------------------
 Route::resource('manufacturer', NhaSanXuatController::class);
+//--------------------------Đánh giá----------------------------------
+Route::resource('rate', DanhGiaController::class);
+Route::get('rate/response/{id}',[DanhGiaController::class,'response'] )->name('response_rate');
+Route::post('rate/update/{id}',[DanhGiaController::class,'store'] )->name('update_rate');
 
 //-------------------------------------------------------------
 Route::middleware('auth')->group(function () {

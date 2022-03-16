@@ -22,8 +22,7 @@
                 @method('PATCH')
                 <div class="form-group">
                     <label for="exampleInputName1">Tên sản phẩm</label>
-                    <input name="tensanpham" value="{{ old('tensanpham') }}" type="text" class="form-control" placeholder="Product Name"
-                        value="{{ $sanPham->TenSanPham}}">
+                    <input name="tensanpham" value="{{ $sanPham->TenSanPham }}" type="text" class="form-control" placeholder="Product Name">
                         @if ($errors->has('tensanpham'))
                             <div style="margin-top:5px" class="alert alert-danger ">
                                 <h6>{{ $errors->first('tensanpham')}}</h6>
@@ -38,11 +37,11 @@
                                 src="{{ asset('product/images')}}/{{ $sanPham->HinhAnh }}">
                             {{-- <input type="file" name="hinhanh" class="file-upload-default"> --}}
                             <input type="file" class="input-file" name="hinhanh" value="{{ old('hinhanh') }}"><br />
-                            @if ($errors->has('hinhanh'))
+                            {{-- @if ($errors->has('hinhanh'))
                             <div style="margin-top:5px" class="alert alert-danger ">
                                 <h6>{{ $errors->first('hinhanh')}}</h6>
                             </div>
-                        @endif
+                        @endif --}}
                         </div>
                     </div>
                 </div>
@@ -81,10 +80,10 @@
                                     @endforeach
                                 </select>
                                 @if ($errors->has('dongsanpham'))
-                            <div style="margin-top:5px" class="alert alert-danger ">
-                                <h6>{{ $errors->first('dongsanpham')}}</h6>
-                            </div>
-                        @endif
+                                    <div style="margin-top:5px" class="alert alert-danger ">
+                                        <h6>{{ $errors->first('dongsanpham')}}</h6>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
