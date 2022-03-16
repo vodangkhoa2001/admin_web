@@ -386,8 +386,8 @@
                                 </a>
                                 <div class="collapse" id="form-promote">
                                     <ul class="nav flex-column sub-menu">
-                                        <li class="nav-item "><a class="nav-link" href="{{route('promote.create')}}">Add Promote</a></li>
-                                        <li class="nav-item "><a class="nav-link" href="{{route('promote.index')}}">List Promote</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{{route('promote.create')}}">Add Promote</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{{route('promote.index')}}">List Promote</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -405,7 +405,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="charts">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
                                     <i class="menu-icon mdi mdi-table"></i>
                                     <span class="menu-title">Bill</span>
                                     <i class="menu-arrow"></i>
@@ -419,11 +419,11 @@
                                         <li class="nav-item"> <a class="nav-link" href="{{route('list-HoaDonDangVanChuyen')}}">Đang Vận Chuyển</a></li>
                                         <li class="nav-item"> <a class="nav-link" href="{{route('list-HoaDonDaGiao')}}">Đã Giao</a></li>
                                         <li class="nav-item"> <a class="nav-link" href="{{route('list-HoaDonHuy')}}">Bill Hủy</a></li>
-                                        
+
                                     </ul>
                                 </div>
                             </li>
-                            
+
                             <li class="nav-item">
                                 <a class="nav-link" data-bs-toggle="collapse" href="#form-type" aria-expanded="false" aria-controls="form-type">
                                     <i class="menu-icon mdi mdi-view-list"></i>

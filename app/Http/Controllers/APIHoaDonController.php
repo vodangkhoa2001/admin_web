@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 class APIHoaDonController extends Controller
 {
     public function getHoaDon($id){
-        $invoice = DB::select("select hoadon.*,sanpham.HinhAnh,sanpham.TenSanPham,sanpham.GiaNhap,sanpham.id as maSP,chitiethoadon.SoLuong,taikhoan.HoTen from hoadon,taikhoan,chitiethoadon,sanpham where hoadon.MaTaiKhoan=taikhoan.id and chitiethoadon.MaHoaDon=hoadon.id  and chitiethoadon.MaSanPham = sanpham.id and hoadon.MaTaiKhoan = '{$id}'");
+        $invoice = DB::select("select hoadon.*,sanpham.HinhAnh,sanpham.TenSanPham,sanpham.GiaBan,sanpham.id as maSP,chitiethoadon.SoLuong,taikhoan.HoTen from hoadon,taikhoan,chitiethoadon,sanpham where hoadon.MaTaiKhoan=taikhoan.id and chitiethoadon.MaHoaDon=hoadon.id  and chitiethoadon.MaSanPham = sanpham.id and hoadon.MaTaiKhoan = '{$id}'");
         return response()->json(['data' => $invoice],200);
     }
     public function createInvoice(Request $request){
@@ -31,10 +31,11 @@ class APIHoaDonController extends Controller
         $hoadon = new HoaDon();
         $hoadon->id = $finalId;
         $hoadon->MaTaiKhoan = $request->MaTaiKhoan;
+        $hoadon->GhiChu = $request->GhiChu;
         $hoadon->DiaChiGiaoHang = $request->DiaChiGiaoHang;
         $hoadon->SDT_GiaoHang = $request->SDT_GiaoHang;
         $hoadon->TongTien = $request->TongTien;
-        $hoadon->TrangThoai_HoaDon = 1;
+        $hoadon->TrangThai_HoaDon = 1;
         $hoadon->save();
         return response(['message'=>$hoadon->id],200);
 
@@ -52,7 +53,7 @@ class APIHoaDonController extends Controller
     }
     public function cancleInvoice($id){
         $Invoice = HoaDon::find($id);
-        $Invoice->TrangThoai_HoaDon = 0;
+        $Invoice->TrangThai_HoaDon = 0;
         $Invoice->update();
         return response(['message' => 'thanh cong'],200);
     }

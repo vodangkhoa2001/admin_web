@@ -41,7 +41,7 @@ class TaiKhoanController extends Controller
                 if(Auth::User()->ID_LoaiTaiKhoan==2||Auth::User()->ID_LoaiTaiKhoan==3)
                 {
                 Session::flash('success', 'Đăng Nhập thành công');
-                return redirect()->route('admin');
+                return redirect()->route('dashboard');
                 }
                 else
                 {
@@ -182,7 +182,7 @@ class TaiKhoanController extends Controller
 
     public function taoiduser()
     {
-        
+
         $datetime = Date('Ymdhms');
         $countAllAccount = TaiKhoan::all()->count() + 1;
         $chuoiID = $countAllAccount;
@@ -196,9 +196,9 @@ class TaiKhoanController extends Controller
 
         $originalId = $chuoiID;
         $finalId = 'ACCOUNTUSER' . $datetime . $originalId;
-        
+
         return json_encode($finalId,200);
-        
+
     }
 
 }
