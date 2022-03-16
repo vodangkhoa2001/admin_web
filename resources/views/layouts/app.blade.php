@@ -414,7 +414,6 @@
                                     <ul class="nav flex-column sub-menu">
                                         <li class="nav-item"> <a class="nav-link" href="{{route('list-HoaDon')}}">Bill</a></li>
                                         <li class="nav-item"> <a class="nav-link" href="{{route('list-HoaDonChoXacNhan')}}">Chờ Xác Nhận</a></li>
-                                        <li class="nav-item"> <a class="nav-link" href="{{route('list-HoaDonDaXacNhan')}}">Đã Xác Nhận</a></li>
                                         <li class="nav-item"> <a class="nav-link" href="{{route('list-HoaDonChoVanChuyen')}}">Chờ Vận Chuyển</a></li>
                                         <li class="nav-item"> <a class="nav-link" href="{{route('list-HoaDonDangVanChuyen')}}">Đang Vận Chuyển</a></li>
                                         <li class="nav-item"> <a class="nav-link" href="{{route('list-HoaDonDaGiao')}}">Đã Giao</a></li>

@@ -26,19 +26,11 @@ class HoaDonController extends Controller
      }
     public function getHoaDonChoXacNhan()
     {
-        $lsthoadon = HoaDon::where('TrangThai_HoaDon','5')->paginate(4);
-        //$data['taikhoan']=TaiKhoan::where('ID_LoaiTaiKhoan','2')->paginate(2);
-        //dd($lsthoadon);
-        $hoaDonCount = HoaDon::get()->count();
-        return view('component/bill/list_bill_choxacnhan',compact('lsthoadon'));
-    }
-    public function getHoaDonDaXacNhan()
-    {
         $lsthoadon = HoaDon::where('TrangThai_HoaDon','1')->paginate(4);
         //$data['taikhoan']=TaiKhoan::where('ID_LoaiTaiKhoan','2')->paginate(2);
         //dd($lsthoadon);
         $hoaDonCount = HoaDon::get()->count();
-        return view('component/bill/list_bill_daxacnhan',compact('lsthoadon'));
+        return view('component/bill/list_bill_choxacnhan',compact('lsthoadon'));
     }
     public function getHoaDonChoVanChuyen()
     {
@@ -70,17 +62,11 @@ class HoaDonController extends Controller
     {
        $hoadon=HoaDon::where('id',$request->id)->first();
        //dd($hoadon);
-       if($hoadon->TrangThai_HoaDon==5)
-       {
-         $hoadon->TrangThai_HoaDon=1;
-         $hoadon->update();
-         return redirect()->route('list-HoaDonChoXacNhan')->with('success','Cập Nhật Thành Công');
-       }
        if($hoadon->TrangThai_HoaDon==1)
        {
          $hoadon->TrangThai_HoaDon=2;
          $hoadon->update();
-         return redirect()->route('list-HoaDonDaXacNhan')->with('success','Cập Nhật Thành Công');
+         return redirect()->route('list-HoaDonChoXacNhan')->with('success','Cập Nhật Thành Công');
        }
        if($hoadon->TrangThai_HoaDon==2)
        {
@@ -94,6 +80,12 @@ class HoaDonController extends Controller
          $hoadon->update();
          return redirect()->route('list-HoaDonDangVanChuyen')->with('success','Cập Nhật Thành Công');
        }
+    //    if($hoadon->TrangThai_HoaDon==3)
+    //    {
+    //      $hoadon->TrangThai_HoaDon=4;
+    //      $hoadon->update();
+    //      return redirect()->route('list-HoaDonDangVanChuyen')->with('success','Cập Nhật Thành Công');
+    //    }
        
        //$response=$user;
        //return response($response,200);

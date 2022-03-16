@@ -128,7 +128,7 @@ class HoaDonSeeder extends Seeder
                 'SDT_GiaoHang'=> '0909876789',
                 'TongTien'=>20000000,
                 'GhiChu'=>'',
-                'TrangThai_HoaDon'=>5,
+                'TrangThai_HoaDon'=>1,
             ),
             array(
                 'id'=>'HD08',
@@ -137,7 +137,7 @@ class HoaDonSeeder extends Seeder
                 'SDT_GiaoHang'=> '0909876789',
                 'TongTien'=>20000000,
                 'GhiChu'=>'',
-                'TrangThai_HoaDon'=>5,
+                'TrangThai_HoaDon'=>1,
             ),
             array(
                 'id'=>'HD09',
@@ -146,7 +146,7 @@ class HoaDonSeeder extends Seeder
                 'SDT_GiaoHang'=> '0909876789',
                 'TongTien'=>20000000,
                 'GhiChu'=>'',
-                'TrangThai_HoaDon'=>5,
+                'TrangThai_HoaDon'=>1,
             ),
             array(
                 'id'=>'HD15',
@@ -155,7 +155,7 @@ class HoaDonSeeder extends Seeder
                 'SDT_GiaoHang'=> '0909876789',
                 'TongTien'=>20000000,
                 'GhiChu'=>'',
-                'TrangThai_HoaDon'=>5,
+                'TrangThai_HoaDon'=>1,
             ),
         ]);
     }
