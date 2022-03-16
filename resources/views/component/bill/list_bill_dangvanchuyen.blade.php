@@ -58,15 +58,14 @@
                             </td>
                             <td>
                                
-                                @if ($lst->TrangThai_HoaDon==1)
-                                    Đã Xác Nhận
-                                
-                                @elseif ($lst->TrangThai_HoaDon==2)
+                                @if ($lst->TrangThai_HoaDon==2)
                                    Chờ Vận Chuyển
                                 @elseif ($lst->TrangThai_HoaDon==3)
                                    Đang Vận Chuyển
                                 @elseif ($lst->TrangThai_HoaDon==4)
                                    Đã Giao
+                                   @elseif ($lst->TrangThai_HoaDon==1)
+                                   Chờ Xác Nhận
                                 @else
                                    <div class="text-danger">
                                     Đã Hủy
