@@ -422,9 +422,6 @@
                                     </ul>
                                 </div>
                             </li>
-<<<<<<< HEAD
-
-=======
                             <li class="nav-item">
                                 <a class="nav-link" data-bs-toggle="collapse" href="#rate" aria-expanded="false" aria-controls="rate">
                                     <i class="menu-icon mdi mdi-star-circle"></i>
@@ -437,7 +434,6 @@
                                     </ul>
                                 </div>
                             </li>
->>>>>>> bab4f84436015a47ca2bbf55ce4d66a57dfc0531
                             <li class="nav-item">
                                 <a class="nav-link" data-bs-toggle="collapse" href="#form-type" aria-expanded="false" aria-controls="form-type">
                                     <i class="menu-icon mdi mdi-view-list"></i>
