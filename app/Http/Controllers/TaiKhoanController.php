@@ -182,7 +182,7 @@ class TaiKhoanController extends Controller
 
     public function taoiduser()
     {
-        
+
         $datetime = Date('Ymdhms');
         $countAllAccount = TaiKhoan::all()->count() + 1;
         $chuoiID = $countAllAccount;
@@ -196,9 +196,9 @@ class TaiKhoanController extends Controller
 
         $originalId = $chuoiID;
         $finalId = 'ACCOUNTUSER' . $datetime . $originalId;
-        
+
         return json_encode($finalId,200);
-        
+
     }
 
 }
