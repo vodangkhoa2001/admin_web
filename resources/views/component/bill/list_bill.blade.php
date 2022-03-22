@@ -12,16 +12,24 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">List Product</h4>
+                  
+                    <h4 class="card-title ">Danh sách hóa đơn</h4>
+                    {{-- <form class="search-form" action="{{ route('search-bill') }}" method="get">
+                      <div class="row">
+                        <input style="margin-left:17px;" type="search" name="search" value="{{ old('search') }}" class="col-sm-10" placeholder="Nhập tên tài khoản cần tìm" title="Search here">
+                        <input style="margin-left:3px;"class="col-sm-1" type="submit" name="ok" value="search" />
+                      </div>
+                    </form> --}}
+                  
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
                         <tr>
                             <th>
-                                id
+                                ID
                             </th>
                             <th>
-                            Người Dùng
+                            Tên đăng nhập
                             </th>
                             <th>
                             Địa Chỉ
@@ -44,7 +52,7 @@
                                 {{$lst->id}}
                             </td>
                             <td>
-                                {{$lst->MaTaiKhoan}}
+                                {{$lst->taiKhoan->TenDangNhap}}
                           </td>
                             <td >
                                 {{$lst->DiaChiGiaoHang}}

@@ -12,7 +12,7 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">List Product Chờ Vận Chuyển</h4>
+                  <h4 class="card-title">Danh sách hóa đơn chờ vận chuyển</h4>
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
@@ -44,7 +44,7 @@
                                 {{$lst->id}}
                             </td>
                             <td>
-                                {{$lst->MaTaiKhoan}}
+                                {{$lst->taiKhoan->TenDangNhap}}
                           </td>
                             <td >
                                 {{$lst->DiaChiGiaoHang}}

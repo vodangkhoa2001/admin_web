@@ -76,7 +76,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($lstSanPham as $sanPham)
+                        @forelse ($sortProduct as $sanPham)
                         <tr>
                             <td>
                                 {{ $sanPham->id }}
@@ -85,7 +85,7 @@
                                 {{ $sanPham->TenSanPham }}
                             </td>
                             <td>
-                                {{ $sanPham->dongSanPham->TenDongSanPham}}
+                                {{ $sanPham->MaDongSanPham}}
                             </td>
                             {{-- <td>
                                 {{ $sanPham->nhaSanXuat->TenNhaSanXuat }}
@@ -102,10 +102,6 @@
                             <td >
                                 <a href="{{route('sanPham.show',$sanPham->id)}}"
                                     class="btn btn-sm btn btn-info"><span style="font-size: 20px;" class="menu-icon mdi mdi-dots-horizontal"></a>
-                                <a href="{{ route('sanPham.edit',['sanPham'=>$sanPham]) }}"
-                                    class="btn btn-sm btn-warning"><span  style="font-size: 20px;" class="menu-icon mdi mdi-table-edit"></a>
-                                <a href="{{ route('sanPham.destroy',['sanPham'=>$sanPham]) }}"
-                                    class="btn btn-sm btn-danger"><span style="font-size: 20px;" class="menu-icon mdi mdi-delete"></a>
                             </td>
                         </tr>
                         @empty

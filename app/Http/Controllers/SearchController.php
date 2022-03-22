@@ -7,6 +7,7 @@ use App\Models\TaiKhoan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\HoaDon;
 
 class SearchController extends Controller
 {
@@ -44,6 +45,15 @@ class SearchController extends Controller
             $productResult = SanPham::productSearch($keyword, 5);
         }
         return view('component.product.search_product')->with(compact('productResult'));
+    }
+    public function searchResult1(Request $request){
+        $keyword = $request->input('search');
+        $pResult = null;
+        $nResult = null;
+        if($keyword != null){
+            $billResult = HoaDon::Where('SELECT taikhoan.TenDangNhap FROM taikhoan,hoadon WHERE taikhoan.id=hoadon.MaTaiKhoan', 'like', '%' . $keyword . '%');
+        }
+        return view('component.bill.list_bill_search')->with(compact('billResult'));
     }
 
 }

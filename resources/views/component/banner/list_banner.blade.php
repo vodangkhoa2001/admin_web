@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'List Product Search')
+@section('title', 'List Banner')
 
 @section('navbar')
 @parent
@@ -12,10 +12,9 @@
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Sản phẩm cần tìm</h4>
+            <h4 class="card-title">Danh sách băng ron</h4>
             <div>
-                <a style="margin: 19px;" href="{{ route('create-product')}}" class="btn btn-primary">Thêm sản phẩm
-                    mới</a>
+                <a style="margin: 19px;" href="{{route('banner.create')}}" class="btn btn-primary">Thêm băng ron mới</a>
             </div>
             <div class="table-responsive">
                 <table class="table table-striped">
@@ -25,22 +24,16 @@
                                 ID
                             </th>
                             <th>
-                                Tên sản phẩm
+                                Tên băng ron
                             </th>
                             <th>
-                                Dòng sản phẩm
-                            </th>
-                            {{-- <th>
-                                Nhà sản xuất
-                            </th> --}}
-                            <th>
-                                Số lượng
-                            </th>
-                            <th>
-                                Giá bán
+                                Mô tả
                             </th>
                             <th>
                                 Hình ảnh
+                            </th>
+                            <th>
+                                Trạng thái
                             </th>
                             <th>
 
@@ -48,42 +41,36 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($productResult as $sanPham)
+                        @forelse ($banner as $banner)
                         <tr>
                             <td>
-                                {{ $sanPham->id }}
+                                {{$banner->id }}
                             </td>
                             <td>
-                                {{ $sanPham->TenSanPham }}
+                                {{$banner->TenBanner}}
                             </td>
                             <td>
-                                {{ $sanPham->dongSanPham->TenDongSanPham}}
+                                {{$banner->MoTa}}
                             </td>
-                            {{-- <td>
-                                {{ $sanPham->nhaSanXuat->TenNhaSanXuat }}
-                            </td> --}}
-                            <td>
-                                {{ $sanPham->SoLuong }}
+                            <td class= "mx-auto d-block" >
+                                <img src="{{ asset('images/banner')}}/{{ $banner->HinhAnh }}">
                             </td>
                             <td>
-                                {{ number_format(( $sanPham->GiaBan), 0, ',', '.')." VNĐ"}}
+                                @if ( $banner->TrangThai==0) Ngừng hoạt động @endif @if ( $banner->TrangThai==1) Hoạt động @endif
                             </td>
-                            <td class="py-1">
-                                <img src="{{ asset('images/product')}}/{{ $sanPham->HinhAnh }}">
-                            </td>
-                            <td >
-                                <a href="{{route('sanPham.show',$sanPham->id)}}"
+                            <td>
+                                <a href="{{route('banner.show',$banner->id)}}"
                                     class="btn btn-sm btn btn-info"><span style="font-size: 20px;" class="menu-icon mdi mdi-dots-horizontal"></a>
-                                <a href="{{ route('sanPham.edit',['sanPham'=>$sanPham]) }}"
+                                <a href="{{route('banner.edit',$banner->id)}}"
                                     class="btn btn-sm btn-warning"><span  style="font-size: 20px;" class="menu-icon mdi mdi-table-edit"></a>
-                                <a href="{{ route('sanPham.destroy',['sanPham'=>$sanPham]) }}"
+                                <a href="{{route('banner.destroy',$banner->id)}}"
                                     class="btn btn-sm btn-danger"><span style="font-size: 20px;" class="menu-icon mdi mdi-delete"></a>
                             </td>
                         </tr>
                         @empty
                         <tr>
                             <td colspan="9">
-                                Không có sản phẩm nào hết
+                                Chưa có băng ron
                             </td>
                         </tr>
                         @endforelse
@@ -93,8 +80,6 @@
         </div>
     </div>
 </div>
-{{-- {{$lstSanPham->links("pagination::bootstrap-4")}} --}}
-{{ $productResult->appends(Request::all())->links() }}
 @endsection
 @section('script')
 @parent

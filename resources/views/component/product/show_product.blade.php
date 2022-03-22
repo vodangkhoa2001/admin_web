@@ -25,7 +25,7 @@
     <div class="form-group row">
         <label><strong>Ảnh sản phẩm</strong></label>
         <img class="img-thumbnail" style="width:250px;max-height:250px;object-fit:contain;margin:17px;"
-            src="{{ asset('product/images')}}/{{ $sanPham->HinhAnh }}">
+            src="{{ asset('images/product')}}/{{ $sanPham->HinhAnh }}">
     </div>
     <div class="form-group mt-4">
         <a href="{{route('list-product')}}" class="btn btn-warning"><span style="font-size: 17px;" class="menu-icon mdi mdi-keyboard-return"></a>

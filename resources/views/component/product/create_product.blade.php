@@ -48,10 +48,10 @@
                         <input name="hinhanh" value="{{ old('hinhanh') }}"  class="input-file" id="my-file" type="file" >
                         <label tabindex="0" for="my-file" class="input-file-trigger">{{ old('hinhanh') }}</label>
                         @if ($errors->has('hinhanh'))
-                    <div style="margin-top:5px" class="alert alert-danger ">
-                        <h6>{{ $errors->first('hinhanh')}}</h6>
-                    </div>
-                @endif
+                            <div style="margin-top:5px" class="alert alert-danger ">
+                                <h6>{{ $errors->first('hinhanh')}}</h6>
+                            </div>
+                         @endif
                     </div>
                 </div>
                 <div class="form-group">

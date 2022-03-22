@@ -67,7 +67,7 @@
                     <li class="nav-item">
                         <form class="search-form" action="{{ route('search-product') }}" method="get">
                             <i class="icon-search"></i>
-                            <input type="search" name="search" value="{{ old('serch') }}" class="form-control" placeholder="Search Here" title="Search here">
+                            <input type="search" name="search" value="{{ old('search') }}" class="form-control" placeholder="Search Here" title="Search here">
                             <input type="submit" name="ok" value="search" />
                         </form>
                     </li>
@@ -388,6 +388,19 @@
                                     <ul class="nav flex-column sub-menu">
                                         <li class="nav-item"><a class="nav-link" href="{{route('promote.create')}}">Add Promote</a></li>
                                         <li class="nav-item"><a class="nav-link" href="{{route('promote.index')}}">List Promote</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#banner" aria-expanded="false" aria-controls="banner">
+                                    <i class="menu-icon mdi mdi-panorama"></i>
+                                    <span class="menu-title">Banner</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+                                <div class="collapse" id="banner">
+                                    <ul class="nav flex-column sub-menu">
+                                        <li class="nav-item "><a class="nav-link" href="{{route('banner.create')}}">Add Banner</a></li>
+                                        <li class="nav-item "><a class="nav-link" href="{{route('banner.index')}}">List Banner</a></li>
                                     </ul>
                                 </div>
                             </li>

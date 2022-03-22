@@ -14,6 +14,7 @@ use App\Models\ManHinh;
 use App\Models\CardDoHoa;
 use App\Models\OCung;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 class SanPhamController extends Controller
 {
@@ -27,10 +28,11 @@ class SanPhamController extends Controller
     // }
     public function index(){
         $lstSanPham = SanPham::paginate(5);
+        $lstDongSanPham= DongSanPham::all();
         // foreach($lstSanPham as $sanPham){ 
         //     $this -> fixImage($sanPham);
         // }
-        return view('component.product.list_product',compact('lstSanPham'));
+        return view('component.product.list_product',compact('lstSanPham','lstDongSanPham'));
     }
     public function show(SanPham $sanPham){
         //$this->fiximage($sanPham);
@@ -97,7 +99,7 @@ class SanPhamController extends Controller
         ]);
         if($request->hasFile('hinhanh')){
             $newImg = $request->file('hinhanh')->getClientOriginalName();
-            $request->hinhanh->storeAs('product/images', $newImg);
+            $request->hinhanh->storeAs('images/product', $newImg);
             $sanPham->HinhAnh = $newImg;
         }
         $sanPham->fill([
@@ -219,7 +221,7 @@ class SanPhamController extends Controller
         $sanPham->MaRam = $request->ram;
         $sanPham->TrangThai = $request->trangthai;
         $nameImg = $request->file('hinhanh')->getClientOriginalName();
-        $request->hinhanh->storeAs('product/images', $nameImg);
+        $request->hinhanh->storeAs('images/product', $nameImg);
         $sanPham->HinhAnh = $nameImg;
         // $sanPham ->fill([
         //     'id'=>$request->input('id'),
@@ -257,5 +259,23 @@ class SanPhamController extends Controller
         $sanPham = SanPham::where('id','like','%'.$request->value.'%')->get();
         return response()->json($sanPham);
     }
-
+    public function sortByPriceDESC(){
+        $lstDongSanPham= DongSanPham::all();
+        $lstSanPham = SanPham::paginate(5);
+        $sortProduct =DB::select('select sanpham.* FROM sanpham ORDER BY GiaBan DESC');
+        // return response()->json($sanPham);
+        return view('component.product.sortPrice_product',compact('sortProduct','lstDongSanPham','lstSanPham'));
+    }
+    public function sortByPriceASC(){
+        $lstDongSanPham= DongSanPham::all();
+        $lstSanPham = SanPham::paginate(5);
+        $sortProduct =DB::select('select * FROM sanpham ORDER BY GiaBan ASC');
+        return view('component.product.sortPrice_product',compact('sortProduct','lstDongSanPham','lstSanPham'));
+    }
+    public function sortByType(Request $request){
+        $lstDongSanPham= DongSanPham::all();
+        $lstSanPham = SanPham::paginate(5);
+        $sortProduct =DB::select('select * FROM sanpham where sanpham.MaDongSanPham=1');
+        return view('component.product.sortPrice_product',compact('sortProduct','lstDongSanPham','lstSanPham'));
+    }
 }

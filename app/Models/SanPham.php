@@ -10,6 +10,7 @@ use App\Models\Cpu;
 use App\Models\OCung;
 use App\Models\ManHinh;
 use App\Models\CardDoHoa;
+use App\Models\DongSanPham;
 
 class SanPham extends Model
 {
@@ -42,7 +43,7 @@ class SanPham extends Model
         return SanPham::where('TensanPham', 'like', '%' . $keyword . '%')->paginate($paginate, ['*'], 'pp');
     }
     public function dongSanPham(){
-        return $this->belongsTo('App\Models\DongSanPham','MaDongSanPham','id');
+        return $this->belongsTo(DongSanPham::class,'MaDongSanPham','id');
     }
     public function nhaSanXuat(){
         return $this->belongsTo('App\Models\NhaSanXuat','MaNhaSanXuat','id');

@@ -34,7 +34,7 @@
                         <div class="form-group row">
                             <label>Ảnh cũ của sản phẩm</label>
                             <img class="img-thumbnail" style="width:200px;max-height:200px;object-fit:contain;margin:17px;"
-                                src="{{ asset('product/images')}}/{{ $sanPham->HinhAnh }}">
+                                src="{{ asset('images/product')}}/{{ $sanPham->HinhAnh }}">
                             {{-- <input type="file" name="hinhanh" class="file-upload-default"> --}}
                             <input type="file" class="input-file" name="hinhanh" ><br />
                             {{-- @if ($errors->has('hinhanh'))

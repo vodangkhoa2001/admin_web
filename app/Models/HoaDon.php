@@ -14,4 +14,10 @@ class HoaDon extends Model
     protected $keyType = 'string';
 
     protected $table="hoadon";
+    public static function billSearch($keyword){
+        return SanPham::where('MaTaiKhoan', 'like', '%' . $keyword . '%');
+    }
+    public function taiKhoan(){
+        return $this->belongsTo(TaiKhoan::class,'MaTaiKhoan','id');
+    }
 }

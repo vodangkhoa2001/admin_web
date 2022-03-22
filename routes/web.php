@@ -6,6 +6,7 @@ use App\Http\Controllers\TaiKhoanController;
 use App\Http\Controllers\HoaDonController;
 use App\Http\Controllers\SanPhamController;
 use App\Http\Controllers\PromoteController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\LoaiSanPhamController;
 use App\Http\Controllers\NhaSanXuatController;
 use App\Http\Controllers\MauSacController;
@@ -76,9 +77,14 @@ Route::delete('product/delete/{id}', [SanPhamController::class,'deystroy'])->nam
 //Route::resource('sanPham',SanPhamController::class);
 Route::resource('sanPham', SanPhamController::class);//tạo ra resource để khi gọi các phương thức trong controller chỉ cần sử dụng dấu chấm vd sanPham.create, sanPham.edit
 Route::get('/search', [SearchController::class,'searchResult'])->name("search-product");
+Route::get('product/sortPriceDesc', [SanPhamController::class,'sortByPriceDESC'])->name("sortDESC-product");
+Route::get('product/sortPriceAsc', [SanPhamController::class,'sortByPriceASC'])->name("sortASC-product");
+Route::get('product/sortType', [SanPhamController::class,'sortByType'])->name("sortType-product");
 // Route::get('search/name', [SearchController::class,'getSearchAjax'])->name("search-product");
 //----------------------Sản phẩm khuyến mãi-------------------------
 Route::resource('promote', PromoteController::class);
+//----------------------Băng ron khuyến mãi-------------------------
+Route::resource('banner', BannerController::class);
 //----------------------Màu sắc-------------------------
 // Route::get('color/index', [MauSacController::class,'index'])->name('list-color');
 // Route::get('color/create', [MauSacController::class,'create'])->name('create-color');
@@ -123,6 +129,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/bill/dagiao', [HoaDonController::class,'getHoaDonDaGiao'])->name("list-HoaDonDaGiao");
     Route::get('/bill/{id}', [HoaDonController::class,'TrangThaiHoaDon'])->name("xacnhan-trangthai-hoadon");
     Route::get('/bill/huy/{id}', [HoaDonController::class,'HuyHoaDon'])->name("huy-hoadon");
+    Route::get('/search/hd', [SearchController::class,'searchResult1'])->name("search-bill");
     
 
 
