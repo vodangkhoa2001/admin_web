@@ -16,10 +16,7 @@ class APISanPhamController extends Controller
     }
     public function getNewProduct(){
         $newPro = DB:: table('SanPham')->orderBy('Created_at','desc')->take(5)->get();
-        return response()->json(
-            $newPro,
-            200,
-        );
+        return response()->json(['data' => $newPro],200);
     }
     public function getProductByType($typeId){
         $products = DB::select("SELECT sanpham.*,mausac.TenMau,ocung.TenOCung,ram.TenRam,manhinh.TenManHinh,cpu.TenCPU,carddohoa.TenCardDoHoa from sanpham,mausac,ocung,ram,manhinh,cpu,carddohoa WHERE sanpham.MaMau = mausac.id and sanpham.MaManHinh = manhinh.id and sanpham.MaOCung = ocung.id and sanpham.MaRam = ram.id and sanpham.MaCPU = cpu.id and sanpham.MaCardDoHoa = carddohoa.id and sanpham.MaDongSanPham = '{$typeId}'");

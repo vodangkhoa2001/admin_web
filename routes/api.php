@@ -59,3 +59,4 @@ Route:: group(['prefix' => 'invoice'],function(){
     Route::get('get/{id}',[APIHoaDonController::class,'getHoaDon']);
 });
 
+Route::get('banner','App\Http\Controllers\APIBannerController@getBanner');
