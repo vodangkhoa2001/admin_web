@@ -30,6 +30,7 @@ Route::get('product', [SanPhamController::class,'listProduct']);
 Route:: group(['prefix'=>'products'], function(){
     Route::get('/all', [APISanPhamController::class,'getAllProduct']);
     Route::get('/newproduct/all', [APISanPhamController::class,'getNewProduct']);
+    Route::get('/list-discount', [APISanPhamController::class,'getDiscountProduct']);
     Route::get('/sellingproduct/all', [APISanPhamController::class,'sellingProduct']);
     Route::get('/{id}', [APISanPhamController::class,'getProductDetail']);
     Route::post('/create', [APISanPhamController::class,'create']);

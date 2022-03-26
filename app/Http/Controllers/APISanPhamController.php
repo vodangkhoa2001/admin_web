@@ -10,14 +10,19 @@ use App\Models\DongSanPham;
 class APISanPhamController extends Controller
 {
     public function getAllProduct(){
-        $listProduct = DB::select("SELECT sanpham.*,mausac.TenMau,ocung.TenOCung,ram.TenRam,manhinh.TenManHinh,cpu.TenCPU,carddohoa.TenCardDoHoa from sanpham,mausac,ocung,ram,manhinh,cpu,carddohoa WHERE sanpham.MaMau = mausac.id and sanpham.MaManHinh = manhinh.id and sanpham.MaOCung = ocung.id and sanpham.MaRam = ram.id and sanpham.MaCPU = cpu.id and sanpham.MaCardDoHoa = carddohoa.id");
+        $listProduct = DB::select("SELECT sanpham.*,mausac.TenMau,ocung.TenOCung,ram.TenRam,manhinh.TenManHinh,cpu.TenCPU,carddohoa.TenCardDoHoa from sanpham,mausac,ocung,ram,manhinh,cpu,carddohoa WHERE sanpham.MaMau = mausac.id and sanpham.MaManHinh = manhinh.id and sanpham.MaOCung = ocung.id and sanpham.MaRam = ram.id and sanpham.MaCPU = cpu.id and sanpham.MaCardDoHoa = carddohoa.id and sanpham.TrangThai =1");
 
         return response()->json(['data' => $listProduct],200);
     }
     public function getNewProduct(){
-        $newPro = DB:: table('SanPham')->orderBy('Created_at','desc')->take(5)->get();
+        $newPro = DB::select('SELECT sanpham.*,mausac.TenMau,ocung.TenOCung,ram.TenRam,manhinh.TenManHinh,cpu.TenCPU,carddohoa.TenCardDoHoa from sanpham,mausac,ocung,ram,manhinh,cpu,carddohoa WHERE sanpham.MaMau = mausac.id and sanpham.MaManHinh = manhinh.id and sanpham.MaOCung = ocung.id and sanpham.MaRam = ram.id and sanpham.MaCPU = cpu.id and sanpham.MaCardDoHoa = carddohoa.id and sanpham.TrangThai =1 order by sanpham.created_at desc limit 5');
         return response()->json(['data' => $newPro],200);
     }
+    public function getDiscountProduct(){
+        $discountPro = DB::select('SELECT sanpham.*,mausac.TenMau,ocung.TenOCung,ram.TenRam,manhinh.TenManHinh,cpu.TenCPU,carddohoa.TenCardDoHoa from sanpham,mausac,ocung,ram,manhinh,cpu,carddohoa WHERE sanpham.MaMau = mausac.id and sanpham.MaManHinh = manhinh.id and sanpham.MaOCung = ocung.id and sanpham.MaRam = ram.id and sanpham.MaCPU = cpu.id and sanpham.MaCardDoHoa = carddohoa.id and sanpham.SoLuong > 49 and sanpham.TrangThai = 1');
+        return response()->json(['data' => $discountPro],200);
+    }
+
     public function getProductByType($typeId){
         $products = DB::select("SELECT sanpham.*,mausac.TenMau,ocung.TenOCung,ram.TenRam,manhinh.TenManHinh,cpu.TenCPU,carddohoa.TenCardDoHoa from sanpham,mausac,ocung,ram,manhinh,cpu,carddohoa WHERE sanpham.MaMau = mausac.id and sanpham.MaManHinh = manhinh.id and sanpham.MaOCung = ocung.id and sanpham.MaRam = ram.id and sanpham.MaCPU = cpu.id and sanpham.MaCardDoHoa = carddohoa.id and sanpham.MaDongSanPham = '{$typeId}'");
         return response()->json(['data' => $products],200);

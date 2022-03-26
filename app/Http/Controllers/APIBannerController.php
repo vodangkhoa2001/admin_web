@@ -9,7 +9,7 @@ class APIBannerController extends Controller
 {
     public function getBanner()
     {
-        $banner = DB::select('select * from banner');
+        $banner = DB::select('select * from banner where TrangThai = 1');
         return response(["data" => $banner]);
     }
 }
